@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "date-fns": "^1.29.0",
+    "jest": "^23.5.0",
+    "moment": "^2.22.2"
+  }
+}
