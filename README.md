@@ -1,6 +1,6 @@
 # You don't (may not) need Moment.js
 
-Moment.js a fantasic date library with lots of great features and utilities. However, when you are working on a performance sensitive web application, it might have a huge performance overhead becasue of the complex API and large bundle size.
+[Moment.js](https://momentjs.com/) a fantasic date library with lots of great features and utilities. However, when you are working on a performance sensitive web application, it might have a huge performance overhead becasue of the complex API and large bundle size.
 
 Problems with Moment.js: 
 - Hightly based on OOP API, which makes it won't work with tree-shaking, thus leading to a huge bundle size and performance issue.
