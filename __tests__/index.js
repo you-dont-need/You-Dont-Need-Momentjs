@@ -16,7 +16,7 @@ describe("Parse", () => {
     expect(m.valueOf()).toBe(d.getTime());
   });
   it("String + Format + locale", () => {
-    const m = moment('2012 mars', 'YYYY MMM', 'fr');
+    const m = moment("2012 mars", "YYYY MMM", "fr");
     const d = date.parse('2012 mars', "yyyy MMMM", new Date(), { locale: fr });
     expect(m.valueOf()).toBe(d.getTime());
   })
@@ -101,28 +101,28 @@ describe("Get + Set", () => {
 
   it("Maximum of the given dates", () => {
     const array = [
-      1516484369695,
-      1526484369695,
-      1536484369695,
-      1546484369695
+      new Date(2017, 4, 13),
+      new Date(2018, 2, 12),
+      new Date(2016, 0, 10),
+      new Date(2016, 0, 9),
     ];
     const m = moment.max(array.map(a => moment(a)));
-    const d = date.max(array.map(a => new Date(a)));
+    const d = date.max(array);
     expect(m.valueOf()).toBe(d.getTime());
-    expect(m.valueOf()).toBe(1546484369695);
+    expect(d).toEqual(new Date(2018, 2, 12));
   });
 
   it("Minimum of the given dates", () => {
     const array = [
-      1516484369695,
-      1526484369695,
-      1536484369695,
-      1546484369695
+      new Date(2017, 4, 13),
+      new Date(2018, 2, 12),
+      new Date(2016, 0, 10),
+      new Date(2016, 0, 9),
     ];
     const m = moment.min(array.map(a => moment(a)));
-    const d = date.min(array.map(a => new Date(a)));
+    const d = date.min(array);
     expect(m.valueOf()).toBe(d.getTime());
-    expect(m.valueOf()).toBe(1516484369695);
+    expect(d).toEqual(new Date(2016, 0, 9));
   });
 })
 
