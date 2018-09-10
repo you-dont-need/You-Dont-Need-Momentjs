@@ -1,6 +1,6 @@
 # You don't (may not) need Moment.js
 
-[Moment.js](https://momentjs.com/) a fantastic date library with lots of great features and utilities. However, when you are working on a performance sensitive web application, it might have a huge performance overhead because of the complex API and large bundle size.
+[Moment.js](https://momentjs.com/) is a fantastic date library with lots of great features and utilities. However, when you are working on a performance sensitive web application, it might have a huge performance overhead because of the complex API and large bundle size.
 
 Problems with Moment.js:
 
@@ -11,6 +11,24 @@ Problems with Moment.js:
 Only use some simple functions from moment.js might be considered overkill, [date-fns](https://github.com/date-fns/date-fns) can be a good replacement in this case. see https://github.com/moment/moment/issues/2373 for more ideas of why and how people switch from moment.js to date-fns.
 
 <img src="./screenshot.png" alt="Screenshot"/>
+
+## Voice of Developers
+
+> [Removed moment.js to replace with date-fns - build output reduced by 40%](https://github.com/oysterprotocol/webnode/pull/116)
+
+> &mdash;<cite>Jared Farago from [webnode](https://github.com/oysterprotocol/webnode/pull/116) project.</cite>
+
+> [Make use of native JavaScript object and array utilities before going big.Good library if you’re looking to replace Moment.js for one reason or another. Immutable too.](https://twitter.com/dan_abramov/status/805030922785525760)
+
+> &mdash;<cite>Dan Abramov, Author of Co-author of [Redux](https://github.com/reduxjs/redux) and [Create React App](https://github.com/facebook/create-react-app). Building tools for humans.</cite>
+
+> [I strongly recommend using date-fns over Moment.js, it's has a nicer API and you can include only parts you need!](https://twitter.com/silvenon/status/804946772690923520)
+
+> &mdash;<cite>Matija Marohnić, a design-savvy frontend developer from Croatia.</cite>
+
+> [Just yesterday changed momentjs to this lib in out project. Cut the size of our js bundle almost in half 😱](https://twitter.com/gribnoysup/status/805061630752997377)
+
+> &mdash;<cite>Sergey Petushkov, a javaScript developer from Moscow, Russia • Currently in Berlin, Germany.</cite>
 
 ## Quick Links
 
