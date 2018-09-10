@@ -16,16 +16,16 @@ Only use some simple functions from moment.js might be considered overkill, [dat
 
 **[Parse](#parse)**
 
-1. [String + Date Format](#string-date-format)
-1. [String + Time Format](#string-time-format)
-1. [String + Format + locale](#string-format-locale)
+1. [String + Date Format](#string--date-format)
+1. [String + Time Format](#string--time-format)
+1. [String + Format + locale](#string--format--locale)
 
 **[Get + Set](#get-set)**
 
-1. [Millisecond/Second/Minute/Hour](#millisecond-second-minute-hour)
+1. [Millisecond/Second/Minute/Hour](#millisecond--second--minute--hour)
 1. [Date of Month](#date-of-month)
-1. [Day of Week](#date-of-week)
-1. [Day of Year](#date-of-year)
+1. [Day of Week](#day-of-week)
+1. [Day of Year](#day-of-year)
 1. [Week of Year](#week-of-year)
 1. [Days in Month](#days-in-month)
 1. [Weeks in Year](#weeks-in-year)
@@ -72,6 +72,8 @@ parse("12-25-1995", "MM-dd-yyyy", new Date());
 // => "1995-12-24T13:00:00.000Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### String + Time Format
 
 Return the date parsed from time string using the given format string.
@@ -86,6 +88,8 @@ import parse from "date-fns/parse";
 parse("2010-10-20 4:30", "yyyy-MM-dd H:mm", new Date());
 // => "2010-10-19T17:30:00.000Z"
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ### String + Format + locale
 
@@ -102,6 +106,8 @@ import fr from "date-fns/locale/fr";
 parse("2012 mars", "yyyy MMMM", new Date(), { locale: fr });
 // => "2012-02-29T13:00:00.000Z"
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ## Get + Set
 
@@ -139,6 +145,8 @@ new Date(new Date().getHours(13));
 // => "2018-09-09T03:12:49.695Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Date of Month
 
 Gets or sets the day of the month.
@@ -157,6 +165,8 @@ new Date().setDate(4);
 // => "2018-09-04T09:12:49.695Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Day of Week
 
 Gets or sets the day of the week.
@@ -174,6 +184,8 @@ new Date().getDay();
 new Date().setDate(new Date().getDate() - 14);
 // => "2018-08-26T09:12:49.695Z"
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ### Day of Year
 
@@ -195,6 +207,8 @@ setDayOfYear(new Date(), 256);
 // => "2018-09-13T09:12:49.695Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Week of Year
 
 Gets or sets the week of the year.
@@ -215,6 +229,8 @@ setWeek(new Date(), 24);
 // => "2018-06-10T09:12:49.695Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Days in Month
 
 Get the number of days in the current month.
@@ -230,6 +246,8 @@ getDaysInMonth(new Date(2012, 1));
 // => 29
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Weeks in Year
 
 Gets the number of weeks in the current year, according to ISO weeks.
@@ -244,6 +262,8 @@ import getISOWeeksInYear from "date-fns/getISOWeeksInYear";
 getISOWeeksInYear(new Date());
 // => 52
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ### Maximum of the given dates
 
@@ -266,6 +286,8 @@ max(array);
 // => "2018-03-11T13:00:00.000Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Minimum of the given dates
 
 Returns the minimum (most distant future) of the given date.
@@ -287,6 +309,8 @@ min(array);
 // => "2016-01-08T13:00:00.000Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ## Manipulate
 
 ### Add
@@ -304,6 +328,8 @@ addDays(new Date(), 7);
 // => "2018-09-16T09:12:49.695Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Subtract
 
 Subtract the specified number of days from the given date.
@@ -318,6 +344,8 @@ import subDays from "date-fns/subDays";
 subDays(new Date(), 7);
 // => "2018-09-02T09:12:49.695Z"
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ### Start of Time
 
@@ -334,6 +362,8 @@ startOfMonth(new Date();
 // => "2018-08-31T14:00:00.000Z"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### End of Time
 
 Return the end of a unit of time for the given date.
@@ -348,6 +378,8 @@ import endOfDay from 'date-fns/endOfDay';
 endOfDay(new Date();
 // => "2018-09-09T13:59:59.999Z"
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ## Display
 
@@ -370,13 +402,15 @@ format(new Date(), "eee, ha");
 // => "Sun, 7PM"
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Time from now
 
 Return time from now.
 
 ```js
 // Moment.js
-moment().fromNow();
+moment([2018, 8, 9]).fromNow();
 // => "about 4 hours ago"
 
 // date-fns
@@ -384,6 +418,8 @@ import formatDistance from "date-fns/formatDistance";
 formatDistance(new Date(2018, 8, 9), new Date(), { addSuffix: true });
 // => "4 hours ago"
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ### Time from x
 
@@ -399,6 +435,8 @@ import formatDistance from "date-fns/formatDistance";
 formatDistance(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => "2 days"
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ### Difference
 
@@ -420,6 +458,8 @@ differenceInDays(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => -2
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ## Query
 
 ### Is Before
@@ -436,6 +476,8 @@ import isBefore from "date-fns/isBefore";
 isBefore(new Date(2010, 9, 20), new Date(2010, 9, 21));
 // => true
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ### Is Same
 
@@ -456,6 +498,8 @@ isSameDay(new Date(2010, 9, 20), new Date(2010, 9, 20));
 // => true
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Is After
 
 Check if a date is after another date.
@@ -470,6 +514,8 @@ import isAfter from "date-fns/isAfter";
 isAfter(new Date(2010, 9, 20), new Date(2010, 9, 19));
 // => true
 ```
+
+**[⬆ back to top](#quick-links)**
 
 ### Is Between
 
@@ -489,6 +535,8 @@ isWithinInterval(new Date(2010, 9, 20), {
 // => true
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Is Leap Year
 
 Check if a year is a leap year.
@@ -504,6 +552,8 @@ isLeapYear(new Date(2000, 0, 1));
 // => true
 ```
 
+**[⬆ back to top](#quick-links)**
+
 ### Is a Date
 
 Check if a variable is a native js Date object.
@@ -518,3 +568,5 @@ import isDate from "date-fns/isDate";
 isDate(new Date());
 // => true
 ```
+
+**[⬆ back to top](#quick-links)**
