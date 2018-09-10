@@ -1,0 +1,74 @@
+{
+  "seconds": {
+    "alternative": "new Date().getSeconds() or new Date().setSeconds()"
+  },
+  "hours": {
+    "alternative": "new Date().getHours() or new Date().setHours()"
+  },
+  "date": {
+    "alternative": "new Date().getDate() or new Date().setDate()"
+  },
+  "day": {
+    "alternative": "new Date().getDay() or new Date().setDate()"
+  },
+  "dayOfYear": {
+    "alternative": "date-fns getDayOfYear(date) or setDayOfYear(date, dayOfYear)"
+  },
+  "week": {
+    "alternative": "date-fns getWeek(date) or setWeek(date, week)"
+  },
+  "isoWeeksInYear": {
+    "alternative": "date-fns getISOWeeksInYear(date)"
+  },
+  "max": {
+    "alternative": "date-fns max(date)"
+  },
+  "min": {
+    "alternative": "date-fns min(date)"
+  },
+  "add": {
+    "alternative": "date-fns addDays(date, amount)"
+  },
+  "subtract": {
+    "alternative": "date-fns subDays(date, amount)"
+  },
+  "startOf": {
+    "alternative": "date-fns startOfMonth(date)"
+  },
+  "endOf": {
+    "alternative": "date-fns endOfDay(date)"
+  },
+  "format": {
+    "alternative": "date-fns format(date, format)"
+  },
+  "fromNow": {
+    "alternative": "date-fns formatDistance(date, baseDate)"
+  },
+  "to": {
+    "alternative": "date-fns formatDistance(date, baseDate)"
+  },
+  "diff": {
+    "alternative": "date-fns differenceInMilliseconds(dateLeft, dateRight)"
+  },
+  "daysInMonth": {
+    "alternative": "date-fns getDaysInMonth(date)"
+  },
+  "isBefore": {
+    "alternative": "date-fns isBefore(date, dateToCompare)"
+  },
+  "isSame": {
+    "alternative": "date-fns isSameMonth(dateLeft, dateRight)"
+  },
+  "isAfter": {
+    "alternative": "date-fns isAfter(date, dateToCompare)"
+  },
+  "isBetween": {
+    "alternative": "date-fns isWithinInterval(date, interval)"
+  },
+  "isLeapYear": {
+    "alternative": "date-fns isLeapYear(date)"
+  },
+  "isDate": {
+    "alternative": "date-fns isDate(date)"
+  }
+}

@@ -24,8 +24,11 @@
     "test": "jest --watch"
   },
   "devDependencies": {
+    "babel-eslint": "^9.0.0",
     "date-fns": "^2.0.0-alpha.16",
+    "eslint": "^5.5.0",
     "jest": "^23.5.0",
+    "kebab-case": "^1.0.0",
     "moment": "^2.22.2"
   },
   "license": "MIT",
