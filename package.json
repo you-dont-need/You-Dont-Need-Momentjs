@@ -1,4 +1,25 @@
 {
+  "name": "eslint-plugin-you-dont-need-momentjs",
+  "description": "Check alternative methods for momentjs.",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/you-dont-need/You-Dont-Need-Momentjs.git"
+  },
+  "keywords": [
+    "moment-js",
+    "date-fns",
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "tree-shaking",
+    "you-dont-need"
+  ],
+  "author": "Andrew Yang <ddvkid@gmail.com>",
+  "contributors": [
+    "Robert Chang <cht8687@gmail.com>"
+  ],
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest --watch"
   },
@@ -6,5 +27,9 @@
     "date-fns": "^2.0.0-alpha.16",
     "jest": "^23.5.0",
     "moment": "^2.22.2"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/you-dont-need/You-Dont-Need-Momentjs/issues"
   }
 }
