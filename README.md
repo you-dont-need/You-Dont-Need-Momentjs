@@ -32,6 +32,25 @@ Only use some simple functions from moment.js might be considered overkill, [dat
 
 ## ESLint Plugin
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/eslint-plugin-you-dont-need-momentjs">
+    <img src="https://img.shields.io/npm/v/eslint-plugin-you-dont-need-momentjs.svg?style=flat-square"
+      alt="NPM Version">
+  </a>
+  <a href="https://www.npmjs.org/package/eslint-plugin-you-dont-need-momentjs">
+    <img src="http://img.shields.io/npm/dm/eslint-plugin-you-dont-need-momentjs.svg?style=flat-square?style=flat-square"
+      alt="Downloads">
+  </a>
+  <a href="https://travis-ci.org/you-dont-need/You-Dont-Need-Momentjs">
+    <img src="https://img.shields.io/travis/you-dont-need/You-Dont-Need-Momentjs/master.svg?style=flat-square"
+      alt="Build Status">
+  </a>
+  <a href="https://david-dm.org/you-dont-need/You-Dont-Need-Momentjs">
+    <img src="https://img.shields.io/david/you-dont-need/You-Dont-Need-Momentjs.svg?style=flat-square"
+         alt="Dependency Status">
+  </a>
+</p>
+
 If you're using [ESLint](http://eslint.org/), you can install a
 [plugin](http://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin) that
 will help you identify places in your codebase where you don't (may not) need Moment.js.
