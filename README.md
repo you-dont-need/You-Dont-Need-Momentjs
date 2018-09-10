@@ -14,6 +14,10 @@ Only use some simple functions from moment.js might be considered overkill, [dat
 
 ## Voice of Developers
 
+> [Removed moment.js to replace with date-fns - build output reduced by 40%](https://github.com/oysterprotocol/webnode/pull/116)
+
+> &mdash;<cite>Jared Farago from [webnode](https://github.com/oysterprotocol/webnode/pull/116) project.</cite>
+
 > [Make use of native JavaScript object and array utilities before going big.Good library if you’re looking to replace Moment.js for one reason or another. Immutable too.](https://twitter.com/dan_abramov/status/805030922785525760)
 
 > &mdash;<cite>Dan Abramov, Author of Co-author of [Redux](https://github.com/reduxjs/redux) and [Create React App](https://github.com/facebook/create-react-app). Building tools for humans.</cite>
@@ -22,9 +26,9 @@ Only use some simple functions from moment.js might be considered overkill, [dat
 
 > &mdash;<cite>Matija Marohnić, a design-savvy frontend developer from Croatia.</cite>
 
-> [just yesterday changed momentjs to this lib in out project. Cut the size of our js bundle almost in half 😱](https://twitter.com/gribnoysup/status/805061630752997377)
+> [Just yesterday changed momentjs to this lib in out project. Cut the size of our js bundle almost in half 😱](https://twitter.com/gribnoysup/status/805061630752997377)
 
-> &mdash;<cite>Sergey Petushkov, a javaScript developer from Moscow, Russia • Currently in Berlin, Germany</cite>
+> &mdash;<cite>Sergey Petushkov, a javaScript developer from Moscow, Russia • Currently in Berlin, Germany.</cite>
 
 ## Quick Links
 
