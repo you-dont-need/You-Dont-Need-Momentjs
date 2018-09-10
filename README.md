@@ -30,6 +30,24 @@ Only use some simple functions from moment.js might be considered overkill, [dat
 
 > &mdash;<cite>Sergey Petushkov, a javaScript developer from Moscow, Russia • Currently in Berlin, Germany.</cite>
 
+## ESLint Plugin
+
+If you're using [ESLint](http://eslint.org/), you can install a
+[plugin](http://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin) that
+will help you identify places in your codebase where you don't (may not) need Moment.js.
+
+Install the plugin...
+
+```sh
+npm install --save-dev eslint-plugin-you-dont-need-momentjs
+```
+
+...then update your config
+
+```js
+"extends" : ["plugin:you-dont-need-momentjs/recommended"],
+```
+
 ## Quick Links
 
 **[Parse](#parse)**
