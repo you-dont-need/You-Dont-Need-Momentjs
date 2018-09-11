@@ -110,6 +110,8 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 1. [Is Leap Year](#is-leap-year)
 1. [Is a Date](#is-a-date)
 
+⚠️ _Note that the version of date-fns used in this example is [v2](https://date-fns.org/v2.0.0-alpha.16/docs/Getting-Started), [See v1 docs](https://date-fns.org/docs/Getting-Started)_
+
 ## Parse
 
 ### String + Date Format
