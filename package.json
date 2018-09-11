@@ -21,7 +21,8 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test:watch": "jest --watch",
+    "test": "jest"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
