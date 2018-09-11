@@ -415,7 +415,7 @@ moment().startOf('month');
 
 // date-fns
 import startOfMonth from 'date-fns/startOfMonth';
-startOfMonth(new Date();
+startOfMonth(new Date());
 // => "2018-08-31T14:00:00.000Z"
 ```
 
@@ -432,7 +432,7 @@ moment().endOf('day');
 
 // date-fns
 import endOfDay from 'date-fns/endOfDay';
-endOfDay(new Date();
+endOfDay(new Date());
 // => "2018-09-09T13:59:59.999Z"
 ```
 
