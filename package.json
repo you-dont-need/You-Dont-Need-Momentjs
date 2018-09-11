@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-you-dont-need-momentjs",
   "description": "Check alternative methods for momentjs.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/you-dont-need/You-Dont-Need-Momentjs.git"
