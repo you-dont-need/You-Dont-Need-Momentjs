@@ -627,3 +627,7 @@ isDate(new Date());
 ```
 
 **[⬆ back to top](#quick-links)**
+
+# License
+
+MIT
