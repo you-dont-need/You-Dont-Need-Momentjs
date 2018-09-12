@@ -21,11 +21,13 @@
   ],
   "main": "lib/index.js",
   "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "test:watch": "jest --watch",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
+    "coveralls": "^3.0.2",
     "date-fns": "^2.0.0-alpha.16",
     "eslint": "^5.5.0",
     "jest": "^23.5.0",
@@ -36,6 +38,11 @@
   },
   "peerDependencies": {
     "eslint": "^5.5.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ]
   },
   "license": "MIT",
   "bugs": {
