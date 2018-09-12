@@ -256,10 +256,10 @@ moment().dayOfYear(256);
 // => "2018-09-13T09:12:49.695Z"
 
 // date-fns
-import getDayOfYear from "date-fns/getDayOfYear";
+import getDayOfYear from "date-fns/get_day_of_year";
 getDayOfYear(new Date());
 // => 252
-import setDayOfYear from "date-fns/setDayOfYear";
+import setDayOfYear from "date-fns/set_day_of_year";
 setDayOfYear(new Date(), 256);
 // => "2018-09-13T09:12:49.695Z"
 ```
@@ -278,10 +278,10 @@ moment().week(24);
 // => "2018-06-10T09:12:49.695Z"
 
 // date-fns
-import getWeek from "date-fns/getWeek";
+import getWeek from "date-fns/get_week";
 getWeek(new Date());
 // => 37
-import setWeek from "date-fns/setWeek";
+import setWeek from "date-fns/set_week";
 setWeek(new Date(), 24);
 // => "2018-06-10T09:12:49.695Z"
 ```
@@ -298,7 +298,7 @@ moment("2012-02", "YYYY-MM").daysInMonth();
 // => 29
 
 // date-fns
-import getDaysInMonth from "date-fns/getDaysInMonth";
+import getDaysInMonth from "date-fns/get_days_in_month";
 getDaysInMonth(new Date(2012, 1));
 // => 29
 ```
@@ -315,7 +315,7 @@ moment().isoWeeksInYear();
 // => 52
 
 // date-fns
-import getISOWeeksInYear from "date-fns/getISOWeeksInYear";
+import getISOWeeksInYear from "date-fns/get_iso_weeks_in_year";
 getISOWeeksInYear(new Date());
 // => 52
 ```
@@ -380,7 +380,7 @@ moment().add(7, "days");
 // => "2018-09-16T09:12:49.695Z"
 
 // date-fns
-import addDays from "date-fns/addDays";
+import addDays from "date-fns/add_days";
 addDays(new Date(), 7);
 // => "2018-09-16T09:12:49.695Z"
 ```
@@ -397,7 +397,7 @@ moment().subtract(7, "days");
 // => "2018-09-02T09:12:49.695Z"
 
 // date-fns
-import subDays from "date-fns/subDays";
+import subDays from "date-fns/sub_days";
 subDays(new Date(), 7);
 // => "2018-09-02T09:12:49.695Z"
 ```
@@ -414,7 +414,7 @@ moment().startOf('month');
 // => "2018-08-31T14:00:00.000Z"
 
 // date-fns
-import startOfMonth from 'date-fns/startOfMonth';
+import startOfMonth from 'date-fns/start_of_month';
 startOfMonth(new Date());
 // => "2018-08-31T14:00:00.000Z"
 ```
@@ -431,7 +431,7 @@ moment().endOf('day');
 // => "2018-09-09T13:59:59.999Z"
 
 // date-fns
-import endOfDay from 'date-fns/endOfDay';
+import endOfDay from 'date-fns/end_of_day';
 endOfDay(new Date());
 // => "2018-09-09T13:59:59.999Z"
 ```
@@ -471,7 +471,7 @@ moment([2018, 8, 9]).fromNow();
 // => "about 4 hours ago"
 
 // date-fns
-import formatDistance from "date-fns/formatDistance";
+import formatDistance from "date-fns/format_distance";
 formatDistance(new Date(2018, 8, 9), new Date(), { addSuffix: true });
 // => "4 hours ago"
 ```
@@ -488,7 +488,7 @@ moment([2007, 0, 27]).to(moment([2007, 0, 29]));
 // => "in 2 days"
 
 // date-fns
-import formatDistance from "date-fns/formatDistance";
+import formatDistance from "date-fns/format_distance";
 formatDistance(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => "2 days"
 ```
@@ -507,10 +507,10 @@ moment([2007, 0, 27]).diff(moment([2007, 0, 29]), "days");
 // => -2
 
 // date-fns
-import differenceInMilliseconds from "date-fns/differenceInMilliseconds";
+import differenceInMilliseconds from "date-fns/difference_in_milliseconds";
 differenceInMilliseconds(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => -172800000
-import differenceInDays from "date-fns/differenceInDays";
+import differenceInDays from "date-fns/difference_in_days";
 differenceInDays(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => -2
 ```
@@ -529,7 +529,7 @@ moment("2010-10-20").isBefore("2010-10-21");
 // => true
 
 // date-fns
-import isBefore from "date-fns/isBefore";
+import isBefore from "date-fns/is_before";
 isBefore(new Date(2010, 9, 20), new Date(2010, 9, 21));
 // => true
 ```
@@ -548,7 +548,7 @@ moment("2010-10-20").isSame("2010-10-20");
 // => true
 
 // date-fns
-import isSameDay from "date-fns/isSameDay";
+import isSameDay from "date-fns/is_same_day";
 isSameDay(new Date(2010, 9, 20), new Date(2010, 9, 21));
 // => false
 isSameDay(new Date(2010, 9, 20), new Date(2010, 9, 20));
@@ -567,7 +567,7 @@ moment("2010-10-20").isAfter("2010-10-19");
 // => true
 
 // date-fns
-import isAfter from "date-fns/isAfter";
+import isAfter from "date-fns/is_after";
 isAfter(new Date(2010, 9, 20), new Date(2010, 9, 19));
 // => true
 ```
@@ -584,8 +584,8 @@ moment("2010-10-20").isBetween("2010-10-19", "2010-10-25");
 // => true
 
 // date-fns
-import isWithinInterval from "date-fns/isWithinInterval";
-isWithinInterval(new Date(2010, 9, 20), {
+import isWithinRange from "date-fns/is_within_range";
+isWithinRange(new Date(2010, 9, 20), {
   start: new Date(2010, 9, 19),
   end: new Date(2010, 9, 25)
 });
@@ -604,7 +604,7 @@ moment([2000]).isLeapYear();
 // => true
 
 // date-fns
-import isLeapYear from "date-fns/isLeapYear";
+import isLeapYear from "date-fns/is_leap_year";
 isLeapYear(new Date(2000, 0, 1));
 // => true
 ```
@@ -621,7 +621,7 @@ moment.isDate(new Date());
 // => true
 
 // date-fns
-import isDate from "date-fns/isDate";
+import isDate from "date-fns/is_date";
 isDate(new Date());
 // => true
 ```
