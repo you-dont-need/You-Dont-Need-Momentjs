@@ -414,11 +414,11 @@ Return the start of a unit of time for the given date.
 
 ```js
 // Moment.js
-moment().startOf('month');
+moment().startOf("month");
 // => "2018-08-31T14:00:00.000Z"
 
 // date-fns
-import startOfMonth from 'date-fns/startOfMonth';
+import startOfMonth from "date-fns/startOfMonth";
 startOfMonth(new Date());
 // => "2018-08-31T14:00:00.000Z"
 ```
@@ -431,11 +431,11 @@ Return the end of a unit of time for the given date.
 
 ```js
 // Moment.js
-moment().endOf('day');
+moment().endOf("day");
 // => "2018-09-09T13:59:59.999Z"
 
 // date-fns
-import endOfDay from 'date-fns/endOfDay';
+import endOfDay from "date-fns/endOfDay";
 endOfDay(new Date());
 // => "2018-09-09T13:59:59.999Z"
 ```
