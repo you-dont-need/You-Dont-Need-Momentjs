@@ -18,7 +18,7 @@ Let's take a look at date lib comparison in the following table:
 | --------- | ------------ | ------------ | ---------- | ---------------- | ---------- | --------------------- | ------ |
 | Moment.js | 329K(69.6K)  | No           | 38k        | High             | OOP        | Good(moment-timezone) | 123    |
 | date-fns  | 78.4k(13.4k) | Yes          | 13k        | High             | Functional | not yet               | 32     |
-| dayjs     | 6.5k         | No           | 14k        | Medium           | OOP        | not yet               | 23     |
+| dayjs     | 6.5k(2.6k)   | No           | 14k        | Medium           | OOP        | not yet               | 23     |
 
 ## Voice of Developers
 
@@ -132,16 +132,16 @@ Return the date parsed from date string using the given format string.
 
 ```js
 // Moment.js
-moment("12-25-1995", "MM-DD-YYYY");
+moment('12-25-1995', 'MM-DD-YYYY');
 // => "1995-12-24T13:00:00.000Z"
 
 // date-fns
-import parse from "date-fns/parse";
-parse("12-25-1995", "MM-dd-yyyy", new Date());
+import parse from 'date-fns/parse';
+parse('12-25-1995', 'MM-dd-yyyy', new Date());
 // => "1995-12-24T13:00:00.000Z"
 
 // dayjs
-dayjs("12-25-1995");
+dayjs('12-25-1995');
 // => "1995-12-24T13:00:00.000Z"
 ```
 
@@ -153,12 +153,12 @@ Return the date parsed from time string using the given format string.
 
 ```js
 // Moment.js
-moment("2010-10-20 4:30", "YYYY-MM-DD HH:mm");
+moment('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
 // => "2010-10-19T17:30:00.000Z"
 
 // date-fns
-import parse from "date-fns/parse";
-parse("2010-10-20 4:30", "yyyy-MM-dd H:mm", new Date());
+import parse from 'date-fns/parse';
+parse('2010-10-20 4:30', 'yyyy-MM-dd H:mm', new Date());
 // => "2010-10-19T17:30:00.000Z"
 
 // dayjs ❌ does not support custom format parse
@@ -172,13 +172,13 @@ Return the date parsed from string using the given format string and locale.
 
 ```js
 // Moment.js
-moment("2012 mars", "YYYY MMM", "fr");
+moment('2012 mars', 'YYYY MMM', 'fr');
 // => "2012-02-29T13:00:00.000Z"
 
 // date-fns
-import parse from "date-fns/parse";
-import fr from "date-fns/locale/fr";
-parse("2012 mars", "yyyy MMMM", new Date(), { locale: fr });
+import parse from 'date-fns/parse';
+import fr from 'date-fns/locale/fr';
+parse('2012 mars', 'yyyy MMMM', new Date(), { locale: fr });
 // => "2012-02-29T13:00:00.000Z"
 
 // dayjs ❌ does not support custom format parse
@@ -206,8 +206,8 @@ new Date().getHours();
 // => 19
 
 // date-fns
-import getSeconds from "date-fns/getSeconds";
-import getHours from "date-fns/getHours";
+import getSeconds from 'date-fns/getSeconds';
+import getHours from 'date-fns/getHours';
 getSeconds(new Date());
 // => 49
 getHours(new Date());
@@ -236,17 +236,17 @@ new Date(new Date().setHours(13));
 // => "2018-09-09T03:12:49.695Z"
 
 // date-fns
-import setSeconds from "date-fns/setSeconds";
-import setHours from "date-fns/setHours";
+import setSeconds from 'date-fns/setSeconds';
+import setHours from 'date-fns/setHours';
 setSeconds(new Date(), 30);
 // => "2018-09-09T09:12:30.695Z"
 setHours(new Date(), 13);
 // => "2018-09-09T03:12:49.695Z"
 
 // dayjs
-dayjs().set("second", 30);
+dayjs().set('second', 30);
 // => "2018-09-09T09:12:30.695Z"
-dayjs().set("hour", 13);
+dayjs().set('hour', 13);
 // => "2018-09-09T03:12:49.695Z"
 ```
 
@@ -270,8 +270,8 @@ new Date().setDate(4);
 // => "2018-09-04T09:12:49.695Z"
 
 // date-fns
-import getDate from "date-fns/getDate";
-import setDate from "date-fns/setDate";
+import getDate from 'date-fns/getDate';
+import setDate from 'date-fns/setDate';
 getDate(new Date());
 // => 9
 setDate(new Date(), 4);
@@ -280,7 +280,7 @@ setDate(new Date(), 4);
 // dayjs
 dayjs().date();
 // => 9
-dayjs().set("date", 4);
+dayjs().set('date', 4);
 // => "2018-09-04T09:12:49.695Z"
 ```
 
@@ -304,8 +304,8 @@ new Date().setDate(new Date().getDate() - 14);
 // => "2018-08-26T09:12:49.695Z"
 
 // date-fns
-import getDay from "date-fns/getDay";
-import setDay from "date-fns/setDay";
+import getDay from 'date-fns/getDay';
+import setDay from 'date-fns/setDay';
 getDay(new Date());
 // => 0 (Sunday)
 setDay(new Date(), -14);
@@ -314,7 +314,7 @@ setDay(new Date(), -14);
 // dayjs
 dayjs().day();
 // => 0 (Sunday)
-dayjs().set("day", -14);
+dayjs().set('day', -14);
 // => "2018-08-26T09:12:49.695Z"
 ```
 
@@ -332,8 +332,8 @@ moment().dayOfYear(256);
 // => "2018-09-13T09:12:49.695Z"
 
 // date-fns
-import getDayOfYear from "date-fns/getDayOfYear";
-import setDayOfYear from "date-fns/setDayOfYear";
+import getDayOfYear from 'date-fns/getDayOfYear';
+import setDayOfYear from 'date-fns/setDayOfYear';
 getDayOfYear(new Date());
 // => 252
 setDayOfYear(new Date(), 256);
@@ -356,15 +356,15 @@ moment().week(24);
 // => "2018-06-10T09:12:49.695Z"
 
 // date-fns
-import getWeek from "date-fns/getWeek";
-import setWeek from "date-fns/setWeek";
+import getWeek from 'date-fns/getWeek';
+import setWeek from 'date-fns/setWeek';
 getWeek(new Date());
 // => 37
 setWeek(new Date(), 24);
 // => "2018-06-10T09:12:49.695Z"
 
 // dayjs ⚠️ requires weekOfYear plugin
-import weekOfYear from "dayjs/plugin/weekOfYear";
+import weekOfYear from 'dayjs/plugin/weekOfYear';
 dayjs.extend(weekOfYear);
 dayjs().week();
 // => 37
@@ -379,16 +379,16 @@ Get the number of days in the current month.
 
 ```js
 // Moment.js
-moment("2012-02", "YYYY-MM").daysInMonth();
+moment('2012-02', 'YYYY-MM').daysInMonth();
 // => 29
 
 // date-fns
-import getDaysInMonth from "date-fns/getDaysInMonth";
+import getDaysInMonth from 'date-fns/getDaysInMonth';
 getDaysInMonth(new Date(2012, 1));
 // => 29
 
 // dayjs
-dayjs("2012-02").daysInMonth();
+dayjs('2012-02').daysInMonth();
 // => 29
 ```
 
@@ -404,7 +404,7 @@ moment().isoWeeksInYear();
 // => 52
 
 // date-fns
-import getISOWeeksInYear from "date-fns/getISOWeeksInYear";
+import getISOWeeksInYear from 'date-fns/getISOWeeksInYear';
 getISOWeeksInYear(new Date());
 // => 52
 
@@ -422,14 +422,14 @@ const array = [
   new Date(2017, 4, 13),
   new Date(2018, 2, 12),
   new Date(2016, 0, 10),
-  new Date(2016, 0, 9)
+  new Date(2016, 0, 9),
 ];
 // Moment.js
 moment.max(array.map(a => moment(a)));
 // => "2018-03-11T13:00:00.000Z"
 
 // date-fns
-import max from "date-fns/max";
+import max from 'date-fns/max';
 max(array);
 // => "2018-03-11T13:00:00.000Z"
 
@@ -447,14 +447,14 @@ const array = [
   new Date(2017, 4, 13),
   new Date(2018, 2, 12),
   new Date(2016, 0, 10),
-  new Date(2016, 0, 9)
+  new Date(2016, 0, 9),
 ];
 // Moment.js
 moment.min(array.map(a => moment(a)));
 // => "2016-01-08T13:00:00.000Z"
 
 // date-fns
-import min from "date-fns/min";
+import min from 'date-fns/min';
 min(array);
 // => "2016-01-08T13:00:00.000Z"
 
@@ -471,16 +471,16 @@ Add the specified number of days to the given date.
 
 ```js
 // Moment.js
-moment().add(7, "days");
+moment().add(7, 'days');
 // => "2018-09-16T09:12:49.695Z"
 
 // date-fns
-import addDays from "date-fns/addDays";
+import addDays from 'date-fns/addDays';
 addDays(new Date(), 7);
 // => "2018-09-16T09:12:49.695Z"
 
 // dayjs
-dayjs().add(7, "day");
+dayjs().add(7, 'day');
 // => "2018-09-16T09:12:49.695Z"
 ```
 
@@ -492,16 +492,16 @@ Subtract the specified number of days from the given date.
 
 ```js
 // Moment.js
-moment().subtract(7, "days");
+moment().subtract(7, 'days');
 // => "2018-09-02T09:12:49.695Z"
 
 // date-fns
-import subDays from "date-fns/subDays";
+import subDays from 'date-fns/subDays';
 subDays(new Date(), 7);
 // => "2018-09-02T09:12:49.695Z"
 
 // dayjs
-dayjs().subtract(7, "day");
+dayjs().subtract(7, 'day');
 // => "2018-09-02T09:12:49.695Z"
 ```
 
@@ -513,16 +513,16 @@ Return the start of a unit of time for the given date.
 
 ```js
 // Moment.js
-moment().startOf("month");
+moment().startOf('month');
 // => "2018-08-31T14:00:00.000Z"
 
 // date-fns
-import startOfMonth from "date-fns/startOfMonth";
+import startOfMonth from 'date-fns/startOfMonth';
 startOfMonth(new Date());
 // => "2018-08-31T14:00:00.000Z"
 
 // dayjs
-dayjs().startOf("month");
+dayjs().startOf('month');
 // => "2018-08-31T14:00:00.000Z"
 ```
 
@@ -534,16 +534,16 @@ Return the end of a unit of time for the given date.
 
 ```js
 // Moment.js
-moment().endOf("day");
+moment().endOf('day');
 // => "2018-09-09T13:59:59.999Z"
 
 // date-fns
-import endOfDay from "date-fns/endOfDay";
+import endOfDay from 'date-fns/endOfDay';
 endOfDay(new Date());
 // => "2018-09-09T13:59:59.999Z"
 
 // dayjs
-dayjs().endOf("day");
+dayjs().endOf('day');
 // => "2018-09-09T13:59:59.999Z"
 ```
 
@@ -557,22 +557,22 @@ Return the formatted date string in the given format.
 
 ```js
 // Moment.js
-moment().format("dddd, MMMM Do YYYY, h:mm:ss A");
+moment().format('dddd, MMMM Do YYYY, h:mm:ss A');
 // => "Sunday, September 9th 2018, 7:12:49 PM"
-moment().format("ddd, hA");
+moment().format('ddd, hA');
 // => "Sun, 7PM"
 
 // date-fns
-import format from "date-fns/format";
-format(new Date(), "eeee, MMMM do YYYY, h:mm:ss aa");
+import format from 'date-fns/format';
+format(new Date(), 'eeee, MMMM do YYYY, h:mm:ss aa');
 // => "Sunday, September 9th 2018, 7:12:49 PM"
-format(new Date(), "eee, ha");
+format(new Date(), 'eee, ha');
 // => "Sun, 7PM"
 
 // dayjs
-dayjs().format("dddd, MMMM D YYYY, h:mm:ss A");
+dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
 // => "Sunday, September 9 2018, 7:12:49 PM" ⚠️  not support 9th
-dayjs().format("ddd, hA");
+dayjs().format('ddd, hA');
 // => "Sun, 7PM"
 ```
 
@@ -588,12 +588,12 @@ moment(1536484369695).fromNow();
 // => "4 days ago"
 
 // date-fns
-import formatDistance from "date-fns/formatDistance";
+import formatDistance from 'date-fns/formatDistance';
 formatDistance(new Date(1536484369695), new Date(), { addSuffix: true });
 // => "4 days ago"
 
 // dayjs ⚠️ requires relativeTime plugin
-import relativeTime from "dayjs/plugin/relativeTime";
+import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 
 dayjs(1536484369695).fromNow();
@@ -612,14 +612,14 @@ moment([2007, 0, 27]).to(moment([2007, 0, 29]));
 // => "in 2 days"
 
 // date-fns
-import formatDistance from "date-fns/formatDistance";
+import formatDistance from 'date-fns/formatDistance';
 formatDistance(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => "2 days"
 
 // dayjs ⚠️ requires relativeTime plugin
-import relativeTime from "dayjs/plugin/relativeTime";
+import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
-dayjs("2007-01-27").to(dayjs("2007-01-29"));
+dayjs('2007-01-27').to(dayjs('2007-01-29'));
 // => "in 2 days"
 ```
 
@@ -633,21 +633,21 @@ Get the unit of time between the given dates.
 // Moment.js
 moment([2007, 0, 27]).diff(moment([2007, 0, 29]));
 // => -172800000
-moment([2007, 0, 27]).diff(moment([2007, 0, 29]), "days");
+moment([2007, 0, 27]).diff(moment([2007, 0, 29]), 'days');
 // => -2
 
 // date-fns
-import differenceInMilliseconds from "date-fns/differenceInMilliseconds";
+import differenceInMilliseconds from 'date-fns/differenceInMilliseconds';
 differenceInMilliseconds(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => -172800000
-import differenceInDays from "date-fns/differenceInDays";
+import differenceInDays from 'date-fns/differenceInDays';
 differenceInDays(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => -2
 
 // dayjs
-dayjs("2007-01-27").diff(dayjs("2007-01-29"), "milliseconds");
+dayjs('2007-01-27').diff(dayjs('2007-01-29'), 'milliseconds');
 // => -172800000
-dayjs("2007-01-27").diff(dayjs("2007-01-29"), "days");
+dayjs('2007-01-27').diff(dayjs('2007-01-29'), 'days');
 // => -2
 ```
 
@@ -661,16 +661,16 @@ Check if a date is before another date.
 
 ```js
 // Moment.js
-moment("2010-10-20").isBefore("2010-10-21");
+moment('2010-10-20').isBefore('2010-10-21');
 // => true
 
 // date-fns
-import isBefore from "date-fns/isBefore";
+import isBefore from 'date-fns/isBefore';
 isBefore(new Date(2010, 9, 20), new Date(2010, 9, 21));
 // => true
 
 // dayjs
-dayjs("2010-10-20").isBefore("2010-10-21");
+dayjs('2010-10-20').isBefore('2010-10-21');
 // => true
 ```
 
@@ -682,16 +682,16 @@ Check if a date is same another date.
 
 ```js
 // Moment.js
-moment("2010-10-20").isSame("2010-10-21");
+moment('2010-10-20').isSame('2010-10-21');
 // => false
-moment("2010-10-20").isSame("2010-10-20");
+moment('2010-10-20').isSame('2010-10-20');
 // => true
-moment("2010-10-20").isSame("2010-10-21", "month");
+moment('2010-10-20').isSame('2010-10-21', 'month');
 // => true
 
 // date-fns
-import isSameDay from "date-fns/isSameDay";
-import isSameMonth from "date-fns/isSameMonth";
+import isSameDay from 'date-fns/isSameDay';
+import isSameMonth from 'date-fns/isSameMonth';
 isSameDay(new Date(2010, 9, 20), new Date(2010, 9, 21));
 // => false
 isSameDay(new Date(2010, 9, 20), new Date(2010, 9, 20));
@@ -700,9 +700,9 @@ isSameMonth(new Date(2010, 9, 20), new Date(2010, 9, 21));
 // => true
 
 // dayjs
-dayjs("2010-10-20").isSame("2010-10-21");
+dayjs('2010-10-20').isSame('2010-10-21');
 // => false
-dayjs("2010-10-20").isSame("2010-10-20");
+dayjs('2010-10-20').isSame('2010-10-20');
 // => true
 // dayjs ❌ does not support is same month
 ```
@@ -715,16 +715,16 @@ Check if a date is after another date.
 
 ```js
 // Moment.js
-moment("2010-10-20").isAfter("2010-10-19");
+moment('2010-10-20').isAfter('2010-10-19');
 // => true
 
 // date-fns
-import isAfter from "date-fns/isAfter";
+import isAfter from 'date-fns/isAfter';
 isAfter(new Date(2010, 9, 20), new Date(2010, 9, 19));
 // => true
 
 // dayjs
-dayjs("2010-10-20").isAfter("2010-10-19");
+dayjs('2010-10-20').isAfter('2010-10-19');
 // => true
 ```
 
@@ -736,21 +736,21 @@ Check if a date is between two other dates.
 
 ```js
 // Moment.js
-moment("2010-10-20").isBetween("2010-10-19", "2010-10-25");
+moment('2010-10-20').isBetween('2010-10-19', '2010-10-25');
 // => true
 
 // date-fns
-import isWithinInterval from "date-fns/isWithinInterval";
+import isWithinInterval from 'date-fns/isWithinInterval';
 isWithinInterval(new Date(2010, 9, 20), {
   start: new Date(2010, 9, 19),
-  end: new Date(2010, 9, 25)
+  end: new Date(2010, 9, 25),
 });
 // => true
 
 // dayjs ⚠️ requires isBetween plugin
-import isBetween from "dayjs/plugin/isBetween";
+import isBetween from 'dayjs/plugin/isBetween';
 dayjs.extend(isBetween);
-dayjs("2010-10-20").isBetween("2010-10-19", "2010-10-25");
+dayjs('2010-10-20').isBetween('2010-10-19', '2010-10-25');
 // => true
 ```
 
@@ -766,14 +766,14 @@ moment([2000]).isLeapYear();
 // => true
 
 // date-fns
-import isLeapYear from "date-fns/isLeapYear";
+import isLeapYear from 'date-fns/isLeapYear';
 isLeapYear(new Date(2000, 0, 1));
 // => true
 
 // dayjs ⚠️ requires isLeapYear plugin
-import isLeapYear from "dayjs/plugin/isLeapYear";
+import isLeapYear from 'dayjs/plugin/isLeapYear';
 dayjs.extend(isLeapYear);
-dayjs("2000").isLeapYear();
+dayjs('2000').isLeapYear();
 // => true
 ```
 
@@ -789,7 +789,7 @@ moment.isDate(new Date());
 // => true
 
 // date-fns
-import isDate from "date-fns/isDate";
+import isDate from 'date-fns/isDate';
 isDate(new Date());
 // => true
 
