@@ -21,9 +21,11 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "test:watch": "jest --watch",
-    "test": "jest --coverage"
+    "test:docs:watch": "jest --watch",
+    "test:docs": "jest --coverage",
+    "test:eslint": "node ./lib/test/index.js",
+    "test": "npm run test:docs && npm run test:eslint",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
