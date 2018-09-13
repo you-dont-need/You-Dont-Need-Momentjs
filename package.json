@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-you-dont-need-momentjs",
-  "description": "Check alternative methods for momentjs.",
-  "version": "1.0.1",
+  "description": "Check better alternatives you can use without momentjs",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/you-dont-need/You-Dont-Need-Momentjs.git"
@@ -17,25 +17,37 @@
   ],
   "author": "Andrew Yang <ddvkid@gmail.com>",
   "contributors": [
-    "Robert Chang <cht8687@gmail.com>"
+    "Robert Chang <cht8687@gmail.com>",
+    "Steve Mao <maochenyan@gmail.com> (https://github.com/stevemao)"
   ],
   "main": "lib/index.js",
   "scripts": {
     "test:watch": "jest --watch",
-    "test": "jest"
+    "test": "jest --coverage",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "precommit": "pretty-quick --staged"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
+    "coveralls": "^3.0.2",
     "date-fns": "^2.0.0-alpha.16",
     "eslint": "^5.5.0",
+    "husky": "^0.14.3",
     "jest": "^23.5.0",
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
+    "prettier": "^1.14.2",
+    "pretty-quick": "^1.6.0"
   },
   "dependencies": {
     "kebab-case": "^1.0.0"
   },
   "peerDependencies": {
     "eslint": "^5.5.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ]
   },
   "license": "MIT",
   "bugs": {

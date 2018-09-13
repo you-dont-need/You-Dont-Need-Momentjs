@@ -3,5 +3,4 @@ node_js:
   - 8
   - 10
 after_success:
-  - npm run test
-  - node ./lib/test/index.js # test eslint rules
+  - npm run coveralls

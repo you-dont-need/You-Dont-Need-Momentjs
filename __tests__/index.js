@@ -190,27 +190,26 @@ describe("Display", () => {
   });
 
   it("Time from X", () => {
-    const m = moment([ 2007, 0, 27 ]).to(moment([ 2007, 0, 29 ]));
+    const m = moment([2007, 0, 27]).to(moment([2007, 0, 29]));
     const d = date.formatDistance(new Date(2007, 0, 27), new Date(2007, 0, 29));
     expect(m).toContain(d);
   });
 
   it("Difference", () => {
-    const m = moment([ 2007, 0, 27 ]).diff(moment([ 2007, 0, 29 ]));
+    const m = moment([2007, 0, 27]).diff(moment([2007, 0, 29]));
     const d = date.differenceInMilliseconds(
       new Date(2007, 0, 27),
       new Date(2007, 0, 29)
     );
     expect(m).toBe(d);
 
-    const m2 = moment([ 2007, 0, 27 ]).diff(moment([ 2007, 0, 29 ]), "days");
+    const m2 = moment([2007, 0, 27]).diff(moment([2007, 0, 29]), "days");
     const d2 = date.differenceInDays(
       new Date(2007, 0, 27),
       new Date(2007, 0, 29)
     );
     expect(m2).toBe(d2);
   });
-
 });
 
 describe("Query", () => {
@@ -251,7 +250,7 @@ describe("Query", () => {
   });
 
   it("Is Leap Year", () => {
-    expect(moment([ 2000 ]).isLeapYear()).toBeTruthy();
+    expect(moment([2000]).isLeapYear()).toBeTruthy();
     expect(date.isLeapYear(new Date(2000, 0, 1))).toBeTruthy();
     expect(date.isLeapYear(new Date(2001, 0, 1))).toBeFalsy();
   });
