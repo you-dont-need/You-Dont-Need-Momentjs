@@ -27,19 +27,19 @@
     "alternative": "date-fns min(date)"
   },
   "add": {
-    "alternative": "date-fns addDays(date, amount)"
+    "alternative": "date-fns addDays(date, amount) or dayjs().add(number, unit)"
   },
   "subtract": {
-    "alternative": "date-fns subDays(date, amount)"
+    "alternative": "date-fns subDays(date, amount) or dayjs().subtract(number, unit)"
   },
   "startOf": {
-    "alternative": "date-fns startOfMonth(date)"
+    "alternative": "date-fns startOfMonth(date) or dayjs().startOf(unit)"
   },
   "endOf": {
-    "alternative": "date-fns endOfDay(date)"
+    "alternative": "date-fns endOfDay(date) or dayjs().endOf(unit)"
   },
   "format": {
-    "alternative": "date-fns format(date, format)"
+    "alternative": "date-fns format(date, format) or dayjs().format()"
   },
   "fromNow": {
     "alternative": "date-fns formatDistance(date, baseDate)"
@@ -48,19 +48,19 @@
     "alternative": "date-fns formatDistance(date, baseDate)"
   },
   "diff": {
-    "alternative": "date-fns differenceInMilliseconds(dateLeft, dateRight)"
+    "alternative": "date-fns differenceInMilliseconds(dateLeft, dateRight) or dayjs().diff()"
   },
   "daysInMonth": {
-    "alternative": "date-fns getDaysInMonth(date)"
+    "alternative": "date-fns getDaysInMonth(date) or dayjs().daysInMonth();"
   },
   "isBefore": {
-    "alternative": "date-fns isBefore(date, dateToCompare)"
+    "alternative": "date-fns isBefore(date, dateToCompare) or dayjs().isBefore()"
   },
   "isSame": {
-    "alternative": "date-fns isSameMonth(dateLeft, dateRight)"
+    "alternative": "date-fns isSameMonth(dateLeft, dateRight) or dayjs().isSame()"
   },
   "isAfter": {
-    "alternative": "date-fns isAfter(date, dateToCompare)"
+    "alternative": "date-fns isAfter(date, dateToCompare) or dayjs().isAfter()"
   },
   "isBetween": {
     "alternative": "date-fns isWithinInterval(date, interval)"
