@@ -161,7 +161,7 @@ import parse from "date-fns/parse";
 parse("2010-10-20 4:30", "yyyy-MM-dd H:mm", new Date());
 // => "2010-10-19T17:30:00.000Z"
 
-// dayjs ❌ not support custom format parse
+// dayjs ❌ does not support custom format parse
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -181,7 +181,7 @@ import fr from "date-fns/locale/fr";
 parse("2012 mars", "yyyy MMMM", new Date(), { locale: fr });
 // => "2012-02-29T13:00:00.000Z"
 
-// dayjs ❌ not support custom format parse
+// dayjs ❌ does not support custom format parse
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -339,7 +339,7 @@ getDayOfYear(new Date());
 setDayOfYear(new Date(), 256);
 // => "2018-09-13T09:12:49.695Z"
 
-// dayjs ❌ not support day of year
+// dayjs ❌ does not support day of year
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -368,7 +368,7 @@ import weekOfYear from "dayjs/plugin/weekOfYear";
 dayjs.extend(weekOfYear);
 dayjs().week();
 // => 37
-// dayjs ❌ not support set week of year
+// dayjs ❌ does not support set week of year
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -408,7 +408,7 @@ import getISOWeeksInYear from "date-fns/getISOWeeksInYear";
 getISOWeeksInYear(new Date());
 // => 52
 
-// dayjs ❌ not support weeks in year
+// dayjs ❌ does not support weeks in the year
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -433,7 +433,7 @@ import max from "date-fns/max";
 max(array);
 // => "2018-03-11T13:00:00.000Z"
 
-// dayjs ❌ not support maximum of the given dates
+// dayjs ❌ does not support the maximum of the given dates
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -458,7 +458,7 @@ import min from "date-fns/min";
 min(array);
 // => "2016-01-08T13:00:00.000Z"
 
-// dayjs ❌ not support minimum of the given dates
+// dayjs ❌ does not support the minimum of the given dates
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -704,7 +704,7 @@ dayjs("2010-10-20").isSame("2010-10-21");
 // => false
 dayjs("2010-10-20").isSame("2010-10-20");
 // => true
-// dayjs ❌ not support is same month
+// dayjs ❌ does not support is same month
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -793,7 +793,7 @@ import isDate from "date-fns/isDate";
 isDate(new Date());
 // => true
 
-// dayjs ❌ not support is date
+// dayjs ❌ does not support is date
 ```
 
 **[⬆ back to top](#quick-links)**
