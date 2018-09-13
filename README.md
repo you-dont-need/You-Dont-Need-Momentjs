@@ -363,7 +363,7 @@ getWeek(new Date());
 setWeek(new Date(), 24);
 // => "2018-06-10T09:12:49.695Z"
 
-// dayjs ⚠️ requires plugin
+// dayjs ⚠️ requires weekOfYear plugin
 import weekOfYear from "dayjs/plugin/weekOfYear";
 dayjs.extend(weekOfYear);
 dayjs().week();
@@ -592,7 +592,7 @@ import formatDistance from "date-fns/formatDistance";
 formatDistance(new Date(1536484369695), new Date(), { addSuffix: true });
 // => "4 days ago"
 
-// dayjs ⚠️ requires plugin
+// dayjs ⚠️ requires relativeTime plugin
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
@@ -616,7 +616,7 @@ import formatDistance from "date-fns/formatDistance";
 formatDistance(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => "2 days"
 
-// dayjs ⚠️ requires plugin
+// dayjs ⚠️ requires relativeTime plugin
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 dayjs("2007-01-27").to(dayjs("2007-01-29"));
@@ -747,7 +747,7 @@ isWithinInterval(new Date(2010, 9, 20), {
 });
 // => true
 
-// dayjs ⚠️ requires plugin
+// dayjs ⚠️ requires isBetween plugin
 import isBetween from "dayjs/plugin/isBetween";
 dayjs.extend(isBetween);
 dayjs("2010-10-20").isBetween("2010-10-19", "2010-10-25");
@@ -770,7 +770,7 @@ import isLeapYear from "date-fns/isLeapYear";
 isLeapYear(new Date(2000, 0, 1));
 // => true
 
-// dayjs ⚠️ requires plugin
+// dayjs ⚠️ requires isLeapYear plugin
 import isLeapYear from "dayjs/plugin/isLeapYear";
 dayjs.extend(isLeapYear);
 dayjs("2000").isLeapYear();
