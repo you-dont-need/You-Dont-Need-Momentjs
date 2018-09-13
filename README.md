@@ -1,14 +1,14 @@
 # You don't (may not) need Moment.js
 
-[Moment.js](https://momentjs.com/) is a fantastic date library with lots of great features and utilities. However, when you are working on a performance sensitive web application, it might have a huge performance overhead because of the complex API and large bundle size.
+[Moment.js](https://momentjs.com/) is a fantastic time & date library with lots of great features and utilities. However, if you are working on a performance sensitive web application, it might cause a huge performance overhead because of its complex APIs and large bundle size.
 
 Problems with Moment.js:
 
-- Highly based on OOP API, which makes it won't work with tree-shaking, thus leading to a huge bundle size and performance issue.
-- Moment.js is mutable due to OOP API and non-pure function, which causes bugs:
+- Highly based on OOP APIs, which makes it fail to work with tree-shaking, thus leading to a huge bundle size and performance issues.
+- Moment.js is mutable due to OOP APIs and non-pure functions, which causes bugs:
   https://github.com/moment/moment/blob/develop/src/test/moment/add_subtract.js#L244-L286
 
-Only use some simple functions from moment.js might be considered overkill, [date-fns](https://github.com/date-fns/date-fns) can be a good replacement in this case. see https://github.com/moment/moment/issues/2373 for more ideas of why and how people switch from moment.js to date-fns.
+Only using some simple functions from moment.js might be considered overkill, [date-fns](https://github.com/date-fns/date-fns) can be a good replacement in such situations. See https://github.com/moment/moment/issues/2373 for more ideas on why and how people switch from moment.js to date-fns.
 
 <img src="./screenshot.png" alt="Screenshot"/>
 
