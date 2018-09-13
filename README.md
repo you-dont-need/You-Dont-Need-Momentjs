@@ -593,8 +593,8 @@ formatDistance(new Date(1536484369695), new Date(), { addSuffix: true });
 // => "4 days ago"
 
 // dayjs ⚠️ requires plugin
-import RelativeTime from "dayjs/plugin/RelativeTime";
-dayjs.extend(RelativeTime);
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 dayjs(1536484369695).fromNow();
 // => "5 days ago" ⚠️  the rounding method of this plugin is different from moment.js and date-fns, use with care.
@@ -617,8 +617,8 @@ formatDistance(new Date(2007, 0, 27), new Date(2007, 0, 29));
 // => "2 days"
 
 // dayjs ⚠️ requires plugin
-import RelativeTime from "dayjs/plugin/RelativeTime";
-dayjs.extend(RelativeTime);
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 dayjs("2007-01-27").to(dayjs("2007-01-29"));
 // => "in 2 days"
 ```
@@ -748,8 +748,8 @@ isWithinInterval(new Date(2010, 9, 20), {
 // => true
 
 // dayjs ⚠️ requires plugin
-import IsBetween from "dayjs/plugin/IsBetween";
-dayjs.extend(IsBetween);
+import isBetween from "dayjs/plugin/isBetween";
+dayjs.extend(isBetween);
 dayjs("2010-10-20").isBetween("2010-10-19", "2010-10-25");
 // => true
 ```
@@ -771,8 +771,8 @@ isLeapYear(new Date(2000, 0, 1));
 // => true
 
 // dayjs ⚠️ requires plugin
-import IsLeapYear from "dayjs/plugin/IsLeapYear";
-dayjs.extend(IsLeapYear);
+import isLeapYear from "dayjs/plugin/isLeapYear";
+dayjs.extend(isLeapYear);
 dayjs("2000").isLeapYear();
 // => true
 ```

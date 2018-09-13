@@ -2,14 +2,14 @@ const moment = require('moment');
 const date = require('date-fns');
 const fr = require('date-fns/locale/fr');
 const dayjs = require('dayjs');
-const RelativeTime = require('dayjs/plugin/RelativeTime'); // load on demand
+const relativeTime = require('dayjs/plugin/relativeTime'); // load on demand
 const weekOfYear = require('dayjs/plugin/weekOfYear'); // load on demand
-const IsBetween = require('dayjs/plugin/IsBetween'); // load on demand
-const IsLeapYear = require('dayjs/plugin/IsLeapYear'); // load on demand
-dayjs.extend(RelativeTime);
+const isBetween = require('dayjs/plugin/isBetween'); // load on demand
+const isLeapYear = require('dayjs/plugin/isLeapYear'); // load on demand
+dayjs.extend(relativeTime);
 dayjs.extend(weekOfYear);
-dayjs.extend(IsBetween);
-dayjs.extend(IsLeapYear);
+dayjs.extend(isBetween);
+dayjs.extend(isLeapYear);
 
 const time = 1536484369695;
 
