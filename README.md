@@ -202,7 +202,7 @@ moment().hours(13);
 // Native
 new Date(new Date().setSeconds(30));
 // => "2018-09-09T09:12:30.695Z"
-new Date(new Date().getHours(13));
+new Date(new Date().setHours(13));
 // => "2018-09-09T03:12:49.695Z"
 ```
 
