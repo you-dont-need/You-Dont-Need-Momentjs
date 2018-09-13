@@ -21,10 +21,8 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "test:docs:watch": "jest --watch",
-    "test:docs": "jest --coverage",
-    "test:eslint": "node ./lib/test/index.js",
-    "test": "npm run test:docs && npm run test:eslint",
+    "test:watch": "jest --watch",
+    "test": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "precommit": "pretty-quick --staged"
   },
