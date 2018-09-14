@@ -428,6 +428,10 @@ const array = [
 moment.max(array.map(a => moment(a)));
 // => "2018-03-11T13:00:00.000Z"
 
+// Native
+new Date(Math.max.apply(null, array)).toISOString();
+// => "2018-03-11T13:00:00.000Z"
+
 // date-fns
 import max from 'date-fns/max';
 max(array);
@@ -451,6 +455,10 @@ const array = [
 ];
 // Moment.js
 moment.min(array.map(a => moment(a)));
+// => "2016-01-08T13:00:00.000Z"
+
+// Native
+new Date(Math.min.apply(null, array)).toISOString();
 // => "2016-01-08T13:00:00.000Z"
 
 // date-fns
