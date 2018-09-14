@@ -8,17 +8,17 @@ Problems with Moment.js:
 - Moment.js is mutable due to OOP APIs and non-pure functions, which causes bugs:
   https://github.com/moment/moment/blob/develop/src/test/moment/add_subtract.js#L244-L286
 
-Only using some simple functions from moment.js might be considered overkill, [date-fns](https://github.com/date-fns/date-fns) and [dayjs](https://github.com/iamkun/dayjs) can be good replacements in such situations. See https://github.com/moment/moment/issues/2373 for more ideas on why and how people switch from moment.js to other date libs.
+Only using some simple functions from moment.js might be considered overkill. [dayjs](https://github.com/iamkun/dayjs) has a smaller core and has very similar APIs so it makes it very easy to migrate. [date-fns](https://github.com/date-fns/date-fns) enables [tree-shaking and other benefits](https://github.com/date-fns/date-fns/issues/275#issuecomment-264934189) so that it works great with React, Sinon.js, and webpack, etc. See https://github.com/moment/moment/issues/2373 for more ideas on why and how people switch from moment.js to other solutions.
 
 ## Comparison
 
 Let's take a look at date lib comparison in the following table:
 
-| Name      | Size(gzip)   | Tree-shaking | Popularity | Methods richness | Pattern    | Timezone Support      | Locale |
-| --------- | ------------ | ------------ | ---------- | ---------------- | ---------- | --------------------- | ------ |
-| Moment.js | 329K(69.6K)  | No           | 38k        | High             | OOP        | Good(moment-timezone) | 123    |
-| date-fns  | 78.4k(13.4k) | Yes          | 13k        | High             | Functional | not yet               | 32     |
-| dayjs     | 6.5k(2.6k)   | No           | 14k        | Medium           | OOP        | not yet               | 23     |
+| Name                                     | Size(gzip)                        | Tree-shaking | Popularity | Methods richness | Pattern    | Timezone Support      | Locale |
+| ---------------------------------------- | --------------------------------- | ------------ | ---------- | ---------------- | ---------- | --------------------- | ------ |
+| [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 38k        | High             | OOP        | Good(moment-timezone) | 123    |
+| [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 13k        | High             | Functional | not yet               | 32     |
+| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 14k        | Medium           | OOP        | not yet               | 23     |
 
 ## Voice of Developers
 
