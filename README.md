@@ -6,11 +6,11 @@
 
 Problems with Moment.js:
 
-- Highly based on OOP APIs, which makes it fail to work with tree-shaking, thus leading to a huge bundle size and performance issues.
-- Moment.js is mutable due to OOP APIs and non-pure functions, which causes bugs:
+- It is highly based on OOP APIs, which makes it fail to work with tree-shaking, thus leading to a huge bundle size and performance issues.
+- It is mutable due to OOP APIs, and uses non-pure functions, which cause bugs:
   https://github.com/moment/moment/blob/develop/src/test/moment/add_subtract.js#L244-L286
 
-Only using some simple functions from moment.js might be considered overkill. [dayjs](https://github.com/iamkun/dayjs) has a smaller core and has very similar APIs so it makes it very easy to migrate. [date-fns](https://github.com/date-fns/date-fns) enables [tree-shaking and other benefits](https://github.com/date-fns/date-fns/issues/275#issuecomment-264934189) so that it works great with React, Sinon.js, and webpack, etc. See https://github.com/moment/moment/issues/2373 for more ideas on why and how people switch from moment.js to other solutions.
+If you are not using timezone but only a few simple functions from moment.js, this might be considered overkill and bloat your app. [dayjs](https://github.com/iamkun/dayjs) has a smaller core and has very similar APIs so it makes it very easy to migrate. [date-fns](https://github.com/date-fns/date-fns) enables [tree-shaking and other benefits](https://github.com/date-fns/date-fns/issues/275#issuecomment-264934189) so that it works great with React, Sinon.js, and webpack, etc. See https://github.com/moment/moment/issues/2373 for more ideas on why and how people switch from moment.js to other solutions.
 
 ## Brief Comparison
 
