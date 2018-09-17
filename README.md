@@ -28,7 +28,7 @@ If you are not using timezone but only a few simple functions from moment.js, th
 
 > [Make use of native JavaScript object and array utilities before going big.Good library if you’re looking to replace Moment.js for one reason or another. Immutable too.](https://twitter.com/dan_abramov/status/805030922785525760)
 
-> &mdash;<cite>Dan Abramov, Author of Co-author of [Redux](https://github.com/reduxjs/redux) and [Create React App](https://github.com/facebook/create-react-app). Building tools for humans.</cite>
+> &mdash;<cite>Dan Abramov, Author of [Redux](https://github.com/reduxjs/redux) and co-author of [Create React App](https://github.com/facebook/create-react-app). Building tools for humans.</cite>
 
 > [I strongly recommend using date-fns over Moment.js, it's has a nicer API and you can include only parts you need!](https://twitter.com/silvenon/status/804946772690923520)
 
