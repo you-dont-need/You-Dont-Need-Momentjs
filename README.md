@@ -331,6 +331,12 @@ moment().dayOfYear();
 moment().dayOfYear(256);
 // => "2018-09-13T09:12:49.695Z"
 
+// Native
+Math.round(
+  (new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24
+);
+// => 252
+
 // date-fns
 import getDayOfYear from 'date-fns/getDayOfYear';
 import setDayOfYear from 'date-fns/setDayOfYear';
@@ -519,6 +525,10 @@ Subtract the specified number of days from the given date.
 moment().subtract(7, 'days');
 // => "2018-09-02T09:12:49.695Z"
 
+// Native
+new Date(new Date().getTime() - 1000 * 60 * 60 * 24 * 7);
+// => Sun Sep 09 2018 09:12:49
+
 // date-fns
 import subDays from 'date-fns/subDays';
 subDays(new Date(), 7);
@@ -696,6 +706,10 @@ Check if a date is before another date.
 moment('2010-10-20').isBefore('2010-10-21');
 // => true
 
+// Native
+new Date(2010, 10, 20) < new Date(2010, 10, 21);
+// => true
+
 // date-fns
 import isBefore from 'date-fns/isBefore';
 isBefore(new Date(2010, 9, 20), new Date(2010, 9, 21));
@@ -810,6 +824,10 @@ Check if a year is a leap year.
 moment([2000]).isLeapYear();
 // => true
 
+// Native
+new Date(2000, 1, 29).getDate() === 29;
+// => true
+
 // date-fns
 import isLeapYear from 'date-fns/isLeapYear';
 isLeapYear(new Date(2000, 0, 1));
@@ -831,6 +849,10 @@ Check if a variable is a native js Date object.
 ```js
 // Moment.js
 moment.isDate(new Date());
+// => true
+
+// Native
+new Date() instanceof Date;
 // => true
 
 // date-fns
