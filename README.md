@@ -333,11 +333,7 @@ moment().dayOfYear(256);
 
 // Native
 Math.round(
-  (new Date(time) - new Date(new Date(time).getFullYear(), 0, 0)) /
-    1000 /
-    60 /
-    60 /
-    24
+  (new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24
 );
 // => 252
 
@@ -530,15 +526,7 @@ moment().subtract(7, 'days');
 // => "2018-09-02T09:12:49.695Z"
 
 // Native
-new Date(
-  new Date().getFullYear(),
-  new Date().getMonth(),
-  new Date().getDate() - 7,
-  new Date().getHours(),
-  new Date().getMinutes(),
-  new Date().getSeconds(),
-  new Date().getMilliseconds()
-);
+new Date(new Date().getTime() - 1000 * 60 * 60 * 24 * 7);
 // => Sun Sep 09 2018 09:12:49
 
 // date-fns
