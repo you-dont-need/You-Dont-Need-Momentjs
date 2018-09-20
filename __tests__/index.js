@@ -235,15 +235,7 @@ describe('Manipulate', () => {
 
   it('Subtract', () => {
     const m = moment(time).subtract(7, 'days');
-    const n = new Date(
-      new Date(time).getFullYear(),
-      new Date(time).getMonth(),
-      new Date(time).getDate() - 7,
-      new Date(time).getHours(),
-      new Date(time).getMinutes(),
-      new Date(time).getSeconds(),
-      new Date(time).getMilliseconds()
-    );
+    const n = new Date(new Date(time).getTime() - 1000 * 60 * 60 * 24 * 7);
     const d = date.subDays(new Date(time), 7);
     const day = dayjs(time).subtract(7, 'day');
     expect(m.valueOf()).toBe(d.getTime());
