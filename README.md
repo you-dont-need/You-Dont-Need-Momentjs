@@ -340,17 +340,6 @@ Math.round(
     24
 );
 // => 252
-new Date(
-  new Date(time).getFullYear(),
-  0,
-  0,
-  new Date(time).getHours() - 1,
-  new Date(time).getMinutes(),
-  new Date(time).getSeconds(),
-  new Date(time).getMilliseconds()
-).getTime() +
-  1000 * 60 * 60 * 24 * 256;
-// => Thu Sep 13 2018 09:12:49
 
 // date-fns
 import getDayOfYear from 'date-fns/getDayOfYear';

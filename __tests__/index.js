@@ -147,22 +147,8 @@ describe('Get + Set', () => {
     const m = moment(time)
       .dayOfYear(256)
       .valueOf();
-    const n = new Date(
-      new Date(
-        new Date(time).getFullYear(),
-        0,
-        0,
-        new Date(time).getHours() - 1,
-        new Date(time).getMinutes(),
-        new Date(time).getSeconds(),
-        new Date(time).getMilliseconds()
-      ).getTime() +
-        1000 * 60 * 60 * 24 * 256
-    ).valueOf();
     const d = date.setDayOfYear(new Date(time), 256).getTime();
     expect(m).toBe(d);
-    expect(n).toBe(d);
-    expect(n).toBe(m);
   });
 
   it('get Week of Year', () => {
