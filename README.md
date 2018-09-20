@@ -531,13 +531,13 @@ moment().subtract(7, 'days');
 
 // Native
 new Date(
-  new Date(time).getFullYear(),
-  new Date(time).getMonth(),
-  new Date(time).getDate() - 7,
-  new Date(time).getHours(),
-  new Date(time).getMinutes(),
-  new Date(time).getSeconds(),
-  new Date(time).getMilliseconds()
+  new Date().getFullYear(),
+  new Date().getMonth(),
+  new Date().getDate() - 7,
+  new Date().getHours(),
+  new Date().getMinutes(),
+  new Date().getSeconds(),
+  new Date().getMilliseconds()
 );
 // => Sun Sep 09 2018 09:12:49
 
