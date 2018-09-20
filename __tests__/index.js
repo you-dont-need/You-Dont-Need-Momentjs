@@ -162,8 +162,12 @@ describe('Get + Set', () => {
     const m = moment('2012-02', 'YYYY-MM').daysInMonth();
     const d = date.getDaysInMonth(new Date(2012, 1));
     const day = dayjs('2012-02').daysInMonth();
+    const n = new Date(2012, 2, 0).getDate();
     expect(m).toBe(d);
     expect(m).toBe(day);
+    expect(n).toBe(d);
+    expect(n).toBe(day);
+    expect(n).toBe(m);
   });
 
   it('get Weeks In Year', () => {
@@ -203,9 +207,21 @@ describe('Manipulate', () => {
   it('Add', () => {
     const m = moment(time).add(7, 'days');
     const d = date.addDays(new Date(time), 7);
+    const n = new Date(
+      new Date(time).getFullYear(),
+      new Date(time).getMonth(),
+      new Date(time).getDate() + 7,
+      new Date(time).getHours(),
+      new Date(time).getMinutes(),
+      new Date(time).getSeconds(),
+      new Date(time).getMilliseconds()
+    );
     const day = dayjs(time).add(7, 'day');
     expect(m.valueOf()).toBe(d.getTime());
     expect(m.valueOf()).toBe(day.valueOf());
+    expect(n.valueOf()).toBe(m.valueOf());
+    expect(n.valueOf()).toBe(day.valueOf());
+    expect(n.valueOf()).toBe(d.getTime());
   });
 
   it('Subtract', () => {
@@ -268,6 +284,7 @@ describe('Display', () => {
 
   it('Difference', () => {
     const m = moment([2007, 0, 27]).diff(moment([2007, 0, 29]));
+    const n = new Date(2007, 0, 27) - new Date(2007, 0, 29);
     const d = date.differenceInMilliseconds(
       new Date(2007, 0, 27),
       new Date(2007, 0, 29)
@@ -275,8 +292,14 @@ describe('Display', () => {
     const day = dayjs('2007-01-27').diff(dayjs('2007-01-29'), 'milliseconds');
     expect(m).toBe(d);
     expect(m).toBe(day);
+    expect(n).toBe(d);
+    expect(n).toBe(m);
+    expect(n).toBe(day);
 
     const m2 = moment([2007, 0, 27]).diff(moment([2007, 0, 29]), 'days');
+    const n2 = Math.ceil(
+      (new Date(2007, 0, 27) - new Date(2007, 0, 29)) / 1000 / 60 / 60 / 24
+    );
     const d2 = date.differenceInDays(
       new Date(2007, 0, 27),
       new Date(2007, 0, 29)
@@ -284,6 +307,9 @@ describe('Display', () => {
     const day2 = dayjs('2007-01-27').diff(dayjs('2007-01-29'), 'days');
     expect(m2).toBe(d2);
     expect(m2).toBe(day2);
+    expect(n2).toBe(m2);
+    expect(n2).toBe(d2);
+    expect(n2).toBe(day2);
   });
 });
 
@@ -299,6 +325,7 @@ describe('Query', () => {
 
   it('Is Same', () => {
     expect(moment('2010-10-20').isSame('2010-10-21')).toBeFalsy();
+    expect(new Date(2010, 9, 20) === new Date(2010, 9, 21)).toBeFalsy();
     expect(
       date.isSameDay(new Date(2010, 9, 20), new Date(2010, 9, 21))
     ).toBeFalsy();
@@ -306,15 +333,21 @@ describe('Query', () => {
 
     expect(moment('2010-10-20').isSame('2010-10-21', 'month')).toBeTruthy();
     expect(
+      new Date(2010, 9, 20).toDateString().substring(4, 7) ===
+        new Date(2010, 9, 21).toDateString().substring(4, 7)
+    ).toBeTruthy();
+    expect(
       date.isSameMonth(new Date(2010, 9, 20), new Date(2010, 9, 21))
     ).toBeTruthy();
   });
 
   it('Is After', () => {
     const m = moment('2010-10-20').isAfter('2010-10-19');
+    const n = new Date(2010, 10, 20) > new Date(2010, 10, 19);
     const d = date.isAfter(new Date(2010, 9, 20), new Date(2010, 9, 19));
     const day = dayjs('2010-10-20').isAfter('2010-10-19');
     expect(m).toBeTruthy();
+    expect(n).toBeTruthy();
     expect(d).toBeTruthy();
     expect(day).toBeTruthy();
   });

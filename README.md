@@ -383,7 +383,7 @@ moment('2012-02', 'YYYY-MM').daysInMonth();
 // => 29
 
 // Native
-new Date(2012, 02, 0).getDate()
+new Date(2012, 02, 0).getDate();
 // => 29
 
 // date-fns
@@ -487,9 +487,16 @@ moment().add(7, 'days');
 // => "2018-09-16T09:12:49.695Z"
 
 // Native
-new Date(new Date().getFullYear(), new Date().getMonth() + 1, 7)
+new Date(
+  new Date().getFullYear(),
+  new Date().getMonth() + 1,
+  new Date().getDate() + 7,
+  new Date().getHours(),
+  new Date().getMinutes(),
+  new Date().getSeconds(),
+  new Date().getMilliseconds()
+);
 // => "Sun Sep 07 2018"
-
 
 // date-fns
 import addDays from 'date-fns/addDays';
@@ -654,9 +661,11 @@ moment([2007, 0, 27]).diff(moment([2007, 0, 29]), 'days');
 // => -2
 
 // Native
-new Date(2007, 0, 27) - new Date(2007, 0, 29)
+new Date(2007, 0, 27) - new Date(2007, 0, 29);
 // => -172800000
-Math.ceil((new Date(2007, 0, 27) - new Date(2007, 0, 29)) / 1000 / 60 / 60 / 24)
+Math.ceil(
+  (new Date(2007, 0, 27) - new Date(2007, 0, 29)) / 1000 / 60 / 60 / 24
+);
 // => -2
 
 // date-fns
@@ -713,11 +722,12 @@ moment('2010-10-20').isSame('2010-10-21', 'month');
 // => true
 
 // Native
-new Date(2010, 9, 20) === new Date(2010, 9, 21)
+new Date(2010, 9, 20) === new Date(2010, 9, 21);
 // => false
-new Date(2010, 9, 20) === new Date(2010, 9, 20)
+new Date(2010, 9, 20) === new Date(2010, 9, 20);
 // => true
-new Date(2010, 9, 20).toDateString().substring(4, 7) === new Date(2010, 9, 21).toDateString().substring(4, 7)
+new Date(2010, 9, 20).toDateString().substring(4, 7) ===
+  new Date(2010, 9, 21).toDateString().substring(4, 7);
 // => true
 
 // date-fns
@@ -750,7 +760,7 @@ moment('2010-10-20').isAfter('2010-10-19');
 // => true
 
 // Native
-new Date(2010, 9, 20) > new Date(2010, 9, 19)
+new Date(2010, 9, 20) > new Date(2010, 9, 19);
 // => true
 
 // date-fns
