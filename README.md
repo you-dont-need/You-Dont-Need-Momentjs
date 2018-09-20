@@ -496,7 +496,7 @@ new Date(
   new Date().getSeconds(),
   new Date().getMilliseconds()
 );
-// => "Sun Sep 07 2018"
+// => "Sun Sep 16 2018 09:12:49"
 
 // date-fns
 import addDays from 'date-fns/addDays';
