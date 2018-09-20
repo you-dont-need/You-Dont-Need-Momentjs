@@ -130,16 +130,38 @@ describe('Get + Set', () => {
 
   it('get Day of Year', () => {
     const m = moment(time).dayOfYear();
+    const n = Math.round(
+      (new Date(time) - new Date(new Date(time).getFullYear(), 0, 0)) /
+        1000 /
+        60 /
+        60 /
+        24
+    );
     const d = date.getDayOfYear(new Date(time));
     expect(m).toBe(d);
+    expect(n).toBe(d);
+    expect(n).toBe(m);
   });
 
   it('set Day of Year', () => {
     const m = moment(time)
       .dayOfYear(256)
       .valueOf();
+    const n =
+      new Date(
+        new Date(time).getFullYear(),
+        0,
+        0,
+        new Date(time).getHours() - 1,
+        new Date(time).getMinutes(),
+        new Date(time).getSeconds(),
+        new Date(time).getMilliseconds()
+      ).getTime() +
+      1000 * 60 * 60 * 24 * 256;
     const d = date.setDayOfYear(new Date(time), 256).getTime();
     expect(m).toBe(d);
+    expect(n).toBe(m);
+    expect(n).toBe(d);
   });
 
   it('get Week of Year', () => {
@@ -226,10 +248,22 @@ describe('Manipulate', () => {
 
   it('Subtract', () => {
     const m = moment(time).subtract(7, 'days');
+    const n = new Date(
+      new Date(time).getFullYear(),
+      new Date(time).getMonth(),
+      new Date(time).getDate() - 7,
+      new Date(time).getHours(),
+      new Date(time).getMinutes(),
+      new Date(time).getSeconds(),
+      new Date(time).getMilliseconds()
+    );
     const d = date.subDays(new Date(time), 7);
     const day = dayjs(time).subtract(7, 'day');
     expect(m.valueOf()).toBe(d.getTime());
     expect(m.valueOf()).toBe(day.valueOf());
+    expect(n.valueOf()).toBe(m.valueOf());
+    expect(n.valueOf()).toBe(day.valueOf());
+    expect(n.valueOf()).toBe(d.getTime());
   });
 
   it('Start of Time', () => {
@@ -316,11 +350,13 @@ describe('Display', () => {
 describe('Query', () => {
   it('Is Before', () => {
     const m = moment('2010-10-20').isBefore('2010-10-21');
+    const n = new Date(2010, 10, 20) < new Date(2010, 10, 21);
     const d = date.isBefore(new Date(2010, 9, 20), new Date(2010, 9, 21));
     const day = dayjs('2010-10-20').isBefore('2010-10-21'); //plugin
     expect(m).toBeTruthy();
     expect(d).toBeTruthy();
     expect(day).toBeTruthy();
+    expect(n).toBeTruthy();
   });
 
   it('Is Same', () => {
@@ -367,6 +403,7 @@ describe('Query', () => {
 
   it('Is Leap Year', () => {
     expect(moment([2000]).isLeapYear()).toBeTruthy();
+    expect(new Date(2000, 1, 29).getDate() === 29).toBeTruthy();
     expect(date.isLeapYear(new Date(2000, 0, 1))).toBeTruthy();
     expect(date.isLeapYear(new Date(2001, 0, 1))).toBeFalsy();
     expect(dayjs('2000').isLeapYear()).toBeTruthy();
@@ -374,6 +411,7 @@ describe('Query', () => {
 
   it('Is a Date', () => {
     expect(moment.isDate(new Date())).toBeTruthy();
+    expect(new Date() instanceof Date).toBeTruthy();
     expect(date.isDate(new Date())).toBeTruthy();
     expect(dayjs.isDayjs(dayjs())).toBeTruthy();
   });
