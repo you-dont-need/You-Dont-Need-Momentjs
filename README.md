@@ -332,7 +332,7 @@ moment().dayOfYear(256);
 // => "2018-09-13T09:12:49.695Z"
 
 // Native
-Math.round(
+Math.floor(
   (new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24
 );
 // => 252

@@ -130,7 +130,7 @@ describe('Get + Set', () => {
 
   it('get Day of Year', () => {
     const m = moment(time).dayOfYear();
-    const n = Math.round(
+    const n = Math.floor(
       (new Date(time) - new Date(new Date(time).getFullYear(), 0, 0)) /
         1000 /
         60 /
@@ -193,8 +193,10 @@ describe('Get + Set', () => {
       new Date(2016, 0, 9),
     ];
     const m = moment.max(array.map(a => moment(a)));
+    const n = new Date(Math.max.apply(null, array));
     const d = date.max(array);
     expect(m.valueOf()).toBe(d.getTime());
+    expect(n).toEqual(new Date(2018, 2, 12));
     expect(d).toEqual(new Date(2018, 2, 12));
   });
 
@@ -206,8 +208,10 @@ describe('Get + Set', () => {
       new Date(2016, 0, 9),
     ];
     const m = moment.min(array.map(a => moment(a)));
+    const n = new Date(Math.min.apply(null, array));
     const d = date.min(array);
     expect(m.valueOf()).toBe(d.getTime());
+    expect(n).toEqual(new Date(2016, 0, 9));
     expect(d).toEqual(new Date(2016, 0, 9));
   });
 });
