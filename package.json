@@ -48,6 +48,10 @@
   "jest": {
     "collectCoverageFrom": [
       "lib/**/*.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "./__tests__/performance.js"
     ]
   },
   "license": "MIT",
