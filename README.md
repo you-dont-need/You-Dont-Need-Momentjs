@@ -220,6 +220,13 @@ dayjs().hour();
 // => 19
 ```
 
+| Library | Iteration | Time       |
+| ------- | --------- | ---------- |
+| Moment  | 1 000 000 | 1845.162ms |
+| Native  | 1 000 000 | 661.061ms  |
+| DateFns | 1 000 000 | 909.328ms  |
+| DayJs   | 1 000 000 | 970.660ms  |
+
 Set the `Millisecond/Second/Minute/Hour` of the given date.
 
 ```js

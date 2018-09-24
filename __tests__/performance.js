@@ -3,13 +3,12 @@ const { getSeconds, getHours } = require('date-fns');
 const dayjs = require('dayjs');
 const iterations = 1000000;
 
-const performanceTest = testFunction => {
-  const start = new Date();
+const performanceTest = (type, testFunction) => {
+  console.time(type);
   for (let i = 0; i < iterations; i++) {
     testFunction();
   }
-  const time = new Date() - start;
-  console.info(`Execution time: ${time}ms`);
+  console.timeEnd(type);
 };
 
 const runTests = object => {
@@ -22,29 +21,25 @@ const runTests = object => {
 
 const Get = {
   moment: () => {
-    console.log('Moment');
-    performanceTest(() => {
+    performanceTest('Moment', () => {
       moment().seconds();
       moment().hours();
     });
   },
   native: () => {
-    console.log('Native');
-    performanceTest(() => {
+    performanceTest('Native', () => {
       new Date().getSeconds();
       new Date().getHours();
     });
   },
   dateFns: () => {
-    console.log('DateFns');
-    performanceTest(() => {
+    performanceTest('DateFns', () => {
       getSeconds(new Date());
       getHours(new Date());
     });
   },
   dayJs: () => {
-    console.log('DayJs');
-    performanceTest(() => {
+    performanceTest('DayJs', () => {
       dayjs().second();
       dayjs().hour();
     });
