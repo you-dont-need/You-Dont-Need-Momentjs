@@ -24,6 +24,7 @@
   "scripts": {
     "test:watch": "jest --watch",
     "test": "jest --coverage",
+    "test:perf": "node ./__tests__/performance.js",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "precommit": "pretty-quick --staged"
   },
