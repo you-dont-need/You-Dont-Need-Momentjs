@@ -220,6 +220,15 @@ dayjs().hour();
 // => 19
 ```
 
+### Performance tests
+
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 1845.162ms |
+| Native  | 661.061ms  |
+| DateFns | 909.328ms  |
+| DayJs   | 970.660ms  |
+
 Set the `Millisecond/Second/Minute/Hour` of the given date.
 
 ```js
@@ -249,6 +258,15 @@ dayjs().set('second', 30);
 dayjs().set('hour', 13);
 // => "2018-09-09T03:12:49.695Z"
 ```
+
+### Performance tests
+
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 2211.997ms |
+| Native  | 1255.035ms |
+| DateFns | 1318.111ms |
+| DayJs   | 3650.978ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -284,6 +302,15 @@ dayjs().set('date', 4);
 // => "2018-09-04T09:12:49.695Z"
 ```
 
+### Performance tests
+
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 1766.847ms |
+| Native  | 802.727ms  |
+| DateFns | 1118.577ms |
+| DayJs   | 2127.448ms |
+
 **[⬆ back to top](#quick-links)**
 
 ### Day of Week
@@ -318,6 +345,13 @@ dayjs().set('day', -14);
 // => "2018-08-26T09:12:49.695Z"
 ```
 
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 2456.520ms |
+| Native  | 1052.091ms |
+| DateFns | 1467.430ms |
+| DayJs   | 2137.842ms |
+
 **[⬆ back to top](#quick-links)**
 
 ### Day of Year
@@ -348,6 +382,13 @@ setDayOfYear(new Date(), 256);
 // dayjs ❌ does not support day of year
 ```
 
+| Library | Time        |
+| ------- | ----------- |
+| Moment  | 14853.342ms |
+| Native  | 959.097ms   |
+| DateFns | 4680.491ms  |
+| DayJs   | -           |
+
 **[⬆ back to top](#quick-links)**
 
 ### Week of Year
@@ -377,6 +418,13 @@ dayjs().week();
 // dayjs ❌ does not support set week of year
 ```
 
+| Library | Time        |
+| ------- | ----------- |
+| Moment  | 18145.149ms |
+| Native  | -           |
+| DateFns | 15599.386ms |
+| DayJs   | -           |
+
 **[⬆ back to top](#quick-links)**
 
 ### Days in Month
@@ -402,6 +450,13 @@ dayjs('2012-02').daysInMonth();
 // => 29
 ```
 
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 4836.243ms |
+| Native  | 504.241ms  |
+| DateFns | 1584.524ms |
+| DayJs   | 2965.774ms |
+
 **[⬆ back to top](#quick-links)**
 
 ### Weeks in Year
@@ -420,6 +475,13 @@ getISOWeeksInYear(new Date());
 
 // dayjs ❌ does not support weeks in the year
 ```
+
+| Library | Time        |
+| ------- | ----------- |
+| Moment  | 1282.320ms  |
+| Native  | -           |
+| DateFns | 12832.076ms |
+| DayJs   | -           |
 
 **[⬆ back to top](#quick-links)**
 
@@ -450,6 +512,13 @@ max(array);
 // dayjs ❌ does not support the maximum of the given dates
 ```
 
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 1736.095ms |
+| Native  | 1104.626ms |
+| DateFns | 966.238ms  |
+| DayJs   | -          |
+
 **[⬆ back to top](#quick-links)**
 
 ### Minimum of the given dates
@@ -478,6 +547,13 @@ min(array);
 
 // dayjs ❌ does not support the minimum of the given dates
 ```
+
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 1937.293ms |
+| Native  | 1164.853ms |
+| DateFns | 908.990ms  |
+| DayJs   | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -514,6 +590,13 @@ dayjs().add(7, 'day');
 // => "2018-09-16T09:12:49.695Z"
 ```
 
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 1673.028ms |
+| Native  | 2325.192ms |
+| DateFns | 800.039ms  |
+| DayJs   | 1007.254ms |
+
 **[⬆ back to top](#quick-links)**
 
 ### Subtract
@@ -539,6 +622,13 @@ dayjs().subtract(7, 'day');
 // => "2018-09-02T09:12:49.695Z"
 ```
 
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 1638.627ms |
+| Native  | 246.940ms  |
+| DateFns | 759.963ms  |
+| DayJs   | 954.443ms  |
+
 **[⬆ back to top](#quick-links)**
 
 ### Start of Time
@@ -560,6 +650,13 @@ dayjs().startOf('month');
 // => "2018-08-31T14:00:00.000Z"
 ```
 
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 3322.043ms |
+| Native  | -          |
+| DateFns | 1046.938ms |
+| DayJs   | 1268.229ms |
+
 **[⬆ back to top](#quick-links)**
 
 ### End of Time
@@ -580,6 +677,13 @@ endOfDay(new Date());
 dayjs().endOf('day');
 // => "2018-09-09T13:59:59.999Z"
 ```
+
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 4575.466ms |
+| Native  | -          |
+| DateFns | 649.161ms  |
+| DayJs   | 1617.489ms |
 
 **[⬆ back to top](#quick-links)**
 
