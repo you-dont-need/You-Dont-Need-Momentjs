@@ -726,8 +726,8 @@ moment(1536484369695).fromNow();
 // => "4 days ago"
 
 // date-fns
-import formatDistance from 'date-fns/formatDistance';
-formatDistance(new Date(1536484369695), new Date(), { addSuffix: true });
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+distanceInWordsToNow(new Date(1536484369695), { addSuffix: true });
 // => "4 days ago"
 
 // dayjs ⚠️ requires relativeTime plugin
