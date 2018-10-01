@@ -569,15 +569,8 @@ moment().add(7, 'days');
 // => "2018-09-16T09:12:49.695Z"
 
 // Native
-new Date(
-  new Date().getFullYear(),
-  new Date().getMonth() + 1,
-  new Date().getDate() + 7,
-  new Date().getHours(),
-  new Date().getMinutes(),
-  new Date().getSeconds(),
-  new Date().getMilliseconds()
-);
+const now = new Date();
+now.setDate(now.getDate() + 7);
 // => "Sun Sep 16 2018 09:12:49"
 
 // date-fns
@@ -592,10 +585,10 @@ dayjs().add(7, 'day');
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1673.028ms |
-| Native  | 2325.192ms |
-| DateFns | 800.039ms  |
-| DayJs   | 1007.254ms |
+| Moment  | 1468.151ms |
+| Native  | 208.735ms  |
+| DateFns | 337.129ms  |
+| DayJs   | 631.982ms  |
 
 **[⬆ back to top](#quick-links)**
 
