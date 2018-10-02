@@ -220,15 +220,8 @@ describe('Manipulate', () => {
   it('Add', () => {
     const m = moment(time).add(7, 'days');
     const d = date.addDays(new Date(time), 7);
-    const n = new Date(
-      new Date(time).getFullYear(),
-      new Date(time).getMonth(),
-      new Date(time).getDate() + 7,
-      new Date(time).getHours(),
-      new Date(time).getMinutes(),
-      new Date(time).getSeconds(),
-      new Date(time).getMilliseconds()
-    );
+    const n = new Date(time);
+    n.setDate(n.getDate() + 7);
     const day = dayjs(time).add(7, 'day');
     expect(m.valueOf()).toBe(d.getTime());
     expect(m.valueOf()).toBe(day.valueOf());
