@@ -295,15 +295,8 @@ const Add = {
   },
   native: () => {
     performanceTest('Native', () => {
-      new Date(
-        new Date().getFullYear(),
-        new Date().getMonth() + 1,
-        new Date().getDate() + 7,
-        new Date().getHours(),
-        new Date().getMinutes(),
-        new Date().getSeconds(),
-        new Date().getMilliseconds()
-      );
+      const now = new Date();
+      now.setDate(now.getDate() + 7);
     });
   },
   dateFns: () => {
