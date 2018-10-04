@@ -13,6 +13,9 @@ dayjs.extend(isLeapYear);
 
 const time = 1536484369695;
 
+const MILLISECONDS_IN_WEEK = 604800000;
+const firstDayOfWeek = 1; // monday as the first day (0 = sunday)
+
 describe('Parse', () => {
   it('String + Date Format', () => {
     const m = moment('12-25-1995', 'MM-DD-YYYY');
@@ -153,18 +156,32 @@ describe('Get + Set', () => {
 
   it('get Week of Year', () => {
     const m = moment(time).week();
-    const d = date.getWeek(new Date(time));
     const day = dayjs(time).week(); // plugin
+    const t = new Date(time);
+    const s = new Date(t.getFullYear(), 0, 1);
+    s.setDate(s.getDate() + ((firstDayOfWeek - s.getDay()) % 7));
+    const n = Math.round((t - s) / MILLISECONDS_IN_WEEK) + 1;
+    const d = date.getWeek(new Date(time));
     expect(m).toBe(d);
     expect(m).toBe(day);
+    expect(m).toBe(n);
+    expect(n).toBe(day);
+    expect(n).toBe(d);
   });
 
   it('set Week of Year', () => {
     const m = moment(time)
       .week(24)
       .valueOf();
+    const n = new Date(time);
+    const s = new Date(n.getFullYear(), 0, 1);
+    s.setDate(s.getDate() + ((firstDayOfWeek - s.getDay()) % 7));
+    const w = Math.round((n - s) / MILLISECONDS_IN_WEEK) + 1;
+    n.setDate(n.getDate() - (w - 24) * 7);
     const d = date.setWeek(new Date(time), 24).getTime();
     expect(m).toBe(d);
+    expect(m).toBe(n.getTime());
+    expect(n.getTime()).toBe(d);
   });
 
   it('Days in Month', () => {
