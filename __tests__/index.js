@@ -13,9 +13,6 @@ dayjs.extend(isLeapYear);
 
 const time = 1536484369695;
 
-const MILLISECONDS_IN_WEEK = 604800000;
-const firstDayOfWeek = 1; // monday as the first day (0 = sunday)
-
 describe('Parse', () => {
   it('String + Date Format', () => {
     const m = moment('12-25-1995', 'MM-DD-YYYY');
@@ -155,6 +152,8 @@ describe('Get + Set', () => {
   });
 
   it('get Week of Year', () => {
+    const MILLISECONDS_IN_WEEK = 604800000;
+    const firstDayOfWeek = 1; // monday as the first day (0 = sunday)
     const m = moment(time).week();
     const day = dayjs(time).week(); // plugin
     const t = new Date(time);
@@ -170,6 +169,9 @@ describe('Get + Set', () => {
   });
 
   it('set Week of Year', () => {
+    const MILLISECONDS_IN_WEEK = 604800000;
+    const firstDayOfWeek = 1; // monday as the first day (0 = sunday)
+
     const m = moment(time)
       .week(24)
       .valueOf();

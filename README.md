@@ -419,6 +419,7 @@ startOfYear.setDate(
   startOfYear.getDate() + (firstDayOfWeek - (startOfYear.getDay() % 7))
 );
 const dayWeek = Math.round((day - startOfYear) / MILLISECONDS_IN_WEEK) + 1;
+// => 37
 
 // native setWeek
 const day = new Date();
@@ -431,6 +432,8 @@ startOfYear.setDate(
 );
 const dayWeek = Math.round((day - startOfYear) / MILLISECONDS_IN_WEEK) + 1;
 day.setDate(day.getDate() - (dayWeek - week) * 7);
+day.toISOString();
+// => "2018-06-10T09:12:49.794Z
 
 // dayjs ⚠️ requires weekOfYear plugin
 import weekOfYear from 'dayjs/plugin/weekOfYear';
@@ -442,9 +445,9 @@ dayjs().week();
 
 | Library | Time        |
 | ------- | ----------- |
-| Moment  | 13921.366ms |
-| Native  | 1491.937ms  |
-| DateFns | 5319.569ms  |
+| Moment  | 13225.976ms |
+| Native  | 1314.261ms  |
+| DateFns | 4694.894ms  |
 | DayJs   | -           |
 
 **[⬆ back to top](#quick-links)**

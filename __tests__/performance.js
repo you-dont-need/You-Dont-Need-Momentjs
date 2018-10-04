@@ -201,17 +201,18 @@ const WeekOfYear = {
     performanceTest('Native', () => {
       const MILLISECONDS_IN_WEEK = 604800000;
       const firstDayOfWeek = 1;
-      // get()
+
       const t = new Date();
       const s = new Date(t.getFullYear(), 0, 1);
       s.setDate(s.getDate() + ((firstDayOfWeek - s.getDay()) % 7));
-      const w = Math.round((t - s) / MILLISECONDS_IN_WEEK) + 1;
-      // set(24)
+      Math.round((t - s) / MILLISECONDS_IN_WEEK) + 1;
+
       const d = new Date();
       const f = new Date(d.getFullYear(), 0, 1);
       f.setDate(f.getDate() + ((firstDayOfWeek - f.getDay()) % 7));
-      const x = Math.round((d - f) / MILLISECONDS_IN_WEEK) + 1;
-      d.setDate(d.getDate() - (x - 24) * 7);
+      d.setDate(
+        d.getDate() - (Math.round((d - f) / MILLISECONDS_IN_WEEK) + 1 - 24) * 7
+      );
     });
   },
   dateFns: () => {
@@ -222,7 +223,7 @@ const WeekOfYear = {
   },
 };
 
-// runTests(WeekOfYear);
+runTests(WeekOfYear);
 
 const DaysInMonth = {
   moment: () => {
