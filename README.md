@@ -661,6 +661,12 @@ Return the end of a unit of time for the given date.
 moment().endOf('day');
 // => "2018-09-09T13:59:59.999Z"
 
+// Native
+const end = new Date();
+end.setHours(23, 59, 59, 999);
+end.toISOString();
+// => "2018-09-09T16:59:59.999Z"
+
 // date-fns
 import endOfDay from 'date-fns/endOfDay';
 endOfDay(new Date());
@@ -673,10 +679,10 @@ dayjs().endOf('day');
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 4575.466ms |
-| Native  | -          |
-| DateFns | 649.161ms  |
-| DayJs   | 1617.489ms |
+| Moment  | 5180.706ms |
+| Native  | 272.112ms  |
+| DateFns | 386.81ms   |
+| DayJs   | 1131.517ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -821,7 +827,7 @@ dayjs('2010-10-20').isBefore('2010-10-21');
 
 ### Is Same
 
-Check if a date is same another date.
+Check if a date is the same as another date.
 
 ```js
 // Moment.js
