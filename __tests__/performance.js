@@ -223,7 +223,7 @@ const WeekOfYear = {
   },
 };
 
-runTests(WeekOfYear);
+// runTests(WeekOfYear);
 
 const DaysInMonth = {
   moment: () => {
