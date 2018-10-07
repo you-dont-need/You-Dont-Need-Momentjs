@@ -278,6 +278,10 @@ describe('Display', () => {
   });
 
   it('Time from now', () => {
+    moment.relativeTimeThreshold(
+      'd',
+      new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate()
+    );
     const m = moment(time).fromNow();
     const d = date.formatDistance(new Date(time), new Date(), {
       addSuffix: true,
