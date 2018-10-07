@@ -364,6 +364,11 @@ const EndOfTime = {
       moment().endOf('day');
     });
   },
+  native: () => {
+    performanceTest('Native', () => {
+      new Date().setHours(23, 59, 59, 999);
+    });
+  },
   dateFns: () => {
     performanceTest('DateFns', () => {
       endOfDay(new Date());

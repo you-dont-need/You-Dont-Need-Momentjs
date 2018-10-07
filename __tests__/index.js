@@ -252,10 +252,15 @@ describe('Manipulate', () => {
 
   it('End of Time', () => {
     const m = moment(time).endOf('day');
+    const n = new Date(time).setHours(23, 59, 59, 999);
     const d = date.endOfDay(new Date(time));
     const day = dayjs(time).endOf('day');
+    expect(m.valueOf()).toBe(n);
     expect(m.valueOf()).toBe(d.getTime());
     expect(m.valueOf()).toBe(day.valueOf());
+    expect(d.getTime()).toBe(day.valueOf());
+    expect(n).toBe(d.getTime());
+    expect(n).toBe(day.valueOf());
   });
 });
 
