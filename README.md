@@ -679,10 +679,10 @@ dayjs().endOf('day');
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 5180.706ms |
-| Native  | 272.112ms  |
-| DateFns | 386.81ms   |
-| DayJs   | 1131.517ms |
+| Moment  | 4583.067ms |
+| Native  | 284.882ms  |
+| DateFns | 386.746ms  |
+| DayJs   | 1138.415ms |
 
 **[⬆ back to top](#quick-links)**
 

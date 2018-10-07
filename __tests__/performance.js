@@ -366,8 +366,7 @@ const EndOfTime = {
   },
   native: () => {
     performanceTest('Native', () => {
-      const end = new Date();
-      end.setHours(23, 59, 59, 999);
+      new Date().setHours(23, 59, 59, 999);
     });
   },
   dateFns: () => {
