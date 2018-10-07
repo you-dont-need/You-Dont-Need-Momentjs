@@ -410,6 +410,31 @@ getWeek(new Date());
 setWeek(new Date(), 24);
 // => "2018-06-10T09:12:49.695Z"
 
+// native getWeek
+const day = new Date();
+const MILLISECONDS_IN_WEEK = 604800000;
+const firstDayOfWeek = 1; // monday as the first day (0 = sunday)
+const startOfYear = new Date(day.getFullYear(), 0, 1);
+startOfYear.setDate(
+  startOfYear.getDate() + (firstDayOfWeek - (startOfYear.getDay() % 7))
+);
+const dayWeek = Math.round((day - startOfYear) / MILLISECONDS_IN_WEEK) + 1;
+// => 37
+
+// native setWeek
+const day = new Date();
+const week = 24;
+const MILLISECONDS_IN_WEEK = 604800000;
+const firstDayOfWeek = 1; // monday as the first day (0 = sunday)
+const startOfYear = new Date(day.getFullYear(), 0, 1);
+startOfYear.setDate(
+  startOfYear.getDate() + (firstDayOfWeek - (startOfYear.getDay() % 7))
+);
+const dayWeek = Math.round((day - startOfYear) / MILLISECONDS_IN_WEEK) + 1;
+day.setDate(day.getDate() - (dayWeek - week) * 7);
+day.toISOString();
+// => "2018-06-10T09:12:49.794Z
+
 // dayjs ⚠️ requires weekOfYear plugin
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 dayjs.extend(weekOfYear);
@@ -420,9 +445,9 @@ dayjs().week();
 
 | Library | Time        |
 | ------- | ----------- |
-| Moment  | 18145.149ms |
-| Native  | -           |
-| DateFns | 15599.386ms |
+| Moment  | 13225.976ms |
+| Native  | 1314.261ms  |
+| DateFns | 4694.894ms  |
 | DayJs   | -           |
 
 **[⬆ back to top](#quick-links)**
