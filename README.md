@@ -135,6 +135,12 @@ Return the date parsed from date string using the given format string.
 moment('12-25-1995', 'MM-DD-YYYY');
 // => "1995-12-24T13:00:00.000Z"
 
+// Native
+const datePattern = /^(\d{2})-(\d{2})-(\d{4})$/;
+const [ full, month, day, year ] = datePattern.exec('12-25-1995');
+new Date(`${year}-${month}-${day}`);
+// => "1995-12-24T13:00:00.000Z"
+
 // date-fns
 import parse from 'date-fns/parse';
 parse('12-25-1995', 'MM-dd-yyyy', new Date());
@@ -154,6 +160,12 @@ Return the date parsed from time string using the given format string.
 ```js
 // Moment.js
 moment('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
+// => "2010-10-19T17:30:00.000Z"
+
+// Native
+const datePattern = /^(\d{4})-(\d{2})-(\d{2})\s(\d{1,2}):(\d{2})$/;
+const [ full, year, month, day, rawHour, min ] = datePattern.exec('2010-10-20 4:30');
+new Date(`${year}-${month}-${day}T${('0' + rawHour).slice(-2)}:${min}:00`);
 // => "2010-10-19T17:30:00.000Z"
 
 // date-fns
