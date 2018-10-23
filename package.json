@@ -31,7 +31,7 @@
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "coveralls": "^3.0.2",
-    "date-fns": "^2.0.0-alpha.16",
+    "date-fns": "^2.0.0-alpha.23",
     "dayjs": "^1.7.5",
     "eslint": "^5.5.0",
     "husky": "^0.14.3",
@@ -41,7 +41,8 @@
     "pretty-quick": "^1.6.0"
   },
   "dependencies": {
-    "kebab-case": "^1.0.0"
+    "kebab-case": "^1.0.0",
+    "luxon": "^1.4.4"
   },
   "peerDependencies": {
     "eslint": "^5.5.0"

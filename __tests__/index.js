@@ -286,7 +286,9 @@ describe('Manipulate', () => {
 describe('Display', () => {
   it('Format', () => {
     const m = moment(time).format('dddd, MMMM Do YYYY, h:mm:ss A');
-    const d = date.format(new Date(time), 'eeee, MMMM do YYYY, h:mm:ss aa');
+    const d = date.format(new Date(time), 'eeee, MMMM do YYYY, h:mm:ss aa', {
+      awareOfUnicodeTokens: true,
+    });
     const day = dayjs(time).format('dddd, MMMM D YYYY, h:mm:ss A');
     expect(m).toBe(d);
     expect(moment(time).format('dddd, MMMM D YYYY, h:mm:ss A')).toBe(day);
@@ -299,17 +301,20 @@ describe('Display', () => {
   });
 
   it('Time from now', () => {
+    const month3 = 1000 * 3600 * 24 * 30 * 3; // ms * hour * day * month * 3
+    const timeDistance = new Date().getTime() - month3;
+
     moment.relativeTimeThreshold(
       'd',
       new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate()
     );
-    const m = moment(time).fromNow();
-    const d = date.formatDistance(new Date(time), new Date(), {
+    const m = moment(timeDistance).fromNow();
+    const d = date.formatDistanceStrict(new Date(timeDistance), new Date(), {
       addSuffix: true,
     });
-    const day = dayjs(time).fromNow(); // plugin
+    const day = dayjs(timeDistance).fromNow(); // plugin
     expect(m).toBe(d);
-    expect(moment().fromNow()).toBe(dayjs().fromNow());
+    expect(m).toBe(day);
   });
 
   it('Time from X', () => {
