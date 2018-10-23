@@ -41,8 +41,7 @@
     "pretty-quick": "^1.6.0"
   },
   "dependencies": {
-    "kebab-case": "^1.0.0",
-    "luxon": "^1.4.4"
+    "kebab-case": "^1.0.0"
   },
   "peerDependencies": {
     "eslint": "^5.5.0"
