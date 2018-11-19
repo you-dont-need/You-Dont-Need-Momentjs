@@ -137,8 +137,8 @@ moment('12-25-1995', 'MM-DD-YYYY');
 
 // Native
 const datePattern = /^(\d{2})-(\d{2})-(\d{4})$/;
-const [ full, month, day, year ] = datePattern.exec('12-25-1995');
-new Date(`${year}-${month}-${day}`);
+const [, month, day, year] = datePattern.exec('12-25-1995');
+new Date(`${month}, ${day} ${year}`);
 // => "1995-12-24T13:00:00.000Z"
 
 // date-fns
@@ -164,7 +164,7 @@ moment('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
 
 // Native
 const datePattern = /^(\d{4})-(\d{2})-(\d{2})\s(\d{1,2}):(\d{2})$/;
-const [ full, year, month, day, rawHour, min ] = datePattern.exec('2010-10-20 4:30');
+const [, year, month, day, rawHour, min] = datePattern.exec('2010-10-20 4:30');
 new Date(`${year}-${month}-${day}T${('0' + rawHour).slice(-2)}:${min}:00`);
 // => "2010-10-19T17:30:00.000Z"
 
