@@ -22,6 +22,7 @@ const {
   getDaysInMonth,
 } = require('date-fns');
 const dayjs = require('dayjs');
+const { DateTime } = require('luxon');
 const iterations = 1000000;
 const array = [
   new Date(2017, 4, 13),
@@ -71,6 +72,12 @@ const Get = {
       dayjs().hour();
     });
   },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().second;
+      DateTime.local().hour;
+    });
+  },
 };
 
 // runTests(Get);
@@ -98,6 +105,12 @@ const Set = {
     performanceTest('DayJs', () => {
       dayjs().set('second', 30);
       dayjs().set('hour', 13);
+    });
+  },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.utc().set({ second: 30 });
+      DateTime.utc().set({ hour: 13 });
     });
   },
 };
@@ -129,6 +142,12 @@ const DateOfMonth = {
       dayjs().set('date', 4);
     });
   },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().day;
+      DateTime.local().set({ day: 4 });
+    });
+  },
 };
 
 // runTests(DateOfMonth);
@@ -158,6 +177,12 @@ const DayOfWeek = {
       dayjs().set('day', -14);
     });
   },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().weekday;
+      DateTime.local().set({ weekday: -14 });
+    });
+  },
 };
 
 // runTests(DayOfWeek);
@@ -184,6 +209,12 @@ const DayOfYear = {
     performanceTest('DateFns', () => {
       getDayOfYear(new Date());
       setDayOfYear(new Date(), 256);
+    });
+  },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().ordinal;
+      DateTime.local().set({ ordinal: 256 });
     });
   },
 };
@@ -221,6 +252,12 @@ const WeekOfYear = {
       setWeek(new Date(), 24);
     });
   },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().weekYear;
+      DateTime.local().set({ weekYear: 24 });
+    });
+  },
 };
 
 // runTests(WeekOfYear);
@@ -233,17 +270,22 @@ const DaysInMonth = {
   },
   native: () => {
     performanceTest('Native', () => {
-      new Date(2012, 02, 0).getDate();
+      new Date(2012, 2, 0).getDate();
     });
   },
   dateFns: () => {
     performanceTest('DateFns', () => {
-      getDaysInMonth(new Date(2012, 1));
+      getDaysInMonth(new Date(2012, 2));
     });
   },
   dayJs: () => {
     performanceTest('DayJs', () => {
       dayjs('2012-02').daysInMonth();
+    });
+  },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local(2012, 2).day;
     });
   },
 };
@@ -259,6 +301,11 @@ const WeeksInYear = {
   dateFns: () => {
     performanceTest('DateFns', () => {
       getISOWeeksInYear(new Date());
+    });
+  },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().weeksInWeekYear;
     });
   },
 };
@@ -281,6 +328,12 @@ const MaximumOfGivenDates = {
       max(array);
     });
   },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      const dates = array.map(a => DateTime.fromJSDate(a));
+      DateTime.max(...dates);
+    });
+  },
 };
 
 // runTests(MaximumOfGivenDates);
@@ -299,6 +352,12 @@ const MinimumOfGivenDates = {
   dateFns: () => {
     performanceTest('DateFns', () => {
       min(array);
+    });
+  },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      const dates = array.map(a => DateTime.fromJSDate(a));
+      DateTime.min(...dates);
     });
   },
 };
@@ -327,6 +386,11 @@ const Add = {
       dayjs().add(7, 'day');
     });
   },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().plus({ day: 7 });
+    });
+  },
 };
 
 // runTests(Add);
@@ -352,6 +416,11 @@ const Subtract = {
       dayjs().subtract(7, 'day');
     });
   },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().minus({ day: 7 });
+    });
+  },
 };
 
 // runTests(Subtract);
@@ -370,6 +439,11 @@ const StartOfTime = {
   dayJs: () => {
     performanceTest('DayJs', () => {
       dayjs().startOf('month');
+    });
+  },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().startOf('month');
     });
   },
 };
@@ -395,6 +469,11 @@ const EndOfTime = {
   dayJs: () => {
     performanceTest('DayJs', () => {
       dayjs().endOf('day');
+    });
+  },
+  luxon: () => {
+    performanceTest('Luxon', () => {
+      DateTime.local().endOf('day');
     });
   },
 };

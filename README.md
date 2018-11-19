@@ -14,11 +14,12 @@ If you are not using timezone but only a few simple functions from moment.js, th
 
 ## Brief Comparison
 
-| Name                                     | Size(gzip)                        | Tree-shaking | Popularity | Methods richness | Pattern    | Timezone Support      | Locale |
-| ---------------------------------------- | --------------------------------- | ------------ | ---------- | ---------------- | ---------- | --------------------- | ------ |
-| [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 38k        | High             | OO         | Good(moment-timezone) | 123    |
-| [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 13k        | High             | Functional | Not yet               | 46     |
-| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 14k        | Medium           | OO         | Not yet               | 23     |
+| Name                                     | Size(gzip)                        | Tree-shaking | Popularity(stars) | Methods richness | Pattern    | Timezone Support      | Locale |
+| ---------------------------------------- | --------------------------------- | ------------ | ----------------- | ---------------- | ---------- | --------------------- | ------ |
+| [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 39k               | High             | OO         | Good(moment-timezone) | 123    |
+| [Luxon](https://moment.github.io/luxon/) | 59.9K(17.2K)                      | No           | 7k                | High             | OO         | Good(Intl)            | -      |
+| [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 15k               | High             | Functional | Not yet               | 50     |
+| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 16k               | Medium           | OO         | Not yet               | 32     |
 
 ## Voice of Developers
 
@@ -149,6 +150,10 @@ parse('12-25-1995', 'MM-dd-yyyy', new Date());
 // dayjs
 dayjs('12-25-1995');
 // => "1995-12-24T13:00:00.000Z"
+
+// luxon
+DateTime.fromFormat('12-25-1995', 'MM-dd-yyyy').toJSDate();
+// => "1995-12-24T13:00:00.000Z"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -174,6 +179,10 @@ parse('2010-10-20 4:30', 'yyyy-MM-dd H:mm', new Date());
 // => "2010-10-19T17:30:00.000Z"
 
 // dayjs ❌ does not support custom format parse
+
+// luxon
+DateTime.fromFormat('2010-10-20 4:30', 'yyyy-MM-dd H:mm').toJSDate();
+// => "2010-10-19T17:30:00.000Z"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -194,6 +203,10 @@ parse('2012 mars', 'yyyy MMMM', new Date(), { locale: fr });
 // => "2012-02-29T13:00:00.000Z"
 
 // dayjs ❌ does not support custom format parse
+
+// Luxon ❌ is not support Locale for node unless https://moment.github.io/luxon/docs/manual/install.html#node
+DateTime.fromFormat('2012 mars', 'yyyy MMMM', { locale: 'fr' });
+// => "2012-02-29T13:00:00.000Z"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -230,16 +243,23 @@ dayjs().second();
 // => 49
 dayjs().hour();
 // => 19
+
+// Luxon
+DateTime.local().second;
+// => 49
+DateTime.local().hour;
+// => 19
 ```
 
 ### Performance tests
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1845.162ms |
-| Native  | 661.061ms  |
-| DateFns | 909.328ms  |
-| DayJs   | 970.660ms  |
+| Moment  | 1432.647ms |
+| Native  | 367.769ms  |
+| DateFns | 608.878ms  |
+| DayJs   | 502.302ms  |
+| Luxon   | 1296.507ms |
 
 Set the `Millisecond/Second/Minute/Hour` of the given date.
 
@@ -269,16 +289,27 @@ dayjs().set('second', 30);
 // => "2018-09-09T09:12:30.695Z"
 dayjs().set('hour', 13);
 // => "2018-09-09T03:12:49.695Z"
+
+// luxon
+DateTime.utc()
+  .set({ second: 30 })
+  .toJSDate();
+// => "2018-09-09T09:12:30.695Z"
+DateTime.utc()
+  .set({ hour: 13 })
+  .toJSDate();
+// => "2018-09-09T03:12:49.695Z"
 ```
 
 ### Performance tests
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 2211.997ms |
-| Native  | 1255.035ms |
-| DateFns | 1318.111ms |
-| DayJs   | 3650.978ms |
+| Moment  | 1690.007ms |
+| Native  | 636.242    |
+| DateFns | 696.768ms  |
+| DayJs   | 1891.058ms |
+| Luxon   | 8630.314ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -312,16 +343,25 @@ dayjs().date();
 // => 9
 dayjs().set('date', 4);
 // => "2018-09-04T09:12:49.695Z"
+
+// luxon
+DateTime.utc().day;
+// => 9
+DateTime.utc()
+  .set({ day: 4 })
+  .toString();
+// => "2018-09-04T09:12:49.695Z"
 ```
 
 ### Performance tests
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1766.847ms |
-| Native  | 802.727ms  |
-| DateFns | 1118.577ms |
-| DayJs   | 2127.448ms |
+| Moment  | 1349.161ms |
+| Native  | 388.734ms  |
+| DateFns | 602.132ms  |
+| DayJs   | 1088.253ms |
+| Luxon   | 4728.460ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -355,14 +395,23 @@ dayjs().day();
 // => 0 (Sunday)
 dayjs().set('day', -14);
 // => "2018-08-26T09:12:49.695Z"
+
+// Luxon
+DateTime.local().weekday;
+// => 7 (Sunday)
+DateTime.local()
+  .minus({ day: 14 })
+  .toJSDate();
+// => "2018-08-26T09:12:49.695Z"
 ```
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 2456.520ms |
-| Native  | 1052.091ms |
-| DateFns | 1467.430ms |
-| DayJs   | 2137.842ms |
+| Moment  | 1869.609ms |
+| Native  | 565.715ms  |
+| DateFns | 815.355ms  |
+| DayJs   | 1087.407ms |
+| Luxon   | 7093.800ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -392,14 +441,23 @@ setDayOfYear(new Date(), 256);
 // => "2018-09-13T09:12:49.695Z"
 
 // dayjs ❌ does not support day of year
+
+// Luxon
+DateTime.local().ordinal;
+// => 252
+DateTime.local()
+  .set({ ordinal: 256 })
+  .toString();
+// => "2018-09-13T09:12:49.695Z"
 ```
 
-| Library | Time        |
-| ------- | ----------- |
-| Moment  | 14853.342ms |
-| Native  | 959.097ms   |
-| DateFns | 4680.491ms  |
-| DayJs   | -           |
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 9851.425ms |
+| Native  | 575.954ms  |
+| DateFns | 1976.969ms |
+| DayJs   | -          |
+| Luxon   | 5242.336ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -453,14 +511,23 @@ dayjs.extend(weekOfYear);
 dayjs().week();
 // => 37
 // dayjs ❌ does not support set week of year
+
+// Luxon
+DateTime.local().weekNumber;
+// => 37
+DateTime.local()
+  .set({ weekNumber: 23 })
+  .toString();
+// => "2018-06-10T09:12:49.794Z
 ```
 
 | Library | Time        |
 | ------- | ----------- |
-| Moment  | 13225.976ms |
-| Native  | 1314.261ms  |
-| DateFns | 4694.894ms  |
+| Moment  | 11997.187ms |
+| Native  | 1467.277ms  |
+| DateFns | 6070.445ms  |
 | DayJs   | -           |
+| Luxon   | 7944.387ms  |
 
 **[⬆ back to top](#quick-links)**
 
@@ -485,6 +552,10 @@ getDaysInMonth(new Date(2012, 1));
 // dayjs
 dayjs('2012-02').daysInMonth();
 // => 29
+
+// Luxon
+DateTime.local(2012, 2).daysInMonth;
+// => 29
 ```
 
 | Library | Time       |
@@ -493,6 +564,7 @@ dayjs('2012-02').daysInMonth();
 | Native  | 504.241ms  |
 | DateFns | 1584.524ms |
 | DayJs   | 2965.774ms |
+| Luxon   | 1292.006ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -511,14 +583,19 @@ getISOWeeksInYear(new Date());
 // => 52
 
 // dayjs ❌ does not support weeks in the year
+
+// Moment.js
+DateTime.local().weeksInWeekYear;
+// => 52
 ```
 
-| Library | Time        |
-| ------- | ----------- |
-| Moment  | 1282.320ms  |
-| Native  | -           |
-| DateFns | 12832.076ms |
-| DayJs   | -           |
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 983.551ms  |
+| Native  | -          |
+| DateFns | 4751.236ms |
+| DayJs   | -          |
+| Luxon   | 1743.877ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -547,6 +624,10 @@ max(array);
 // => "2018-03-11T13:00:00.000Z"
 
 // dayjs ❌ does not support the maximum of the given dates
+
+// Luxon
+DateTime.max(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
+// => "2018-03-11T13:00:00.000Z"
 ```
 
 | Library | Time       |
@@ -555,6 +636,7 @@ max(array);
 | Native  | 1104.626ms |
 | DateFns | 966.238ms  |
 | DayJs   | -          |
+| Luxon   | 2703.421ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -583,6 +665,10 @@ min(array);
 // => "2016-01-08T13:00:00.000Z"
 
 // dayjs ❌ does not support the minimum of the given dates
+
+// Luxon
+DateTime.min(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
+// => "2016-01-08T13:00:00.000Z"
 ```
 
 | Library | Time       |
@@ -591,6 +677,7 @@ min(array);
 | Native  | 1164.853ms |
 | DateFns | 908.990ms  |
 | DayJs   | -          |
+| Luxon   | 3085.444ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -618,6 +705,12 @@ addDays(new Date(), 7);
 // dayjs
 dayjs().add(7, 'day');
 // => "2018-09-16T09:12:49.695Z"
+
+// Luxon
+DateTime.local()
+  .plus({ day: 7 })
+  .toJSDate();
+// => "2018-09-16T09:12:49.695Z"
 ```
 
 | Library | Time       |
@@ -626,6 +719,7 @@ dayjs().add(7, 'day');
 | Native  | 208.735ms  |
 | DateFns | 337.129ms  |
 | DayJs   | 631.982ms  |
+| Luxon   | 7248.459ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -650,6 +744,12 @@ subDays(new Date(), 7);
 // dayjs
 dayjs().subtract(7, 'day');
 // => "2018-09-02T09:12:49.695Z"
+
+// Luxon
+DateTime.local()
+  .minus({ day: 7 })
+  .toJSDate();
+// => "2018-09-02T09:12:49.695Z"
 ```
 
 | Library | Time       |
@@ -658,6 +758,7 @@ dayjs().subtract(7, 'day');
 | Native  | 246.940ms  |
 | DateFns | 759.963ms  |
 | DayJs   | 954.443ms  |
+| Luxon   | 7701.059ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -678,14 +779,19 @@ startOfMonth(new Date());
 // dayjs
 dayjs().startOf('month');
 // => "2018-08-31T14:00:00.000Z"
+
+// Luxon
+DateTime.local().startOf('month');
+// => "2018-09-02T09:12:49.695Z"
 ```
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 3322.043ms |
+| Moment  | 1869.290ms |
 | Native  | -          |
-| DateFns | 1046.938ms |
-| DayJs   | 1268.229ms |
+| DateFns | 455.759ms  |
+| DayJs   | 735.666ms  |
+| Luxon   | 5116.801ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -712,14 +818,19 @@ endOfDay(new Date());
 // dayjs
 dayjs().endOf('day');
 // => "2018-09-09T13:59:59.999Z"
+
+// Luxon
+DateTime.local().endOf('day');
+// => "2018-09-02T09:12:49.695Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 4583.067ms |
-| Native  | 284.882ms  |
-| DateFns | 386.746ms  |
-| DayJs   | 1138.415ms |
+| Library | Time        |
+| ------- | ----------- |
+| Moment  | 4583.067ms  |
+| Native  | 284.882ms   |
+| DateFns | 386.746ms   |
+| DayJs   | 1138.415ms  |
+| Luxon   | 19305.183ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -748,6 +859,12 @@ dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
 // => "Sunday, September 9 2018, 7:12:49 PM" ⚠️  not support 9th
 dayjs().format('ddd, hA');
 // => "Sun, 7PM"
+
+// Luxon
+DateTime.fromMillis(time).toFormat('EEEE, MMMM dd yyyy, h:mm:ss a');
+// => "Sunday, September 9 2018, 7:12:49 PM" ⚠️  not support 9th
+DateTime.fromMillis(time).toFormat('EEE, ha');
+// => "Sun, 7PM"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -772,6 +889,8 @@ dayjs.extend(relativeTime);
 
 dayjs(1536484369695).fromNow();
 // => "5 days ago" ⚠️  the rounding method of this plugin is different from moment.js and date-fns, use with care.
+
+// luxon ❌ does not support relative time
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -795,6 +914,8 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 dayjs('2007-01-27').to(dayjs('2007-01-29'));
 // => "in 2 days"
+
+// luxon ❌ does not support relative time
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -831,6 +952,12 @@ dayjs('2007-01-27').diff(dayjs('2007-01-29'), 'milliseconds');
 // => -172800000
 dayjs('2007-01-27').diff(dayjs('2007-01-29'), 'days');
 // => -2
+
+// luxon
+DateTime.local(2007, 1, 27).diff(DateTime.local(2007, 1, 29)).milliseconds;
+// => -172800000
+DateTime.local(2007, 1, 27).diff(DateTime.local(2007, 1, 29), 'days').days;
+// => -2
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -857,6 +984,10 @@ isBefore(new Date(2010, 9, 20), new Date(2010, 9, 21));
 
 // dayjs
 dayjs('2010-10-20').isBefore('2010-10-21');
+// => true
+
+// luxon
+DateTime.fromISO('2010-10-20') < DateTime.fromISO('2010-10-21');
 // => true
 ```
 
@@ -900,6 +1031,16 @@ dayjs('2010-10-20').isSame('2010-10-21');
 dayjs('2010-10-20').isSame('2010-10-20');
 // => true
 // dayjs ❌ does not support is same month
+
+// luxon
+(+DateTime.fromISO('2010-10-20') ===
+  +DateTime.fromISO('2010-10-21') +
+    // => false
+    DateTime.fromISO('2010-10-20')) ===
+  +DateTime.fromISO('2010-10-20');
+// => true
+DateTime.fromISO('2010-10-20').hasSame(DateTime.fromISO('2010-10-21'), 'month');
+// => true
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -924,6 +1065,10 @@ isAfter(new Date(2010, 9, 20), new Date(2010, 9, 19));
 
 // dayjs
 dayjs('2010-10-20').isAfter('2010-10-19');
+// => true
+
+// luxon
+DateTime.fromISO('2010-10-20') > DateTime.fromISO('2010-10-19');
 // => true
 ```
 
@@ -950,6 +1095,13 @@ isWithinInterval(new Date(2010, 9, 20), {
 import isBetween from 'dayjs/plugin/isBetween';
 dayjs.extend(isBetween);
 dayjs('2010-10-20').isBetween('2010-10-19', '2010-10-25');
+// => true
+
+// luxon
+Interval.fromDateTimes(
+  DateTime.fromISO('2010-10-19'),
+  DateTime.fromISO('2010-10-25')
+).contains(DateTime.fromISO('2010-10-20'));
 // => true
 ```
 
@@ -978,6 +1130,10 @@ import isLeapYear from 'dayjs/plugin/isLeapYear';
 dayjs.extend(isLeapYear);
 dayjs('2000').isLeapYear();
 // => true
+
+// luxon
+expect(DateTime.local(2000).isInLeapYear).toBeTruthy();
+// => true
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1001,6 +1157,10 @@ isDate(new Date());
 // => true
 
 // dayjs ❌ does not support is date
+
+// luxon
+DateTime.local().isValid;
+// => true
 ```
 
 **[⬆ back to top](#quick-links)**
