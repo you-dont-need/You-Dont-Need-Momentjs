@@ -26,6 +26,7 @@ describe('Parse', () => {
   });
   it('String + Time Format', () => {
     const m = moment('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
+
     const [
       ,
       yyyy,
@@ -37,7 +38,15 @@ describe('Parse', () => {
     const n = new Date(`${yyyy}-${mm}-${dd}T${('0' + hh).slice(-2)}:${mi}:00`);
     const d = date.parse('2010-10-20 4:30', 'yyyy-MM-dd H:mm', new Date());
     expect(m.valueOf()).toBe(n.getTime());
+
+    const d = date.parse('12-25-1995', 'MM-dd-yyyy', new Date());
     expect(m.valueOf()).toBe(d.getTime());
+
+    const day = dayjs('12-25-1995');
+    expect(m.valueOf()).toBe(day.valueOf());
+
+    const luxon = DateTime.fromFormat('12-25-1995', 'MM-dd-yyyy');
+    expect(m.valueOf()).toBe(luxon.ts);
   });
   it('String + Format + locale', () => {
     const m = moment('2012 mars', 'YYYY MMM', 'fr');
