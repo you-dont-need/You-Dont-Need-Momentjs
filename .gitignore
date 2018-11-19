@@ -10,3 +10,5 @@ yarn-error.log*
 coverage
 yarn.lock
 package-lock.json
+
+.history
