@@ -18,6 +18,10 @@ describe('Parse', () => {
   it('String + Date Format', () => {
     const m = moment('12-25-1995', 'MM-DD-YYYY');
 
+    const [, mm, dd, yyyy] = /^(\d{2})-(\d{2})-(\d{4})$/.exec('12-25-1995');
+    const n = new Date(`${mm}, ${dd} ${yyyy}`);
+    expect(m.valueOf()).toBe(n.getTime());
+
     const d = date.parse('12-25-1995', 'MM-dd-yyyy', new Date());
     expect(m.valueOf()).toBe(d.getTime());
 
@@ -29,6 +33,18 @@ describe('Parse', () => {
   });
   it('String + Time Format', () => {
     const m = moment('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
+
+    const [
+      ,
+      yyyy,
+      mm,
+      dd,
+      hh,
+      mi,
+    ] = /^(\d{4})-(\d{2})-(\d{2})\s(\d{1,2}):(\d{2})$/.exec('2010-10-20 4:30');
+    const n = new Date(`${yyyy}-${mm}-${dd}T${('0' + hh).slice(-2)}:${mi}:00`);
+    expect(m.valueOf()).toBe(n.getTime());
+
     const d = date.parse('2010-10-20 4:30', 'yyyy-MM-dd H:mm', new Date());
     expect(m.valueOf()).toBe(d.getTime());
 

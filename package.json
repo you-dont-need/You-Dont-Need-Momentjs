@@ -18,6 +18,7 @@
   "author": "Andrew Yang <ddvkid@gmail.com>",
   "contributors": [
     "Robert Chang <cht8687@gmail.com>",
+    "Jago MF <jagomf@gmail.com> (https://github.com/jagomf)",
     "Steve Mao <maochenyan@gmail.com> (https://github.com/stevemao)"
   ],
   "main": "lib/index.js",
