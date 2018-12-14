@@ -204,7 +204,7 @@ parse('2012 mars', 'yyyy MMMM', new Date(), { locale: fr });
 
 // dayjs ❌ does not support custom format parse
 
-// Luxon ❌ is not support Locale for node unless https://moment.github.io/luxon/docs/manual/install.html#node
+// Luxon ❌ does not support Locale for node unless https://moment.github.io/luxon/docs/manual/install.html#node
 DateTime.fromFormat('2012 mars', 'yyyy MMMM', { locale: 'fr' });
 // => "2012-02-29T13:00:00.000Z"
 ```
