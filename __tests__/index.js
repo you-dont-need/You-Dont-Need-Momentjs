@@ -561,8 +561,8 @@ describe('Query', () => {
     expect(new Date(2000, 1, 29).getDate() === 29).toBeTruthy();
     expect(date.isLeapYear(new Date(2000, 0, 1))).toBeTruthy();
     expect(date.isLeapYear(new Date(2001, 0, 1))).toBeFalsy();
-    expect(dayjs('2000').isLeapYear()).toBeTruthy();
-    expect(dayjs('2001').isLeapYear()).toBeFalsy();
+    expect(dayjs('2000-01-01').isLeapYear()).toBeTruthy();
+    expect(dayjs('2001-01-01').isLeapYear()).toBeFalsy();
     expect(DateTime.local(2000).isInLeapYear).toBeTruthy();
     expect(DateTime.local(2001).isInLeapYear).toBeFalsy();
   });

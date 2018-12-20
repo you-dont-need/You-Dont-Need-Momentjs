@@ -1128,7 +1128,7 @@ isLeapYear(new Date(2000, 0, 1));
 // dayjs ⚠️ requires isLeapYear plugin
 import isLeapYear from 'dayjs/plugin/isLeapYear';
 dayjs.extend(isLeapYear);
-dayjs('2000').isLeapYear();
+dayjs('2000-01-01').isLeapYear();
 // => true
 
 // luxon
