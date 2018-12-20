@@ -509,6 +509,15 @@ describe('Query', () => {
 
     expect(moment('2010-10-20').isSame('2010-10-21', 'month')).toBeTruthy();
     expect(
+      new Date(2010, 9, 20).valueOf() === new Date(2010, 9, 20).valueOf()
+    ).toBeTruthy();
+    expect(
+      new Date(2010, 9, 20).getTime() === new Date(2010, 9, 20).getTime()
+    ).toBeTruthy();
+    expect(
+      new Date(2010, 9, 20).valueOf() === new Date(2010, 9, 20).getTime()
+    ).toBeTruthy();
+    expect(
       new Date(2010, 9, 20).toDateString().substring(4, 7) ===
         new Date(2010, 9, 21).toDateString().substring(4, 7)
     ).toBeTruthy();
