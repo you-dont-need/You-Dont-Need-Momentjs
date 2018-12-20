@@ -1007,9 +1007,13 @@ moment('2010-10-20').isSame('2010-10-21', 'month');
 // => true
 
 // Native
-new Date(2010, 9, 20) === new Date(2010, 9, 21);
+new Date(2010, 9, 20).valueOf() === new Date(2010, 9, 21).valueOf();
 // => false
-new Date(2010, 9, 20) === new Date(2010, 9, 20);
+new Date(2010, 9, 20).valueOf() === new Date(2010, 9, 20).valueOf();
+// => true
+new Date(2010, 9, 20).getTime() === new Date(2010, 9, 20).getTime();
+// => true
+new Date(2010, 9, 20).valueOf() === new Date(2010, 9, 20).getTime();
 // => true
 new Date(2010, 9, 20).toDateString().substring(4, 7) ===
   new Date(2010, 9, 21).toDateString().substring(4, 7);
