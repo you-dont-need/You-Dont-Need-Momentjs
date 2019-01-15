@@ -181,7 +181,7 @@ parse('2010-10-20 4:30', 'yyyy-MM-dd H:mm', new Date());
 // dayjs ⚠️ requires customParseFormat plugin
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 dayjs.extend(customParseFormat)
-moment('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
+dayjs('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
 // => "2010-10-19T17:30:00.000Z"
 
 // luxon
