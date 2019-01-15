@@ -19,7 +19,7 @@ If you are not using timezone but only a few simple functions from moment.js, th
 | [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 39k               | High             | OO         | Good(moment-timezone) | 123    |
 | [Luxon](https://moment.github.io/luxon/) | 59.9K(17.2K)                      | No           | 7k                | High             | OO         | Good(Intl)            | -      |
 | [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 15k               | High             | Functional | Not yet               | 50     |
-| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 16k               | Medium           | OO         | Not yet               | 32     |
+| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 17k               | Medium           | OO         | Not yet               | 39     |
 
 ## Voice of Developers
 
@@ -178,7 +178,11 @@ import parse from 'date-fns/parse';
 parse('2010-10-20 4:30', 'yyyy-MM-dd H:mm', new Date());
 // => "2010-10-19T17:30:00.000Z"
 
-// dayjs ❌ does not support custom format parse
+// dayjs ⚠️ requires customParseFormat plugin
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+dayjs.extend(customParseFormat)
+dayjs('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
+// => "2010-10-19T17:30:00.000Z"
 
 // luxon
 DateTime.fromFormat('2010-10-20 4:30', 'yyyy-MM-dd H:mm').toJSDate();
@@ -856,9 +860,14 @@ format(new Date(), 'eee, ha');
 
 // dayjs
 dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
-// => "Sunday, September 9 2018, 7:12:49 PM" ⚠️  not support 9th
+// => "Sunday, September 9 2018, 7:12:49 PM" 
 dayjs().format('ddd, hA');
 // => "Sun, 7PM"
+// dayjs ⚠️ requires advancedFormat plugin to support more format tokens
+import advancedFormat from 'dayjs/plugin/customParseFormat'
+dayjs.extend(advancedFormat)
+dayjs().format('dddd, MMMM Do YYYY, h:mm:ss A');
+// => "Sunday, September 9th 2018, 7:12:49 PM"
 
 // Luxon
 DateTime.fromMillis(time).toFormat('EEEE, MMMM dd yyyy, h:mm:ss a');
@@ -1034,7 +1043,8 @@ dayjs('2010-10-20').isSame('2010-10-21');
 // => false
 dayjs('2010-10-20').isSame('2010-10-20');
 // => true
-// dayjs ❌ does not support is same month
+dayjs('2010-10-20').isSame('2010-10-21', 'month');
+// => true
 
 // luxon
 (+DateTime.fromISO('2010-10-20') ===
@@ -1160,7 +1170,8 @@ import isDate from 'date-fns/isDate';
 isDate(new Date());
 // => true
 
-// dayjs ❌ does not support is date
+// dayjs 
+dayjs(new Date()).isValid()
 
 // luxon
 DateTime.local().isValid;
