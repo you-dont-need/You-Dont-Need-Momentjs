@@ -206,7 +206,12 @@ import fr from 'date-fns/locale/fr';
 parse('2012 mars', 'yyyy MMMM', new Date(), { locale: fr });
 // => "2012-02-29T13:00:00.000Z"
 
-// dayjs ❌ does not support custom format parse
+// dayjs ⚠️ requires customParseFormat plugin
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import 'dayjs/locale/fr'
+dayjs.extend(customParseFormat)
+dayjs('2012 mars', 'YYYY MMM', 'fr');
+// => "2012-02-29T13:00:00.000Z"
 
 // Luxon ❌ does not support Locale for node unless https://moment.github.io/luxon/docs/manual/install.html#node
 DateTime.fromFormat('2012 mars', 'yyyy MMMM', { locale: 'fr' });
