@@ -19,7 +19,7 @@ If you are not using timezone but only a few simple functions from moment.js, th
 | [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 39k               | High             | OO         | Good(moment-timezone) | 123    |
 | [Luxon](https://moment.github.io/luxon/) | 59.9K(17.2K)                      | No           | 7k                | High             | OO         | Good(Intl)            | -      |
 | [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 15k               | High             | Functional | Not yet               | 50     |
-| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | Yes           | 18k               | Medium           | OO         | Not yet               | 44     |
+| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 18k               | Medium           | OO         | Not yet               | 44     |
 
 ## Voice of Developers
 
