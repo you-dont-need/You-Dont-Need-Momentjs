@@ -19,7 +19,7 @@ If you are not using timezone but only a few simple functions from moment.js, th
 | [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 39k               | High             | OO         | Good(moment-timezone) | 123    |
 | [Luxon](https://moment.github.io/luxon/) | 59.9K(17.2K)                      | No           | 7k                | High             | OO         | Good(Intl)            | -      |
 | [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 15k               | High             | Functional | Not yet               | 50     |
-| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 17k               | Medium           | OO         | Not yet               | 39     |
+| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 18k               | Medium           | OO         | Not yet               | 44     |
 
 ## Voice of Developers
 
@@ -206,7 +206,12 @@ import fr from 'date-fns/locale/fr';
 parse('2012 mars', 'yyyy MMMM', new Date(), { locale: fr });
 // => "2012-02-29T13:00:00.000Z"
 
-// dayjs ❌ does not support custom format parse
+// dayjs ⚠️ requires customParseFormat plugin
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import 'dayjs/locale/fr'
+dayjs.extend(customParseFormat)
+dayjs('2012 mars', 'YYYY MMM', 'fr');
+// => "2012-02-29T13:00:00.000Z"
 
 // Luxon ❌ does not support Locale for node unless https://moment.github.io/luxon/docs/manual/install.html#node
 DateTime.fromFormat('2012 mars', 'yyyy MMMM', { locale: 'fr' });
@@ -514,7 +519,8 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 dayjs.extend(weekOfYear);
 dayjs().week();
 // => 37
-// dayjs ❌ does not support set week of year
+dayjs().week(24);
+// => "2018-06-10T09:12:49.695Z"
 
 // Luxon
 DateTime.local().weekNumber;
