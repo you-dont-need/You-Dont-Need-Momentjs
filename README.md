@@ -19,7 +19,7 @@ If you are not using timezone but only a few simple functions from moment.js, th
 | [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 39k               | High             | OO         | Good(moment-timezone) | 123    |
 | [Luxon](https://moment.github.io/luxon/) | 59.9K(17.2K)                      | No           | 7k                | High             | OO         | Good(Intl)            | -      |
 | [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 15k               | High             | Functional | Not yet               | 50     |
-| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 18k               | Medium           | OO         | Not yet               | 44     |
+| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 20k               | High           | OO         | Not yet               | 130     |
 
 ## Voice of Developers
 
@@ -449,7 +449,13 @@ getDayOfYear(new Date());
 setDayOfYear(new Date(), 256);
 // => "2018-09-13T09:12:49.695Z"
 
-// dayjs ❌ does not support day of year
+// dayjs ⚠️ requires dayOfYear plugin
+import dayOfYear from 'dayjs/plugin/dayOfYear'
+dayjs.extend(dayOfYear)
+dayjs().dayOfYear();
+// => 252
+dayjs().dayOfYear(256);
+// => "2018-09-13T09:12:49.695Z"
 
 // Luxon
 DateTime.local().ordinal;
@@ -592,7 +598,11 @@ import getISOWeeksInYear from 'date-fns/getISOWeeksInYear';
 getISOWeeksInYear(new Date());
 // => 52
 
-// dayjs ❌ does not support weeks in the year
+// dayjs ⚠️ requires isoWeeksInYear plugin
+import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
+dayjs.extend(isoWeeksInYear)
+dayjs().isoWeeksInYear();
+// => 52
 
 // Moment.js
 DateTime.local().weeksInWeekYear;
@@ -633,7 +643,11 @@ import max from 'date-fns/max';
 max(array);
 // => "2018-03-11T13:00:00.000Z"
 
-// dayjs ❌ does not support the maximum of the given dates
+// dayjs ⚠️ requires minMax plugin
+import minMax from 'dayjs/plugin/minMax'
+dayjs.extend(minMax)
+dayjs.max(array.map(a => dayjs(a)));
+// => "2018-03-11T13:00:00.000Z"
 
 // Luxon
 DateTime.max(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
@@ -674,7 +688,11 @@ import min from 'date-fns/min';
 min(array);
 // => "2016-01-08T13:00:00.000Z"
 
-// dayjs ❌ does not support the minimum of the given dates
+// dayjs ⚠️ requires minMax plugin
+import minMax from 'dayjs/plugin/minMax'
+dayjs.extend(minMax)
+dayjs.min(array.map(a => dayjs(a)));
+// => "2016-01-08T13:00:00.000Z"
 
 // Luxon
 DateTime.min(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
