@@ -125,6 +125,8 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 
 ⚠️ _Note that the provided examples of date-fns are for [v2](https://date-fns.org/v2.0.0-alpha.16/docs/Getting-Started) which is in pre-release right now. [See v1 docs](https://date-fns.org/docs/Getting-Started) for the current release._
 
+[Feature Parity](#feature-parity)
+
 ## Parse
 
 ### String + Date Format
