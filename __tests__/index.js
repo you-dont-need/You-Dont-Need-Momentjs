@@ -396,7 +396,7 @@ describe('Manipulate', () => {
 describe('Display', () => {
   it('Format', () => {
     const m = moment(time).format('dddd, MMMM D YYYY, h:mm:ss A');
-    const d = date.format(new Date(time), 'eeee, MMMM d YYYY, h:mm:ss aa', {
+    const d = date.format(new Date(time), 'eeee, MMMM d yyyy, h:mm:ss aa', {
       awareOfUnicodeTokens: true,
     });
     const day = dayjs(time).format('dddd, MMMM D YYYY, h:mm:ss A');
