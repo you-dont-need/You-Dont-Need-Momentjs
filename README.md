@@ -125,7 +125,46 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 
 ⚠️ _Note that the provided examples of date-fns are for [v2](https://date-fns.org/v2.0.0-alpha.16/docs/Getting-Started) which is in pre-release right now. [See v1 docs](https://date-fns.org/docs/Getting-Started) for the current release._
 
-[Feature Parity](#feature-parity)
+# Feature Parity
+ ⚠️ Indicates other packages or work are needed. See individual functions [above](#quick-links).
+
+|                                    |     Native |     Luxon |     date-fns |     dayjs |
+| ---------------------------------- | ---------- | --------- | ------------ | --------- |
+|     **Parse**                          |            |           |              |           |
+|     String   + Date Format         |     ✅      |     ✅     |     ✅        |     ✅     |
+|     String   + Time Format         |     ✅      |     ✅     |     ✅        |     ⚠️    |
+|     String   + Format + locale     |     ❌      | ⚠️        |     ✅        |     ⚠️    |
+|                                    |            |           |              |           |
+|     **Get + Set**                     |            |           |              |           |
+|     Millisecond/Second/Minute/Hour |     ✅      |     ✅     |     ✅        |     ✅     |
+|     Date   of Month                |     ✅      |     ✅     |     ✅        |     ✅     |
+|     Day   of Week                  |     ✅      |     ✅     |     ✅        |     ✅     |
+|     Day   of Year                  |     ✅      |     ✅     |     ✅        |     ✅     |
+|     Week   of Year                 |     ✅      |     ✅     |     ✅        |     ⚠️    |
+|     Days   in Month                |     ✅      |     ✅     |     ✅        |     ⚠️    |
+|     Weeks   in Year                |     ❌      |     ❌     |     ✅        |      ❌     |
+|     Maximum   of the given dates   |     ✅      |     ✅     |     ✅        | ⚠️        |
+|     Minimum   of the given dates   |     ✅      |     ✅     |     ✅        |     ⚠️    |
+|                                    |            |           |              |           |
+|     **Manipulate**                     |            |           |              |           |
+|     Add                               |     ✅      |     ✅     |     ✅        |     ✅     |
+|     Subtract                       |     ✅      |     ✅     |     ✅        |     ✅     |
+|     Start   of Time                |     ❌      |     ✅     |     ✅        |     ✅     |
+|     End   of Time                  |     ✅      |     ✅     |     ✅        |     ✅     |
+|                                    |            |           |              |           |
+|     **Display**                        |            |           |              |           |
+|     Format                         |     ❌      |     ✅     |     ✅        |     ✅     |
+|     Time   from now                |     ❌      |     ❌     |     ✅        | ⚠️        |
+|     Time   from X                  |     ❌      |     ❌     |     ✅        | ⚠️        |
+|     Difference                     |     ✅      |     ✅     |     ✅        |     ✅     |
+|                                    |            |           |              |           |
+|     **Query**                          |            |           |              |           |
+|     Is   Before                    |     ✅      |     ✅     |     ✅        |     ✅     |
+|     Is Same                        | ✅          | ✅         | ✅            | ✅         |
+|     Is After                       | ✅          | ✅         | ✅            | ✅         |
+|     Is   Between                   |     ❌      | ✅         | ✅            | ⚠️        |
+|     Is   Leap Year                 |     ✅      |     ✅     |     ✅        | ⚠️        |
+|     Is a   Date                    |     ✅      |     ✅     |     ✅        |     ✅     |
 
 ## Parse
 
@@ -1206,46 +1245,7 @@ DateTime.local().isValid;
 
 **[⬆ back to top](#quick-links)**
 
-# Feature Parity
- ⚠️ Indicates other packages or work are needed. See individual functions [above](#quick-links).
 
-|                                    |     Native |     Luxon |     date-fns |     dayjs |
-| ---------------------------------- | ---------- | --------- | ------------ | --------- |
-|     **Parse**                          |            |           |              |           |
-|     String   + Date Format         |     ✅      |     ✅     |     ✅        |     ✅     |
-|     String   + Time Format         |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     String   + Format + locale     |     ❌      | ⚠️        |     ✅        |     ⚠️    |
-|                                    |            |           |              |           |
-|     **Get + Set**                     |            |           |              |           |
-|     Millisecond/Second/Minute/Hour |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Date   of Month                |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Day   of Week                  |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Day   of Year                  |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Week   of Year                 |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     Days   in Month                |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     Weeks   in Year                |     ❌      |     ❌     |     ✅        |      ❌     |
-|     Maximum   of the given dates   |     ✅      |     ✅     |     ✅        | ⚠️        |
-|     Minimum   of the given dates   |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|                                    |            |           |              |           |
-|     **Manipulate**                     |            |           |              |           |
-|     Add                               |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Subtract                       |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Start   of Time                |     ❌      |     ✅     |     ✅        |     ✅     |
-|     End   of Time                  |     ✅      |     ✅     |     ✅        |     ✅     |
-|                                    |            |           |              |           |
-|     **Display**                        |            |           |              |           |
-|     Format                         |     ❌      |     ✅     |     ✅        |     ✅     |
-|     Time   from now                |     ❌      |     ❌     |     ✅        | ⚠️        |
-|     Time   from X                  |     ❌      |     ❌     |     ✅        | ⚠️        |
-|     Difference                     |     ✅      |     ✅     |     ✅        |     ✅     |
-|                                    |            |           |              |           |
-|     **Query**                          |            |           |              |           |
-|     Is   Before                    |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Is Same                        | ✅          | ✅         | ✅            | ✅         |
-|     Is After                       | ✅          | ✅         | ✅            | ✅         |
-|     Is   Between                   |     ❌      | ✅         | ✅            | ⚠️        |
-|     Is   Leap Year                 |     ✅      |     ✅     |     ✅        | ⚠️        |
-|     Is a   Date                    |     ✅      |     ✅     |     ✅        |     ✅     |
 
 # License
 
