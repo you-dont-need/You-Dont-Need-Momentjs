@@ -1213,19 +1213,19 @@ DateTime.local().isValid;
 | ---------------------------------- | ---------- | --------- | ------------ | --------- |
 |     **Parse**                          |            |           |              |           |
 |     String   + Date Format         |     ✅      |     ✅     |     ✅        |     ✅     |
-|     String   + Time Format         |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     String   + Format + locale     |     ❌      | ⚠️        |     ✅        |     ⚠️    |
+|     String   + Time Format         |     ✅      |     ✅     |     ✅        |     ✅    |
+|     String   + Format + locale     |     ❌      | ⚠️        |     ✅        |     ✅    |
 |                                    |            |           |              |           |
 |     **Get + Set**                     |            |           |              |           |
 |     Millisecond/Second/Minute/Hour |     ✅      |     ✅     |     ✅        |     ✅     |
 |     Date   of Month                |     ✅      |     ✅     |     ✅        |     ✅     |
 |     Day   of Week                  |     ✅      |     ✅     |     ✅        |     ✅     |
 |     Day   of Year                  |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Week   of Year                 |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     Days   in Month                |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     Weeks   in Year                |     ❌      |     ❌     |     ✅        |      ❌     |
-|     Maximum   of the given dates   |     ✅      |     ✅     |     ✅        | ⚠️        |
-|     Minimum   of the given dates   |     ✅      |     ✅     |     ✅        |     ⚠️    |
+|     Week   of Year                 |     ✅      |     ✅     |     ✅        |     ✅    |
+|     Days   in Month                |     ✅      |     ✅     |     ✅        |     ✅    |
+|     Weeks   in Year                |     ❌      |     ❌     |     ✅        |     ✅     |
+|     Maximum   of the given dates   |     ✅      |     ✅     |     ✅        | ✅        |
+|     Minimum   of the given dates   |     ✅      |     ✅     |     ✅        |     ✅    |
 |                                    |            |           |              |           |
 |     **Manipulate**                     |            |           |              |           |
 |     Add                               |     ✅      |     ✅     |     ✅        |     ✅     |
@@ -1235,16 +1235,16 @@ DateTime.local().isValid;
 |                                    |            |           |              |           |
 |     **Display**                        |            |           |              |           |
 |     Format                         |     ❌      |     ✅     |     ✅        |     ✅     |
-|     Time   from now                |     ❌      |     ❌     |     ✅        | ⚠️        |
-|     Time   from X                  |     ❌      |     ❌     |     ✅        | ⚠️        |
+|     Time   from now                |     ❌      |     ❌     |     ✅        | ✅        |
+|     Time   from X                  |     ❌      |     ❌     |     ✅        | ✅        |
 |     Difference                     |     ✅      |     ✅     |     ✅        |     ✅     |
 |                                    |            |           |              |           |
 |     **Query**                          |            |           |              |           |
 |     Is   Before                    |     ✅      |     ✅     |     ✅        |     ✅     |
 |     Is Same                        | ✅          | ✅         | ✅            | ✅         |
 |     Is After                       | ✅          | ✅         | ✅            | ✅         |
-|     Is   Between                   |     ❌      | ✅         | ✅            | ⚠️        |
-|     Is   Leap Year                 |     ✅      |     ✅     |     ✅        | ⚠️        |
+|     Is   Between                   |     ❌      | ✅         | ✅            | ✅        |
+|     Is   Leap Year                 |     ✅      |     ✅     |     ✅        | ✅        |
 |     Is a   Date                    |     ✅      |     ✅     |     ✅        |     ✅     |
 
 # License
