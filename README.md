@@ -19,7 +19,7 @@ If you are not using timezone but only a few simple functions from moment.js, th
 | [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 39k               | High             | OO         | Good(moment-timezone) | 123    |
 | [Luxon](https://moment.github.io/luxon/) | 59.9K(17.2K)                      | No           | 7k                | High             | OO         | Good(Intl)            | -      |
 | [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 15k               | High             | Functional | Not yet               | 50     |
-| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 20k               | High           | OO         | Not yet               | 130     |
+| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 20k               | High             | OO         | Not yet               | 130    |
 
 ## Voice of Developers
 
@@ -126,45 +126,46 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 ⚠️ _Note that the provided examples of date-fns are for [v2](https://date-fns.org/v2.0.0-alpha.16/docs/Getting-Started) which is in pre-release right now. [See v1 docs](https://date-fns.org/docs/Getting-Started) for the current release._
 
 # Feature Parity
- ⚠️ Indicates other packages or work are needed. See individual functions [above](#quick-links).
 
-|                                    |     Native |     Luxon |     date-fns |     dayjs |
-| ---------------------------------- | ---------- | --------- | ------------ | --------- |
-|     **Parse**                          |            |           |              |           |
-|     String   + Date Format         |     ✅      |     ✅     |     ✅        |     ✅     |
-|     String   + Time Format         |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     String   + Format + locale     |     ❌      | ⚠️        |     ✅        |     ⚠️    |
-|                                    |            |           |              |           |
-|     **Get + Set**                     |            |           |              |           |
-|     Millisecond/Second/Minute/Hour |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Date   of Month                |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Day   of Week                  |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Day   of Year                  |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Week   of Year                 |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     Days   in Month                |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|     Weeks   in Year                |     ❌      |     ❌     |     ✅        |      ❌     |
-|     Maximum   of the given dates   |     ✅      |     ✅     |     ✅        | ⚠️        |
-|     Minimum   of the given dates   |     ✅      |     ✅     |     ✅        |     ⚠️    |
-|                                    |            |           |              |           |
-|     **Manipulate**                     |            |           |              |           |
-|     Add                               |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Subtract                       |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Start   of Time                |     ❌      |     ✅     |     ✅        |     ✅     |
-|     End   of Time                  |     ✅      |     ✅     |     ✅        |     ✅     |
-|                                    |            |           |              |           |
-|     **Display**                        |            |           |              |           |
-|     Format                         |     ❌      |     ✅     |     ✅        |     ✅     |
-|     Time   from now                |     ❌      |     ❌     |     ✅        | ⚠️        |
-|     Time   from X                  |     ❌      |     ❌     |     ✅        | ⚠️        |
-|     Difference                     |     ✅      |     ✅     |     ✅        |     ✅     |
-|                                    |            |           |              |           |
-|     **Query**                          |            |           |              |           |
-|     Is   Before                    |     ✅      |     ✅     |     ✅        |     ✅     |
-|     Is Same                        | ✅          | ✅         | ✅            | ✅         |
-|     Is After                       | ✅          | ✅         | ✅            | ✅         |
-|     Is   Between                   |     ❌      | ✅         | ✅            | ⚠️        |
-|     Is   Leap Year                 |     ✅      |     ✅     |     ✅        | ⚠️        |
-|     Is a   Date                    |     ✅      |     ✅     |     ✅        |     ✅     |
+⚠️ Indicates other packages or work are needed. See individual functions [above](#quick-links).
+
+|                                | Native | Luxon | date-fns | dayjs |
+| ------------------------------ | ------ | ----- | -------- | ----- |
+| **Parse**                      |        |       |          |       |
+| String + Date Format           | ✅     | ✅    | ✅       | ✅    |
+| String + Time Format           | ✅     | ✅    | ✅       | ⚠️    |
+| String + Format + locale       | ❌     | ⚠️    | ✅       | ⚠️    |
+|                                |        |       |          |       |
+| **Get + Set**                  |        |       |          |       |
+| Millisecond/Second/Minute/Hour | ✅     | ✅    | ✅       | ✅    |
+| Date of Month                  | ✅     | ✅    | ✅       | ✅    |
+| Day of Week                    | ✅     | ✅    | ✅       | ✅    |
+| Day of Year                    | ✅     | ✅    | ✅       | ✅    |
+| Week of Year                   | ✅     | ✅    | ✅       | ⚠️    |
+| Days in Month                  | ✅     | ✅    | ✅       | ⚠️    |
+| Weeks in Year                  | ❌     | ❌    | ✅       | ❌    |
+| Maximum of the given dates     | ✅     | ✅    | ✅       | ⚠️    |
+| Minimum of the given dates     | ✅     | ✅    | ✅       | ⚠️    |
+|                                |        |       |          |       |
+| **Manipulate**                 |        |       |          |       |
+| Add                            | ✅     | ✅    | ✅       | ✅    |
+| Subtract                       | ✅     | ✅    | ✅       | ✅    |
+| Start of Time                  | ❌     | ✅    | ✅       | ✅    |
+| End of Time                    | ✅     | ✅    | ✅       | ✅    |
+|                                |        |       |          |       |
+| **Display**                    |        |       |          |       |
+| Format                         | ❌     | ✅    | ✅       | ✅    |
+| Time from now                  | ❌     | ❌    | ✅       | ⚠️    |
+| Time from X                    | ❌     | ❌    | ✅       | ⚠️    |
+| Difference                     | ✅     | ✅    | ✅       | ✅    |
+|                                |        |       |          |       |
+| **Query**                      |        |       |          |       |
+| Is Before                      | ✅     | ✅    | ✅       | ✅    |
+| Is Same                        | ✅     | ✅    | ✅       | ✅    |
+| Is After                       | ✅     | ✅    | ✅       | ✅    |
+| Is Between                     | ❌     | ✅    | ✅       | ⚠️    |
+| Is Leap Year                   | ✅     | ✅    | ✅       | ⚠️    |
+| Is a Date                      | ✅     | ✅    | ✅       | ✅    |
 
 ## Parse
 
@@ -220,8 +221,8 @@ parse('2010-10-20 4:30', 'yyyy-MM-dd H:mm', new Date());
 // => "2010-10-19T17:30:00.000Z"
 
 // dayjs ⚠️ requires customParseFormat plugin
-import customParseFormat from 'dayjs/plugin/customParseFormat'
-dayjs.extend(customParseFormat)
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(customParseFormat);
 dayjs('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
 // => "2010-10-19T17:30:00.000Z"
 
@@ -248,9 +249,9 @@ parse('2012 mars', 'yyyy MMMM', new Date(), { locale: fr });
 // => "2012-02-29T13:00:00.000Z"
 
 // dayjs ⚠️ requires customParseFormat plugin
-import customParseFormat from 'dayjs/plugin/customParseFormat'
-import 'dayjs/locale/fr'
-dayjs.extend(customParseFormat)
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import 'dayjs/locale/fr';
+dayjs.extend(customParseFormat);
 dayjs('2012 mars', 'YYYY MMM', 'fr');
 // => "2012-02-29T13:00:00.000Z"
 
@@ -305,11 +306,11 @@ DateTime.local().hour;
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1432.647ms |
-| Native  | 367.769ms  |
-| DateFns | 608.878ms  |
-| DayJs   | 502.302ms  |
-| Luxon   | 1296.507ms |
+| Moment  | 1500.703ms |
+| Native  | 348.411ms  |
+| DateFns | 520.670ms  |
+| DayJs   | 494.234ms  |
+| Luxon   | 1208.368ms |
 
 Set the `Millisecond/Second/Minute/Hour` of the given date.
 
@@ -355,11 +356,11 @@ DateTime.utc()
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1690.007ms |
-| Native  | 636.242    |
-| DateFns | 696.768ms  |
-| DayJs   | 1891.058ms |
-| Luxon   | 8630.314ms |
+| Moment  | 1689.744ms |
+| Native  | 636.741ms  |
+| DateFns | 714.148ms  |
+| DayJs   | 2037.603ms |
+| Luxon   | 2897.571ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -407,11 +408,11 @@ DateTime.utc()
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1349.161ms |
-| Native  | 388.734ms  |
-| DateFns | 602.132ms  |
-| DayJs   | 1088.253ms |
-| Luxon   | 4728.460ms |
+| Moment  | 1381.669ms |
+| Native  | 397.415ms  |
+| DateFns | 588.004ms  |
+| DayJs   | 1218.025ms |
+| Luxon   | 2705.606ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -457,11 +458,11 @@ DateTime.local()
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1869.609ms |
-| Native  | 565.715ms  |
-| DateFns | 815.355ms  |
-| DayJs   | 1087.407ms |
-| Luxon   | 7093.800ms |
+| Moment  | 1919.404ms |
+| Native  | 543.466ms  |
+| DateFns | 841.436ms  |
+| DayJs   | 1229.475ms |
+| Luxon   | 3936.282ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -491,8 +492,8 @@ setDayOfYear(new Date(), 256);
 // => "2018-09-13T09:12:49.695Z"
 
 // dayjs ⚠️ requires dayOfYear plugin
-import dayOfYear from 'dayjs/plugin/dayOfYear'
-dayjs.extend(dayOfYear)
+import dayOfYear from 'dayjs/plugin/dayOfYear';
+dayjs.extend(dayOfYear);
 dayjs().dayOfYear();
 // => 252
 dayjs().dayOfYear(256);
@@ -509,11 +510,11 @@ DateTime.local()
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 9851.425ms |
-| Native  | 575.954ms  |
-| DateFns | 1976.969ms |
+| Moment  | 5511.172ms |
+| Native  | 530.592ms  |
+| DateFns | 2079.043ms |
 | DayJs   | -          |
-| Luxon   | 5242.336ms |
+| Luxon   | 3540.810ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -578,13 +579,13 @@ DateTime.local()
 // => "2018-06-10T09:12:49.794Z
 ```
 
-| Library | Time        |
-| ------- | ----------- |
-| Moment  | 11997.187ms |
-| Native  | 1467.277ms  |
-| DateFns | 6070.445ms  |
-| DayJs   | -           |
-| Luxon   | 7944.387ms  |
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 7147.201ms |
+| Native  | 1371.631ms |
+| DateFns | 5834.815ms |
+| DayJs   | -          |
+| Luxon   | 4514.771ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -617,11 +618,11 @@ DateTime.local(2012, 2).daysInMonth;
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 4836.243ms |
-| Native  | 504.241ms  |
-| DateFns | 1584.524ms |
-| DayJs   | 2965.774ms |
-| Luxon   | 1292.006ms |
+| Moment  | 4415.065ms |
+| Native  | 186.196ms  |
+| DateFns | 634.084ms  |
+| DayJs   | 1922.774ms |
+| Luxon   | 1403.032ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -640,8 +641,8 @@ getISOWeeksInYear(new Date());
 // => 52
 
 // dayjs ⚠️ requires isoWeeksInYear plugin
-import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
-dayjs.extend(isoWeeksInYear)
+import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear';
+dayjs.extend(isoWeeksInYear);
 dayjs().isoWeeksInYear();
 // => 52
 
@@ -652,11 +653,11 @@ DateTime.local().weeksInWeekYear;
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 983.551ms  |
+| Moment  | 1065.247ms |
 | Native  | -          |
-| DateFns | 4751.236ms |
+| DateFns | 4954.042ms |
 | DayJs   | -          |
-| Luxon   | 1743.877ms |
+| Luxon   | 1134.483ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -685,8 +686,8 @@ max(array);
 // => "2018-03-11T13:00:00.000Z"
 
 // dayjs ⚠️ requires minMax plugin
-import minMax from 'dayjs/plugin/minMax'
-dayjs.extend(minMax)
+import minMax from 'dayjs/plugin/minMax';
+dayjs.extend(minMax);
 dayjs.max(array.map(a => dayjs(a)));
 // => "2018-03-11T13:00:00.000Z"
 
@@ -697,11 +698,11 @@ DateTime.max(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1736.095ms |
-| Native  | 1104.626ms |
-| DateFns | 966.238ms  |
+| Moment  | 1780.075ms |
+| Native  | 828.332ms  |
+| DateFns | 980.938ms  |
 | DayJs   | -          |
-| Luxon   | 2703.421ms |
+| Luxon   | 2694.702ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -730,8 +731,8 @@ min(array);
 // => "2016-01-08T13:00:00.000Z"
 
 // dayjs ⚠️ requires minMax plugin
-import minMax from 'dayjs/plugin/minMax'
-dayjs.extend(minMax)
+import minMax from 'dayjs/plugin/minMax';
+dayjs.extend(minMax);
 dayjs.min(array.map(a => dayjs(a)));
 // => "2016-01-08T13:00:00.000Z"
 
@@ -742,11 +743,11 @@ DateTime.min(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1937.293ms |
-| Native  | 1164.853ms |
-| DateFns | 908.990ms  |
+| Moment  | 1744.459ms |
+| Native  | 819.646ms  |
+| DateFns | 841.249ms  |
 | DayJs   | -          |
-| Luxon   | 3085.444ms |
+| Luxon   | 2720.462ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -784,11 +785,11 @@ DateTime.local()
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1468.151ms |
-| Native  | 208.735ms  |
-| DateFns | 337.129ms  |
-| DayJs   | 631.982ms  |
-| Luxon   | 7248.459ms |
+| Moment  | 1309.485ms |
+| Native  | 259.932ms  |
+| DateFns | 385.394ms  |
+| DayJs   | 1911.881ms |
+| Luxon   | 3919.797ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -823,11 +824,11 @@ DateTime.local()
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1638.627ms |
-| Native  | 246.940ms  |
-| DateFns | 759.963ms  |
-| DayJs   | 954.443ms  |
-| Luxon   | 7701.059ms |
+| Moment  | 1278.384ms |
+| Native  | 215.255ms  |
+| DateFns | 379.057ms  |
+| DayJs   | 1772.593ms |
+| Luxon   | 4028.866ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -856,11 +857,11 @@ DateTime.local().startOf('month');
 
 | Library | Time       |
 | ------- | ---------- |
-| Moment  | 1869.290ms |
+| Moment  | 1078.948ms |
 | Native  | -          |
-| DateFns | 455.759ms  |
-| DayJs   | 735.666ms  |
-| Luxon   | 5116.801ms |
+| DateFns | 398.107ms  |
+| DayJs   | 765.358ms  |
+| Luxon   | 2306.765ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -893,13 +894,13 @@ DateTime.local().endOf('day');
 // => "2018-09-02T09:12:49.695Z"
 ```
 
-| Library | Time        |
-| ------- | ----------- |
-| Moment  | 4583.067ms  |
-| Native  | 284.882ms   |
-| DateFns | 386.746ms   |
-| DayJs   | 1138.415ms  |
-| Luxon   | 19305.183ms |
+| Library | Time       |
+| ------- | ---------- |
+| Moment  | 1241.304ms |
+| Native  | 225.519ms  |
+| DateFns | 319.773ms  |
+| DayJs   | 914.425ms  |
+| Luxon   | 9920.529ms |
 
 **[⬆ back to top](#quick-links)**
 
@@ -925,12 +926,12 @@ format(new Date(), 'eee, ha');
 
 // dayjs
 dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
-// => "Sunday, September 9 2018, 7:12:49 PM" 
+// => "Sunday, September 9 2018, 7:12:49 PM"
 dayjs().format('ddd, hA');
 // => "Sun, 7PM"
 // dayjs ⚠️ requires advancedFormat plugin to support more format tokens
-import advancedFormat from 'dayjs/plugin/customParseFormat'
-dayjs.extend(advancedFormat)
+import advancedFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(advancedFormat);
 dayjs().format('dddd, MMMM Do YYYY, h:mm:ss A');
 // => "Sunday, September 9th 2018, 7:12:49 PM"
 
@@ -1235,8 +1236,8 @@ import isDate from 'date-fns/isDate';
 isDate(new Date());
 // => true
 
-// dayjs 
-dayjs(new Date()).isValid()
+// dayjs
+dayjs(new Date()).isValid();
 
 // luxon
 DateTime.local().isValid;
@@ -1244,8 +1245,6 @@ DateTime.local().isValid;
 ```
 
 **[⬆ back to top](#quick-links)**
-
-
 
 # License
 
