@@ -9,6 +9,8 @@
   "keywords": [
     "moment-js",
     "date-fns",
+    "dayjs",
+    "luxon",
     "eslint",
     "eslintplugin",
     "eslint-plugin",
@@ -19,7 +21,8 @@
   "contributors": [
     "Robert Chang <cht8687@gmail.com>",
     "Jago MF <jagomf@gmail.com> (https://github.com/jagomf)",
-    "Steve Mao <maochenyan@gmail.com> (https://github.com/stevemao)"
+    "Steve Mao <maochenyan@gmail.com> (https://github.com/stevemao)",
+    "CY Lim <cylim@pm.me> (https://l.cy.my/github)"
   ],
   "main": "lib/index.js",
   "scripts": {
@@ -32,7 +35,7 @@
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "coveralls": "^3.0.2",
-    "date-fns": "^2.0.0-alpha.23",
+    "date-fns": "^2.0.0",
     "dayjs": "^1.7.5",
     "eslint": "^5.5.0",
     "husky": "^0.14.3",
