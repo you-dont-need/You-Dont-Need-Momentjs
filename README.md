@@ -140,7 +140,7 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 | Day of Week                    | ✅     | ✅    | ✅       | ✅    |
 | Day of Year                    | ✅     | ✅    | ✅       | ✅    |
 | Week of Year                   | ✅     | ✅    | ✅       | ⚠️    |
-| Days in Month                  | ✅     | ✅    | ✅       | ⚠️    |
+| Days in Month                  | ✅     | ✅    | ✅       | ✅   |
 | Weeks in Year                  | ❌     | ❌    | ✅       | ⚠️    |
 | Maximum of the given dates     | ✅     | ✅    | ✅       | ⚠️    |
 | Minimum of the given dates     | ✅     | ✅    | ✅       | ⚠️    |
