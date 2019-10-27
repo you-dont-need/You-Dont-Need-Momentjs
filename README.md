@@ -88,7 +88,7 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 1. [String + Time Format](#string--time-format)
 1. [String + Format + locale](#string--format--locale)
 
-**[Get + Set](#get-set)**
+**[Get + Set](#get--set)**
 
 1. [Millisecond/Second/Minute/Hour](#millisecond--second--minute--hour)
 1. [Date of Month](#date-of-month)
