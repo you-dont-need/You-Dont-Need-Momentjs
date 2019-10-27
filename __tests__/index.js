@@ -395,22 +395,37 @@ describe('Manipulate', () => {
 
 describe('Display', () => {
   it('Format', () => {
-    const m = moment(time).format('dddd, MMMM D YYYY, h:mm:ss A');
-    const d = date.format(new Date(time), 'eeee, MMMM d yyyy, h:mm:ss aa', {
+    const m = moment(time).format('dddd, MMMM D, YYYY, h:mm:ss A');
+    const n = new Date(time).toLocaleDateString(undefined, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+    });
+    const d = date.format(new Date(time), 'eeee, MMMM d, yyyy, h:mm:ss aa', {
       awareOfUnicodeTokens: true,
     });
-    const day = dayjs(time).format('dddd, MMMM D YYYY, h:mm:ss A');
+    const day = dayjs(time).format('dddd, MMMM D, YYYY, h:mm:ss A');
     const l = DateTime.fromMillis(time).toFormat(
-      'EEEE, MMMM d yyyy, h:mm:ss a'
+      'EEEE, MMMM d, yyyy, h:mm:ss a'
     );
+    expect(m).toBe(n);
     expect(m).toBe(d);
     expect(m).toBe(day);
     expect(m).toBe(l);
 
-    const m2 = moment(time).format('ddd, hA');
-    const d2 = date.format(new Date(time), 'eee, ha');
-    const day2 = dayjs(time).format('ddd, hA');
-    const l2 = DateTime.fromMillis(time).toFormat('EEE, ha');
+    const m2 = moment(time).format('ddd, h A');
+    const n2 = new Date(time).toLocaleDateString(undefined, {
+      weekday: 'short',
+      hour: 'numeric',
+    });
+    const d2 = date.format(new Date(time), 'eee, h a');
+    const day2 = dayjs(time).format('ddd, h A');
+    const l2 = DateTime.fromMillis(time).toFormat('EEE, h a');
+    expect(m2).toBe(n2);
     expect(m2).toBe(d2);
     expect(m2).toBe(day2);
     expect(m2).toBe(l2);

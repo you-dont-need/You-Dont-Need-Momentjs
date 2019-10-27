@@ -158,7 +158,7 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 | End of Time                    | ✅     | ✅    | ✅       | ✅    |
 |                                |        |       |          |       |
 | **Display**                    |        |       |          |       |
-| Format                         | ❌     | ✅    | ✅       | ✅    |
+| Format                         | ✅     | ✅    | ✅       | ✅    |
 | Time from now                  | ❌     | ❌    | ✅       | ⚠️    |
 | Time from X                    | ❌     | ❌    | ✅       | ⚠️    |
 | Difference                     | ✅     | ✅    | ✅       | ✅    |
@@ -921,6 +921,20 @@ moment().format('dddd, MMMM Do YYYY, h:mm:ss A');
 moment().format('ddd, hA');
 // => "Sun, 7PM"
 
+// Native
+new Date().toLocaleDateString(undefined, {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+});
+// => "Sunday, September 9, 2018, 7:12:49 PM" ⚠️  does not support 9th
+new Date().toLocaleDateString(undefined, { weekday: 'short', hour: 'numeric' });
+// => "Sun, 7 PM"
+
 // date-fns
 import format from 'date-fns/format';
 format(new Date(), 'eeee, MMMM do YYYY, h:mm:ss aa');
@@ -941,7 +955,7 @@ dayjs().format('dddd, MMMM Do YYYY, h:mm:ss A');
 
 // Luxon
 DateTime.fromMillis(time).toFormat('EEEE, MMMM dd yyyy, h:mm:ss a');
-// => "Sunday, September 9 2018, 7:12:49 PM" ⚠️  not support 9th
+// => "Sunday, September 9 2018, 7:12:49 PM" ⚠️  does not support 9th
 DateTime.fromMillis(time).toFormat('EEE, ha');
 // => "Sun, 7PM"
 ```
