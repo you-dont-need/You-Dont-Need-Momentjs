@@ -9,12 +9,12 @@
 Problems with Moment.js:
 
 - It is highly based on OOP APIs, which makes it fail to work with tree-shaking, thus leading to a huge bundle size and performance issues.
-- It is mutable and it cause bugs: 
-    * [clone](https://momentjs.com/docs/#/parsing/moment-clone/)
-    * [How do I work around mutability in moment.js?](https://stackoverflow.com/questions/30979178/how-do-i-work-around-mutability-in-moment-js)
+- It is mutable and it cause bugs:
+  - [clone](https://momentjs.com/docs/#/parsing/moment-clone/)
+  - [How do I work around mutability in moment.js?](https://stackoverflow.com/questions/30979178/how-do-i-work-around-mutability-in-moment-js)
 - Complex OOP API (which doubles mutability problem). Here is an example:
-https://github.com/moment/moment/blob/develop/src/test/moment/add_subtract.js#L244-L286
-Moment.js allows to use a.subtract('ms', 50), a.subtract(50, 'ms') and even a.subtract('s', '50').
+  https://github.com/moment/moment/blob/develop/src/test/moment/add_subtract.js#L244-L286
+  Moment.js allows to use a.subtract('ms', 50), a.subtract(50, 'ms') and even a.subtract('s', '50').
 
 If you are not using timezone but only a few simple functions from moment.js, this might bloat your app, and therefore is considered overkill. [dayjs](https://github.com/iamkun/dayjs) has a smaller core and has very similar APIs so it makes it very easy to migrate. [date-fns](https://github.com/date-fns/date-fns) enables [tree-shaking and other benefits](https://github.com/date-fns/date-fns/issues/275#issuecomment-264934189) so that it works great with React, Sinon.js, and webpack, etc. See https://github.com/moment/moment/issues/2373 for more ideas on why and how people switch from moment.js to other solutions.
 
