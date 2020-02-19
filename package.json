@@ -33,7 +33,7 @@
     "precommit": "pretty-quick --staged"
   },
   "devDependencies": {
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^8.2.6",
     "coveralls": "^3.0.2",
     "date-fns": "^2.0.0",
     "dayjs": "^1.8.15",
