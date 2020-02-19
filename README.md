@@ -20,12 +20,12 @@ If you are not using timezone but only a few simple functions from moment.js, th
 
 ## Brief Comparison
 
-| Name                                     | Size(gzip)                        | Tree-shaking | Popularity(stars) | Methods richness | Pattern    | Timezone Support      | Locale |
-| ---------------------------------------- | --------------------------------- | ------------ | ----------------- | ---------------- | ---------- | --------------------- | ------ |
-| [Moment.js](https://momentjs.com/)       | 329K(69.6K)                       | No           | 42.1k             | High             | OO         | Good(moment-timezone) | 123    |
-| [Luxon](https://moment.github.io/luxon/) | 59.9K(17.2K)                      | No           | 8.6k              | High             | OO         | Good(Intl)            | -      |
-| [date-fns](https://date-fns.org)         | 78.4k(13.4k) without tree-shaking | Yes          | 19k               | High             | Functional | Not yet               | 50     |
-| [dayjs](https://github.com/iamkun/dayjs) | 6.5k(2.6k) without plugins        | No           | 23k               | High             | OO         | Not yet               | 130    |
+| Name                                     | Size original/gzipped            | Tree-shaking | Popularity(stars) | Methods richness | Pattern    | Timezone Support       | Locale |
+| ---------------------------------------- | -------------------------------- | ------------ | ----------------- | ---------------- | ---------- | ---------------------- | ------ |
+| [Moment.js](https://momentjs.com/)       | 329K/69.6K                       | No           | 42.1k             | High             | OO         | Good (moment-timezone) | 123    |
+| [Luxon](https://moment.github.io/luxon/) | 59.9K/17.2K                      | No           | 8.6k              | High             | OO         | Good (Intl)            | -      |
+| [date-fns](https://date-fns.org)         | 78.4k/13.4k without tree-shaking | Yes          | 19k               | High             | Functional | Good (date-fns-tz)     | 50     |
+| [dayjs](https://github.com/iamkun/dayjs) | 6.5k/2.6k without plugins        | No           | 23k               | High             | OO         | Not yet                | 130    |
 
 ## Voice of Developers
 
