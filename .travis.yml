@@ -1,8 +1,8 @@
 language: node_js
 node_js:
   - 8
-  - '8.0'
   - 10
   - 11
+  - 12
 after_success:
   - npm run coveralls
