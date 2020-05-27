@@ -425,12 +425,14 @@ describe('Display', () => {
       new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate()
     );
     const m = moment(timeDistance).fromNow();
+    const n = new Intl.RelativeTimeFormat().format(-3, 'month');
     const d = date.formatDistanceStrict(new Date(timeDistance), new Date(), {
       addSuffix: true,
     });
     const day = dayjs(timeDistance).fromNow(); // plugin
     expect(m).toBe(d);
     expect(m).toBe(day);
+    expect(m).toBe(n);
   });
 
   it('Time from X', () => {
