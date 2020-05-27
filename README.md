@@ -958,7 +958,7 @@ moment(1536484369695).fromNow();
 // => "4 days ago"
 
 // Native
-new Intl.RelativeTimeFormat().format(4, 'day');
+new Intl.RelativeTimeFormat().format(-4, 'day');
 // => "4 days ago"
 
 // date-fns
