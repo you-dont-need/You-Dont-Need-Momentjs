@@ -159,7 +159,7 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 |                                |        |       |          |       |
 | **Display**                    |        |       |          |       |
 | Format                         | ❌     | ✅    | ✅       | ✅    |
-| Time from now                  | ❌     | ❌    | ✅       | ⚠️    |
+| Time from now                  | ✅     | ❌    | ✅       | ⚠️    |
 | Time from X                    | ❌     | ❌    | ✅       | ⚠️    |
 | Difference                     | ✅     | ✅    | ✅       | ✅    |
 |                                |        |       |          |       |
@@ -955,6 +955,10 @@ Return time from now.
 ```js
 // Moment.js
 moment(1536484369695).fromNow();
+// => "4 days ago"
+
+// Native
+new Intl.RelativeTimeFormat().format(4, 'day');
 // => "4 days ago"
 
 // date-fns
