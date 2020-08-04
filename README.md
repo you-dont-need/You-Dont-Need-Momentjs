@@ -650,7 +650,7 @@ dayjs.extend(isoWeeksInYear);
 dayjs().isoWeeksInYear();
 // => 52
 
-// Moment.js
+// Luxon
 DateTime.local().weeksInWeekYear;
 // => 52
 ```
