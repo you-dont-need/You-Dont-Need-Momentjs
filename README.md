@@ -41,10 +41,6 @@ If you are not using timezone but only a few simple functions from moment.js, th
 
 > &mdash;<cite>Matija Marohnić, a design-savvy frontend developer from Croatia.</cite>
 
-> [Just yesterday changed momentjs to this lib in out project. Cut the size of our js bundle almost in half 😱](https://twitter.com/gribnoysup/status/805061630752997377)
-
-> &mdash;<cite>Sergey Petushkov, a javaScript developer from Moscow, Russia • Currently in Berlin, Germany.</cite>
-
 ## ESLint Plugin
 
 <p align="center">
