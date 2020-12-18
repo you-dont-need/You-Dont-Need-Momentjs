@@ -20,12 +20,12 @@ If you are not using timezone but only a few simple functions from moment.js, th
 
 ## Brief Comparison
 
-| Name                                     | Size original/gzipped            | Tree-shaking | Popularity (stars) | Methods richness | Pattern    | Timezone Support       | Locale |
-| ---------------------------------------- | -------------------------------- | ------------ | ------------------ | ---------------- | ---------- | ---------------------- | ------ |
-| [Moment.js](https://momentjs.com/)       | 329K/69.6K                       | No           | 43.4k              | High             | OO         | Good (moment-timezone) | 123    |
-| [Luxon](https://moment.github.io/luxon/) | 59.9K/17.2K                      | No           | 9k                 | High             | OO         | Good (Intl)            | -      |
-| [date-fns](https://date-fns.org)         | 78.4k/13.4k without tree-shaking | Yes          | 21.3k              | High             | Functional | Good (date-fns-tz)     | 64     |
-| [dayjs](https://github.com/iamkun/dayjs) | 6.5k/2.6k without plugins        | No           | 28.1k              | High             | OO         | Good (Intl)               | 138    |
+| Name      | Tree-shaking | Methods richness | Pattern    | Locale | Timezone Support       | Popularity (stars)                                               | Sizes                                                                                                                        |
+| --------- | ------------ | ---------------- | ---------- | ------ | ---------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Moment.js | No           | High             | OO         | 123    | Good (moment-timezone) | ![stars](https://flat.badgen.net/github/stars/moment/moment)     | ![raw](https://flat.badgen.net/bundlephobia/min/moment) ![size](https://flat.badgen.net/bundlephobia/minzip/moment)     |
+| Luxon     | No           | High             | OO         | -      | Good (Intl)            | ![stars](https://flat.badgen.net/github/stars/moment/luxon)      | ![raw](https://flat.badgen.net/bundlephobia/min/luxon) ![size](https://flat.badgen.net/bundlephobia/minzip/luxon)       |
+| date-fns  | Yes          | High             | Functional | 64     | Good (date-fns-tz)     | ![stars](https://flat.badgen.net/github/stars/date-fns/date-fns) | ![raw](https://flat.badgen.net/bundlephobia/min/date-fns) ![size](https://flat.badgen.net/bundlephobia/minzip/date-fns) |
+| dayjs     | No           | High             | OO         | 138    | Good (Intl)            | ![stars](https://flat.badgen.net/github/stars/iamkun/dayjs)      | ![raw](https://flat.badgen.net/bundlephobia/min/dayjs) ![size](https://flat.badgen.net/bundlephobia/minzip/dayjs)       |
 
 ## Voice of Developers
 
