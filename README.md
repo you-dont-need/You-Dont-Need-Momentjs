@@ -803,7 +803,8 @@ moment().subtract(7, 'days');
 // => "2018-09-02T09:12:49.695Z"
 
 // Native
-new Date(new Date().getTime() - 1000 * 60 * 60 * 24 * 7);
+const now = new Date();
+now.setDate(now.getDate() - 7);
 // => Sun Sep 09 2018 09:12:49
 
 // date-fns
