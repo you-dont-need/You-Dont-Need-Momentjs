@@ -930,7 +930,7 @@ dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
 dayjs().format('ddd, hA');
 // => "Sun, 7PM"
 // dayjs ⚠️ requires advancedFormat plugin to support more format tokens
-import advancedFormat from 'dayjs/plugin/customParseFormat';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
 dayjs.extend(advancedFormat);
 dayjs().format('dddd, MMMM Do YYYY, h:mm:ss A');
 // => "Sunday, September 9th 2018, 7:12:49 PM"
