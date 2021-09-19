@@ -917,6 +917,12 @@ moment().format('dddd, MMMM Do YYYY, h:mm:ss A');
 moment().format('ddd, hA');
 // => "Sun, 7PM"
 
+// Native
+new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'medium' }).format(new Date())
+// => "Sunday, September 9, 2018 at 7:12:49 PM"
+new Intl.DateTimeFormat('en-US', { weekday: 'short', hour: 'numeric' }).format(new Date())
+// => "Sun, 7 PM"
+
 // date-fns
 import format from 'date-fns/format';
 format(new Date(), 'eeee, MMMM do YYYY, h:mm:ss aa');
