@@ -976,7 +976,9 @@ dayjs.extend(relativeTime);
 dayjs(1536484369695).fromNow();
 // => "5 days ago" ⚠️  the rounding method of this plugin is different from moment.js and date-fns, use with care.
 
-// luxon ❌ does not support relative time
+// luxon requires Intl.RelativeTimeFormat
+DateTime.local(2022, 1, 27).toRelative({ base: this })
+// => "in 4 months"
 ```
 
 **[⬆ back to top](#quick-links)**
