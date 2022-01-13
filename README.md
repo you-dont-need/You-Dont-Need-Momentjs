@@ -129,43 +129,43 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 
 ⚠️ Indicates other packages or work are needed. See individual functions [above](#quick-links).
 
-|                                | Native | Luxon | date-fns | dayjs |
-| ------------------------------ | ------ | ----- | -------- | ----- |
-| **Parse**                      |        |       |          |       |
-| String + Date Format           | ✅     | ✅    | ✅       | ✅    |
-| String + Time Format           | ✅     | ✅    | ✅       | ⚠️    |
-| String + Format + locale       | ❌     | ⚠️    | ✅       | ⚠️    |
-|                                |        |       |          |       |
-| **Get + Set**                  |        |       |          |       |
-| Millisecond/Second/Minute/Hour | ✅     | ✅    | ✅       | ✅    |
-| Date of Month                  | ✅     | ✅    | ✅       | ✅    |
-| Day of Week                    | ✅     | ✅    | ✅       | ✅    |
-| Day of Year                    | ✅     | ✅    | ✅       | ✅    |
-| Week of Year                   | ✅     | ✅    | ✅       | ⚠️    |
-| Days in Month                  | ✅     | ✅    | ✅       | ✅    |
-| Weeks in Year                  | ❌     | ❌    | ✅       | ⚠️    |
-| Maximum of the given dates     | ✅     | ✅    | ✅       | ⚠️    |
-| Minimum of the given dates     | ✅     | ✅    | ✅       | ⚠️    |
-|                                |        |       |          |       |
-| **Manipulate**                 |        |       |          |       |
-| Add                            | ✅     | ✅    | ✅       | ✅    |
-| Subtract                       | ✅     | ✅    | ✅       | ✅    |
-| Start of Time                  | ❌     | ✅    | ✅       | ✅    |
-| End of Time                    | ✅     | ✅    | ✅       | ✅    |
-|                                |        |       |          |       |
-| **Display**                    |        |       |          |       |
-| Format                         | ❌     | ✅    | ✅       | ✅    |
-| Time from now                  | ✅     | ❌    | ✅       | ⚠️    |
-| Time from X                    | ❌     | ❌    | ✅       | ⚠️    |
-| Difference                     | ✅     | ✅    | ✅       | ✅    |
-|                                |        |       |          |       |
-| **Query**                      |        |       |          |       |
-| Is Before                      | ✅     | ✅    | ✅       | ✅    |
-| Is Same                        | ✅     | ✅    | ✅       | ✅    |
-| Is After                       | ✅     | ✅    | ✅       | ✅    |
-| Is Between                     | ❌     | ✅    | ✅       | ⚠️    |
-| Is Leap Year                   | ✅     | ✅    | ✅       | ⚠️    |
-| Is a Date                      | ✅     | ✅    | ✅       | ✅    |
+|                                | Native | Luxon | date-fns | dayjs | Temporal |
+| ------------------------------ | ------ | ----- | -------- | ----- | -------- |
+| **Parse**                      |        |       |          |       |          |
+| String + Date Format           | ✅     | ✅     | ✅       | ✅    | ✅         |
+| String + Time Format           | ✅     | ✅     | ✅       | ⚠️    | ✅        |
+| String + Format + locale       | ❌     | ⚠️     | ✅       | ⚠️    | ❌        |
+|                                |        |       |          |       |          |
+| **Get + Set**                  |        |       |          |       |          |
+| Millisecond/Second/Minute/Hour | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Date of Month                  | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Day of Week                    | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Day of Year                    | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Week of Year                   | ✅     | ✅    | ✅       | ⚠️    | ✅        |
+| Days in Month                  | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Weeks in Year                  | ❌     | ❌    | ✅       | ⚠️    | ✅        |
+| Maximum of the given dates     | ✅     | ✅    | ✅       | ⚠️    | ✅        |
+| Minimum of the given dates     | ✅     | ✅    | ✅       | ⚠️    | ✅        |
+|                                |        |       |          |       |          |
+| **Manipulate**                 |        |       |          |       |          |
+| Add                            | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Subtract                       | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Start of Time                  | ❌     | ✅    | ✅       | ✅    | ✅        |
+| End of Time                    | ✅     | ✅    | ✅       | ✅    | ✅        |
+|                                |        |       |          |       |          |
+| **Display**                    |        |       |          |       |          |
+| Format                         | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Time from now                  | ✅     | ❌    | ✅       | ⚠️    | ✅        |
+| Time from X                    | ❌     | ❌    | ✅       | ⚠️    | ✅        |
+| Difference                     | ✅     | ✅    | ✅       | ✅    | ✅        |
+|                                |        |       |          |       |          |
+| **Query**                      |        |       |          |       |          |
+| Is Before                      | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Is Same                        | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Is After                       | ✅     | ✅    | ✅       | ✅    | ✅        |
+| Is Between                     | ❌     | ✅    | ✅       | ⚠️    | ❌        |
+| Is Leap Year                   | ✅     | ✅    | ✅       | ⚠️    | ✅        |
+| Is a Date                      | ✅     | ✅    | ✅       | ✅    | ✅        |
 
 ## Parse
 
@@ -195,6 +195,12 @@ dayjs('12-25-1995');
 
 // luxon
 DateTime.fromFormat('12-25-1995', 'MM-dd-yyyy').toJSDate();
+// => "1995-12-24T13:00:00.000Z"
+
+// Temporal
+const datePattern = /^(\d{2})-(\d{2})-(\d{4})$/;
+const [, month, day, year] = datePattern.exec('12-25-1995');
+new Temporal.ZonedDateTime.from({year, month, day, timeZone: Temporal.Now.timeZone()});
 // => "1995-12-24T13:00:00.000Z"
 ```
 
@@ -228,6 +234,12 @@ dayjs('2010-10-20 4:30', 'YYYY-MM-DD HH:mm');
 
 // luxon
 DateTime.fromFormat('2010-10-20 4:30', 'yyyy-MM-dd H:mm').toJSDate();
+// => "2010-10-19T17:30:00.000Z"
+
+// Temporal
+const datePattern = /^(\d{4})-(\d{2})-(\d{2})\s(\d{1,2}):(\d{2})$/;
+const [, year, month, day, hour, minute] = datePattern.exec('2010-10-20 4:30');
+new Temporal.ZonedDateTime.from({year, month, day, hour, minute, timeZone: Temporal.Now.timeZone()});
 // => "2010-10-19T17:30:00.000Z"
 ```
 
@@ -300,17 +312,24 @@ DateTime.local().second;
 // => 49
 DateTime.local().hour;
 // => 19
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().second;
+// => 49
+Temporal.Now.zonedDateTimeISO().hour;
+// => 19
 ```
 
 ### Performance tests
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1500.703ms |
-| Native  | 348.411ms  |
-| DateFns | 520.670ms  |
-| DayJs   | 494.234ms  |
-| Luxon   | 1208.368ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1500.703ms |
+| Native   | 348.411ms  |
+| DateFns  | 520.670ms  |
+| DayJs    | 494.234ms  |
+| Luxon    | 1208.368ms |
+| Temporal | -          |
 
 Set the `Millisecond/Second/Minute/Hour` of the given date.
 
@@ -350,17 +369,24 @@ DateTime.utc()
   .set({ hour: 13 })
   .toJSDate();
 // => "2018-09-09T03:12:49.695Z"
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().with({ second: 30 });
+// => "2018-09-09T09:12:30.695Z"
+Temporal.Now.zonedDateTimeISO().with({ hour: 13 });
+// => "2018-09-09T03:12:49.695Z"
 ```
 
 ### Performance tests
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1689.744ms |
-| Native  | 636.741ms  |
-| DateFns | 714.148ms  |
-| DayJs   | 2037.603ms |
-| Luxon   | 2897.571ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1689.744ms |
+| Native   | 636.741ms  |
+| DateFns  | 714.148ms  |
+| DayJs    | 2037.603ms |
+| Luxon    | 2897.571ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -402,17 +428,24 @@ DateTime.utc()
   .set({ day: 4 })
   .toString();
 // => "2018-09-04T09:12:49.695Z"
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().day;
+// => 9
+Temporal.Now.zonedDateTimeISO().with({ day: 4 });
+// => "2018-09-04T09:12:49.695Z"
 ```
 
 ### Performance tests
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1381.669ms |
-| Native  | 397.415ms  |
-| DateFns | 588.004ms  |
-| DayJs   | 1218.025ms |
-| Luxon   | 2705.606ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1381.669ms |
+| Native   | 397.415ms  |
+| DateFns  | 588.004ms  |
+| DayJs    | 1218.025ms |
+| Luxon    | 2705.606ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -454,15 +487,22 @@ DateTime.local()
   .minus({ day: 14 })
   .toJSDate();
 // => "2018-08-26T09:12:49.695Z"
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().dayOfWeek;
+// => 7 (Sunday)
+Temporal.Now.zonedDateTimeISO().subtract(Temporal.Duration.from({ days: 14 }));
+// => "2018-09-04T09:12:49.695Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1919.404ms |
-| Native  | 543.466ms  |
-| DateFns | 841.436ms  |
-| DayJs   | 1229.475ms |
-| Luxon   | 3936.282ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1919.404ms |
+| Native   | 543.466ms  |
+| DateFns  | 841.436ms  |
+| DayJs    | 1229.475ms |
+| Luxon    | 3936.282ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -506,15 +546,22 @@ DateTime.local()
   .set({ ordinal: 256 })
   .toString();
 // => "2018-09-13T09:12:49.695Z"
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().dayOfYear;
+// => 252
+Temporal.Now.zonedDateTimeISO().with({month: 1, day: 1}).add(Temporal.Duration.from({days: 256}));
+// => "2018-09-04T09:12:49.695Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 5511.172ms |
-| Native  | 530.592ms  |
-| DateFns | 2079.043ms |
-| DayJs   | -          |
-| Luxon   | 3540.810ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 5511.172ms |
+| Native   | 530.592ms  |
+| DateFns  | 2079.043ms |
+| DayJs    | -          |
+| Luxon    | 3540.810ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -577,15 +624,22 @@ DateTime.local()
   .set({ weekNumber: 23 })
   .toString();
 // => "2018-06-10T09:12:49.794Z
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().weekOfYear;
+// => 252
+Temporal.Now.zonedDateTimeISO().with({month: 1, day: 1}).add(Temporal.Duration.from({weeks: 23}));
+// => "2018-09-04T09:12:49.695Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 7147.201ms |
-| Native  | 1371.631ms |
-| DateFns | 5834.815ms |
-| DayJs   | -          |
-| Luxon   | 4514.771ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 7147.201ms |
+| Native   | 1371.631ms |
+| DateFns  | 5834.815ms |
+| DayJs    | -          |
+| Luxon    | 4514.771ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -614,15 +668,22 @@ dayjs('2012-02').daysInMonth();
 // Luxon
 DateTime.local(2012, 2).daysInMonth;
 // => 29
+
+// Temporal
+(new Temporal.PlainYearMonth(2012, 2)).daysInMonth
+// or
+Temporal.PlainYearMonth.from('2012-02').daysInMonth
+// => 29
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 4415.065ms |
-| Native  | 186.196ms  |
-| DateFns | 634.084ms  |
-| DayJs   | 1922.774ms |
-| Luxon   | 1403.032ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 4415.065ms |
+| Native   | 186.196ms  |
+| DateFns  | 634.084ms  |
+| DayJs    | 1922.774ms |
+| Luxon    | 1403.032ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -649,15 +710,20 @@ dayjs().isoWeeksInYear();
 // Luxon
 DateTime.local().weeksInWeekYear;
 // => 52
+
+// Temporal
+Temporal.PlainDate.from({day:31, month:12, year: Temporal.Now.plainDateISO()}).weekOfYear
+// => 52
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1065.247ms |
-| Native  | -          |
-| DateFns | 4954.042ms |
-| DayJs   | -          |
-| Luxon   | 1134.483ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1065.247ms |
+| Native   | -          |
+| DateFns  | 4954.042ms |
+| DayJs    | -          |
+| Luxon    | 1134.483ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -694,15 +760,20 @@ dayjs.max(array.map(a => dayjs(a)));
 // Luxon
 DateTime.max(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
 // => "2018-03-11T13:00:00.000Z"
+
+// Temporal
+Temporal.Instant.fromEpochMilliseconds(Math.max.apply(null, array))
+// => "2018-03-11T13:00:00.000Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1780.075ms |
-| Native  | 828.332ms  |
-| DateFns | 980.938ms  |
-| DayJs   | -          |
-| Luxon   | 2694.702ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1780.075ms |
+| Native   | 828.332ms  |
+| DateFns  | 980.938ms  |
+| DayJs    | -          |
+| Luxon    | 2694.702ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -739,15 +810,20 @@ dayjs.min(array.map(a => dayjs(a)));
 // Luxon
 DateTime.min(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
 // => "2016-01-08T13:00:00.000Z"
+
+// Temporal
+Temporal.Instant.fromEpochMilliseconds(Math.min.apply(null, array))
+// => "2018-03-11T13:00:00.000Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1744.459ms |
-| Native  | 819.646ms  |
-| DateFns | 841.249ms  |
-| DayJs   | -          |
-| Luxon   | 2720.462ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1744.459ms |
+| Native   | 819.646ms  |
+| DateFns  | 841.249ms  |
+| DayJs    | -          |
+| Luxon    | 2720.462ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -781,15 +857,20 @@ DateTime.local()
   .plus({ day: 7 })
   .toJSDate();
 // => "2018-09-16T09:12:49.695Z"
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().add(Temporal.Duration.from({days: 7}));
+// => "2018-09-16T09:12:49.695Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1309.485ms |
-| Native  | 259.932ms  |
-| DateFns | 385.394ms  |
-| DayJs   | 1911.881ms |
-| Luxon   | 3919.797ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1309.485ms |
+| Native   | 259.932ms  |
+| DateFns  | 385.394ms  |
+| DayJs    | 1911.881ms |
+| Luxon    | 3919.797ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -821,15 +902,20 @@ DateTime.local()
   .minus({ day: 7 })
   .toJSDate();
 // => "2018-09-02T09:12:49.695Z"
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().subtract(Temporal.Duration.from({days: 7}));
+// => "2018-09-02T09:12:49.695Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1278.384ms |
-| Native  | 215.255ms  |
-| DateFns | 379.057ms  |
-| DayJs   | 1772.593ms |
-| Luxon   | 4028.866ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1278.384ms |
+| Native   | 215.255ms  |
+| DateFns  | 379.057ms  |
+| DayJs    | 1772.593ms |
+| Luxon    | 4028.866ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -854,15 +940,20 @@ dayjs().startOf('month');
 // Luxon
 DateTime.local().startOf('month');
 // => "2018-09-02T09:12:49.695Z"
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().with({day: 1});
+// => "2018-09-01T14:00:00.000Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1078.948ms |
-| Native  | -          |
-| DateFns | 398.107ms  |
-| DayJs   | 765.358ms  |
-| Luxon   | 2306.765ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1078.948ms |
+| Native   | -          |
+| DateFns  | 398.107ms  |
+| DayJs    | 765.358ms  |
+| Luxon    | 2306.765ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -893,15 +984,20 @@ dayjs().endOf('day');
 // Luxon
 DateTime.local().endOf('day');
 // => "2018-09-02T09:12:49.695Z"
+
+// Temporal
+Temporal.Now.zonedDateTimeISO().withPlainTime(new Temporal.PlainTime(23,59,59,999,999,999));
+// => "2018-09-09T16:59:59.999999999Z"
 ```
 
-| Library | Time       |
-| ------- | ---------- |
-| Moment  | 1241.304ms |
-| Native  | 225.519ms  |
-| DateFns | 319.773ms  |
-| DayJs   | 914.425ms  |
-| Luxon   | 9920.529ms |
+| Library  | Time       |
+| -------- | ---------- |
+| Moment   | 1241.304ms |
+| Native   | 225.519ms  |
+| DateFns  | 319.773ms  |
+| DayJs    | 914.425ms  |
+| Luxon    | 9920.529ms |
+| Temporal | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -947,6 +1043,12 @@ DateTime.fromMillis(time).toFormat('EEEE, MMMM dd yyyy, h:mm:ss a');
 // => "Sunday, September 9 2018, 7:12:49 PM" ⚠️  not support 9th
 DateTime.fromMillis(time).toFormat('EEE, ha');
 // => "Sun, 7PM"
+
+// Temporal
+new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'medium' }).format(Temporal.Now.zonedDateTimeISO())
+// => "Sunday, September 9, 2018 at 7:12:49 PM"
+new Intl.DateTimeFormat('en-US', { weekday: 'short', hour: 'numeric' }).format(Temporal.Now.zonedDateTimeISO())
+// => "Sun, 7 PM"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -979,6 +1081,10 @@ dayjs(1536484369695).fromNow();
 // luxon requires Intl.RelativeTimeFormat
 DateTime.local(2022, 1, 27).toRelative({ base: this })
 // => "in 4 months"
+
+// Temporal
+new Intl.RelativeTimeFormat().format(-4, 'day');
+// => "4 days ago"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1004,6 +1110,10 @@ dayjs('2007-01-27').to(dayjs('2007-01-29'));
 // => "in 2 days"
 
 // luxon ❌ does not support relative time
+
+// Temporal
+Temporal.PlainDate.from('2007-01-27').until('2007-01-29');
+// => Temporal.Duration('P2D')
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1046,6 +1156,12 @@ DateTime.local(2007, 1, 27).diff(DateTime.local(2007, 1, 29)).milliseconds;
 // => -172800000
 DateTime.local(2007, 1, 27).diff(DateTime.local(2007, 1, 29), 'days').days;
 // => -2
+
+// Temporal
+Temporal.PlainDate.from('2007-01-27').since('2007-01-29').total({unit: 'millisecond'});
+// => -172800000
+Temporal.PlainDate.from('2007-01-27').since('2007-01-29').total({unit: 'day'});
+// => -2
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1076,6 +1192,10 @@ dayjs('2010-10-20').isBefore('2010-10-21');
 
 // luxon
 DateTime.fromISO('2010-10-20') < DateTime.fromISO('2010-10-21');
+// => true
+
+// Temporal
+Temporal.PlainDate.compare('2010-10-20', '2010-10-21') === -1;
 // => true
 ```
 
@@ -1134,6 +1254,14 @@ dayjs('2010-10-20').isSame('2010-10-21', 'month');
 // => true
 DateTime.fromISO('2010-10-20').hasSame(DateTime.fromISO('2010-10-21'), 'month');
 // => true
+
+// Temporal
+Temporal.PlainDate.from('2010-10-20').equals('2010-10-21');
+// => false
+Temporal.PlainDate.from('2010-10-20').equals('2010-10-20');
+// => true
+Temporal.PlainDate.from('2010-10-20').month === Temporal.PlainDate.from('2010-10-21').month;
+// => true
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1162,6 +1290,10 @@ dayjs('2010-10-20').isAfter('2010-10-19');
 
 // luxon
 DateTime.fromISO('2010-10-20') > DateTime.fromISO('2010-10-19');
+// => true
+
+// Temporal
+Temporal.PlainDate.compare('2010-10-20', '2010-10-19') === 1;
 // => true
 ```
 
@@ -1227,6 +1359,10 @@ dayjs('2000-01-01').isLeapYear();
 // luxon
 expect(DateTime.local(2000).isInLeapYear).toBeTruthy();
 // => true
+
+// Temporal
+Temporal.PlainDate.from('2000-01-01').inLeapYear;
+// => true
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1254,6 +1390,14 @@ dayjs(new Date()).isValid();
 
 // luxon
 DateTime.local().isValid;
+// => true
+
+// Temporal
+new Date() instanceof Date;
+Temporal.Now.plainTimeISO() instanceof Temporal.PlainTime;
+Temporal.Now.plainDateISO() instanceof Temporal.PlainDate;
+Temporal.Now.plainDateTimeISO() instanceof Temporal.PlainDateTime;
+Temporal.Now.zonedDateTimeISO() instanceof Temporal.ZonedDateTime;
 // => true
 ```
 
