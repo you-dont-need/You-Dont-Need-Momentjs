@@ -60,10 +60,6 @@ If you are not using timezone but only a few simple functions from moment.js, th
     <img src="https://img.shields.io/coveralls/you-dont-need/You-Dont-Need-Momentjs/master.svg?style=flat-square"
       alt="Coverage Status" />
   </a>
-  <a href="https://david-dm.org/you-dont-need/You-Dont-Need-Momentjs">
-    <img src="https://img.shields.io/david/you-dont-need/You-Dont-Need-Momentjs.svg?style=flat-square"
-         alt="Dependency Status">
-  </a>
 </p>
 
 If you're using [ESLint](http://eslint.org/), you can install a
