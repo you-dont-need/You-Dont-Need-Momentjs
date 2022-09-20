@@ -1017,11 +1017,11 @@ new Intl.DateTimeFormat('en-US', { weekday: 'short', hour: 'numeric' }).format(n
 // => "Sun, 7 PM"
 
 // date-fns
-import format from 'date-fns/format';
-format(new Date(), 'eeee, MMMM do YYYY, h:mm:ss aa');
-// => "Sunday, September 9th 2018, 7:12:49 PM"
-format(new Date(), 'eee, ha');
-// => "Sun, 7PM"
+import { intlFormat } from 'date-fns'
+intlFormat(new Date(), { dateStyle: 'full', timeStyle: 'medium' }, { locale: 'en-US', })
+// => "Sunday, September 9, 2018 at 7:12:49 PM"
+intlFormat(new Date(), { weekday: 'short', hour: 'numeric' }, { locale: 'en-US', })
+// => "Sun, 7 PM"
 
 // dayjs
 dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
