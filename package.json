@@ -49,7 +49,7 @@
     "kebab-case": "^1.0.0"
   },
   "peerDependencies": {
-    "eslint": "^5.5.0"
+    "eslint": "^5.5.0 || ^7.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
