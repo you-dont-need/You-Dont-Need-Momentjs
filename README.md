@@ -1,6 +1,6 @@
 # [You don't (may not) need Moment.js](https://you-dont-need.github.io/You-Dont-Need-Momentjs/#/)
 
-[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/you-dont-need/momentjs)
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://momentjs.com/guides/)
 
 [Moment.js](https://momentjs.com/) is a fantastic time & date library with lots of great features and utilities. However, if you are working on a performance sensitive web application, it might cause a huge performance overhead because of its complex APIs and large bundle size.
 
