@@ -692,6 +692,14 @@ Gets the number of weeks in the current year, according to ISO weeks.
 moment().isoWeeksInYear();
 // => 52
 
+// Native
+const year = new Date().getFullYear();
+const MILLISECONDS_IN_WEEK = 604800000;
+const firstMondayThisYear = new Date(+year,   0, 5-(new Date(+year,   0, 4).getDay()||7));
+const firstMondayNextYear = new Date(+year+1, 0, 5-(new Date(+year+1, 0, 4).getDay()||7));
+(firstMondayNextYear - firstMondayThisYear) / MILLISECONDS_IN_WEEK;
+// => 52
+
 // date-fns
 import getISOWeeksInYear from 'date-fns/getISOWeeksInYear';
 getISOWeeksInYear(new Date());
