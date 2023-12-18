@@ -648,7 +648,7 @@ Get the number of days in the current month.
 moment('2012-02', 'YYYY-MM').daysInMonth();
 // => 29
 
-// Native
+// Native (note that while JavaScript months are zero-based, the month for this purpose must be the month after the desired month)
 new Date(2012, 02, 0).getDate();
 // => 29
 
