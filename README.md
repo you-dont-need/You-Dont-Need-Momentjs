@@ -18,14 +18,17 @@ Problems with Moment.js:
 
 If you are not using timezone but only a few simple functions from moment.js, this might bloat your app, and therefore is considered overkill. [dayjs](https://github.com/iamkun/dayjs) has a smaller core and has very similar APIs so it makes it very easy to migrate. [date-fns](https://github.com/date-fns/date-fns) enables [tree-shaking and other benefits](https://github.com/date-fns/date-fns/issues/275#issuecomment-264934189) so that it works great with React, Sinon.js, and webpack, etc. See https://github.com/moment/moment/issues/2373 for more ideas on why and how people switch from moment.js to other solutions.
 
+Temporal, the built-in replacement for `Date`, now ships in Chrome 144, Firefox 139 and Node.js 26. Moment.js, Luxon, date-fns and Day.js are built on `Date`. The Temporal column in the tables below shows the native code, and [@northguild/gmt](https://github.com/northguild/gmt) is a library built on Temporal.
+
 ## Brief Comparison
 
-| Name      | Tree-shaking | Methods richness | Pattern    | Locale | Timezone Support       | Popularity (stars)                                               | Sizes                                                                                                                        |
-| --------- | ------------ | ---------------- | ---------- | ------ | ---------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Moment.js | No           | High             | OO         | 123    | Good (moment-timezone) | ![stars](https://flat.badgen.net/github/stars/moment/moment)     | ![raw](https://flat.badgen.net/bundlephobia/min/moment?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/moment?label=zip&color=purple)     |
-| Luxon     | No           | High             | OO         | -      | Good (Intl)            | ![stars](https://flat.badgen.net/github/stars/moment/luxon)      | ![raw](https://flat.badgen.net/bundlephobia/min/luxon?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/luxon?label=zip&color=purple)       |
-| date-fns  | Yes          | High             | Functional | 64     | Good (date-fns-tz)     | ![stars](https://flat.badgen.net/github/stars/date-fns/date-fns) | ![raw](https://flat.badgen.net/bundlephobia/min/date-fns?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/date-fns?label=zip&color=purple) |
-| dayjs     | No           | High             | OO         | 138    | Good (Intl)            | ![stars](https://flat.badgen.net/github/stars/iamkun/dayjs)      | ![raw](https://flat.badgen.net/bundlephobia/min/dayjs?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/dayjs?label=zip&color=purple)       |
+| Name            | Built on | Tree-shaking | Methods richness | Pattern    | Locale | Timezone Support       | Popularity (stars)                                               | Sizes                                                                                                                                                                  |
+| --------------- | -------- | ------------ | ---------------- | ---------- | ------ | ---------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Moment.js       | `Date`   | No           | High             | OO         | 123    | Good (moment-timezone) | ![stars](https://flat.badgen.net/github/stars/moment/moment)     | ![raw](https://flat.badgen.net/bundlephobia/min/moment?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/moment?label=zip&color=purple)                   |
+| Luxon           | `Date`   | No           | High             | OO         | -      | Good (Intl)            | ![stars](https://flat.badgen.net/github/stars/moment/luxon)      | ![raw](https://flat.badgen.net/bundlephobia/min/luxon?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/luxon?label=zip&color=purple)                     |
+| date-fns        | `Date`   | Yes          | High             | Functional | 64     | Good (date-fns-tz)     | ![stars](https://flat.badgen.net/github/stars/date-fns/date-fns) | ![raw](https://flat.badgen.net/bundlephobia/min/date-fns?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/date-fns?label=zip&color=purple)               |
+| dayjs           | `Date`   | No           | High             | OO         | 138    | Good (Intl)            | ![stars](https://flat.badgen.net/github/stars/iamkun/dayjs)      | ![raw](https://flat.badgen.net/bundlephobia/min/dayjs?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/dayjs?label=zip&color=purple)                     |
+| @northguild/gmt | Temporal | Yes          | High             | Functional | -      | Good (Temporal)        | ![stars](https://flat.badgen.net/github/stars/northguild/gmt)    | ![raw](https://flat.badgen.net/bundlephobia/min/@northguild/gmt?label=min) ![size](https://flat.badgen.net/bundlephobia/minzip/@northguild/gmt?label=zip&color=purple) |
 
 ## Voice of Developers
 
@@ -125,43 +128,43 @@ npm install --save-dev eslint-plugin-you-dont-need-momentjs
 
 ⚠️ Indicates other packages or work are needed. See individual functions [above](#quick-links).
 
-|                                | Native | Luxon | date-fns | dayjs | Temporal |
-| ------------------------------ | ------ | ----- | -------- | ----- | -------- |
-| **Parse**                      |        |       |          |       |          |
-| String + Date Format           | ✅     | ✅     | ✅       | ✅    | ✅         |
-| String + Time Format           | ✅     | ✅     | ✅       | ⚠️    | ✅        |
-| String + Format + locale       | ❌     | ⚠️     | ✅       | ⚠️    | ❌        |
-|                                |        |       |          |       |          |
-| **Get + Set**                  |        |       |          |       |          |
-| Millisecond/Second/Minute/Hour | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Date of Month                  | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Day of Week                    | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Day of Year                    | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Week of Year                   | ✅     | ✅    | ✅       | ⚠️    | ✅        |
-| Days in Month                  | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Weeks in Year                  | ❌     | ❌    | ✅       | ⚠️    | ✅        |
-| Maximum of the given dates     | ✅     | ✅    | ✅       | ⚠️    | ✅        |
-| Minimum of the given dates     | ✅     | ✅    | ✅       | ⚠️    | ✅        |
-|                                |        |       |          |       |          |
-| **Manipulate**                 |        |       |          |       |          |
-| Add                            | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Subtract                       | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Start of Time                  | ❌     | ✅    | ✅       | ✅    | ✅        |
-| End of Time                    | ✅     | ✅    | ✅       | ✅    | ✅        |
-|                                |        |       |          |       |          |
-| **Display**                    |        |       |          |       |          |
-| Format                         | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Time from now                  | ✅     | ❌    | ✅       | ⚠️    | ✅        |
-| Time from X                    | ❌     | ❌    | ✅       | ⚠️    | ✅        |
-| Difference                     | ✅     | ✅    | ✅       | ✅    | ✅        |
-|                                |        |       |          |       |          |
-| **Query**                      |        |       |          |       |          |
-| Is Before                      | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Is Same                        | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Is After                       | ✅     | ✅    | ✅       | ✅    | ✅        |
-| Is Between                     | ❌     | ✅    | ✅       | ⚠️    | ❌        |
-| Is Leap Year                   | ✅     | ✅    | ✅       | ⚠️    | ✅        |
-| Is a Date                      | ✅     | ✅    | ✅       | ✅    | ✅        |
+|                                | Native | Luxon | date-fns | dayjs | Temporal | gmt |
+| ------------------------------ | ------ | ----- | -------- | ----- | -------- | --- |
+| **Parse**                      |        |       |          |       |          |     |
+| String + Date Format           | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| String + Time Format           | ✅     | ✅    | ✅       | ⚠️    | ✅       | ✅  |
+| String + Format + locale       | ❌     | ⚠️    | ✅       | ⚠️    | ❌       | ✅  |
+|                                |        |       |          |       |          |     |
+| **Get + Set**                  |        |       |          |       |          |     |
+| Millisecond/Second/Minute/Hour | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Date of Month                  | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Day of Week                    | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Day of Year                    | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Week of Year                   | ✅     | ✅    | ✅       | ⚠️    | ✅       | ✅  |
+| Days in Month                  | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Weeks in Year                  | ❌     | ❌    | ✅       | ⚠️    | ✅       | ✅  |
+| Maximum of the given dates     | ✅     | ✅    | ✅       | ⚠️    | ✅       | ✅  |
+| Minimum of the given dates     | ✅     | ✅    | ✅       | ⚠️    | ✅       | ✅  |
+|                                |        |       |          |       |          |     |
+| **Manipulate**                 |        |       |          |       |          |     |
+| Add                            | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Subtract                       | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Start of Time                  | ❌     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| End of Time                    | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+|                                |        |       |          |       |          |     |
+| **Display**                    |        |       |          |       |          |     |
+| Format                         | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Time from now                  | ✅     | ❌    | ✅       | ⚠️    | ✅       | ✅  |
+| Time from X                    | ❌     | ❌    | ✅       | ⚠️    | ✅       | ✅  |
+| Difference                     | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+|                                |        |       |          |       |          |     |
+| **Query**                      |        |       |          |       |          |     |
+| Is Before                      | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Is Same                        | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Is After                       | ✅     | ✅    | ✅       | ✅    | ✅       | ✅  |
+| Is Between                     | ❌     | ✅    | ✅       | ⚠️    | ❌       | ✅  |
+| Is Leap Year                   | ✅     | ✅    | ✅       | ⚠️    | ✅       | ✅  |
+| Is a Date                      | ✅     | ✅    | ✅       | ✅    | ✅       | ⚠️  |
 
 ## Parse
 
@@ -198,6 +201,12 @@ const datePattern = /^(\d{2})-(\d{2})-(\d{4})$/;
 const [, month, day, year] = datePattern.exec('12-25-1995');
 new Temporal.ZonedDateTime.from({year, month, day, timeZone: Temporal.Now.timeZone()});
 // => "1995-12-24T13:00:00.000Z"
+
+// @northguild/gmt
+import { parseDateWithPattern } from '@northguild/gmt';
+// Unicode pattern tokens: dd and yyyy, not DD and YYYY
+parseDateWithPattern('12-25-1995', 'MM-dd-yyyy');
+// => "1995-12-25"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -237,6 +246,11 @@ const datePattern = /^(\d{4})-(\d{2})-(\d{2})\s(\d{1,2}):(\d{2})$/;
 const [, year, month, day, hour, minute] = datePattern.exec('2010-10-20 4:30');
 new Temporal.ZonedDateTime.from({year, month, day, hour, minute, timeZone: Temporal.Now.timeZone()});
 // => "2010-10-19T17:30:00.000Z"
+
+// @northguild/gmt
+import { parseDateTimeWithPattern } from '@northguild/gmt';
+parseDateTimeWithPattern('2010-10-20 4:30', 'yyyy-MM-dd H:mm');
+// => "2010-10-20T04:30:00"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -266,6 +280,12 @@ dayjs('2012 mars', 'YYYY MMM', 'fr');
 // Luxon ❌ does not support Locale for node unless https://moment.github.io/luxon/docs/manual/install.html#node
 DateTime.fromFormat('2012 mars', 'yyyy MMMM', { locale: 'fr' });
 // => "2012-02-29T13:00:00.000Z"
+
+// @northguild/gmt
+import { parseYearMonthWithPattern } from '@northguild/gmt';
+// No day in the input, so the result is a year-month, not a date
+parseYearMonthWithPattern('2012 mars', 'yyyy MMMM', 'fr');
+// => "2012-03"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -314,6 +334,13 @@ Temporal.Now.zonedDateTimeISO().second;
 // => 49
 Temporal.Now.zonedDateTimeISO().hour;
 // => 19
+
+// @northguild/gmt
+import { parseSecondFromZoned, parseHourFromZoned } from '@northguild/gmt';
+parseSecondFromZoned('2018-09-09T19:12:49.695+10:00[Australia/Sydney]');
+// => "49"
+parseHourFromZoned('2018-09-09T19:12:49.695+10:00[Australia/Sydney]');
+// => "19"
 ```
 
 ### Performance tests
@@ -326,6 +353,7 @@ Temporal.Now.zonedDateTimeISO().hour;
 | DayJs    | 494.234ms  |
 | Luxon    | 1208.368ms |
 | Temporal | -          |
+| gmt      | -          |
 
 Set the `Millisecond/Second/Minute/Hour` of the given date.
 
@@ -371,6 +399,13 @@ Temporal.Now.zonedDateTimeISO().with({ second: 30 });
 // => "2018-09-09T09:12:30.695Z"
 Temporal.Now.zonedDateTimeISO().with({ hour: 13 });
 // => "2018-09-09T03:12:49.695Z"
+
+// @northguild/gmt
+import { setZoned } from '@northguild/gmt';
+setZoned('2018-09-09T19:12:49.695+10:00[Australia/Sydney]', { second: 30 });
+// => "2018-09-09T19:12:30.695+10:00[Australia/Sydney]"
+setZoned('2018-09-09T19:12:49.695+10:00[Australia/Sydney]', { hour: 13 });
+// => "2018-09-09T13:12:49.695+10:00[Australia/Sydney]"
 ```
 
 ### Performance tests
@@ -383,6 +418,7 @@ Temporal.Now.zonedDateTimeISO().with({ hour: 13 });
 | DayJs    | 2037.603ms |
 | Luxon    | 2897.571ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -430,6 +466,13 @@ Temporal.Now.zonedDateTimeISO().day;
 // => 9
 Temporal.Now.zonedDateTimeISO().with({ day: 4 });
 // => "2018-09-04T09:12:49.695Z"
+
+// @northguild/gmt
+import { parseDayFromDate, setUtc } from '@northguild/gmt';
+parseDayFromDate('2018-09-09');
+// => "09"
+setUtc('2018-09-09T09:12:49.695Z', { day: 4 });
+// => "2018-09-04T09:12:49.695Z"
 ```
 
 ### Performance tests
@@ -442,6 +485,7 @@ Temporal.Now.zonedDateTimeISO().with({ day: 4 });
 | DayJs    | 1218.025ms |
 | Luxon    | 2705.606ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -489,6 +533,14 @@ Temporal.Now.zonedDateTimeISO().dayOfWeek;
 // => 7 (Sunday)
 Temporal.Now.zonedDateTimeISO().subtract(Temporal.Duration.from({ days: 14 }));
 // => "2018-09-04T09:12:49.695Z"
+
+// @northguild/gmt
+import { parseDayOfWeekFromDate, subtractUtc } from '@northguild/gmt';
+// 1 is Monday, 7 is Sunday
+parseDayOfWeekFromDate('2018-09-09');
+// => 7
+subtractUtc('2018-09-09T09:12:49.695Z', { days: 14 });
+// => "2018-08-26T09:12:49.695Z"
 ```
 
 | Library  | Time       |
@@ -499,6 +551,7 @@ Temporal.Now.zonedDateTimeISO().subtract(Temporal.Duration.from({ days: 14 }));
 | DayJs    | 1229.475ms |
 | Luxon    | 3936.282ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -548,6 +601,13 @@ Temporal.Now.zonedDateTimeISO().dayOfYear;
 // => 252
 Temporal.Now.zonedDateTimeISO().with({month: 1, day: 1}).add(Temporal.Duration.from({days: 256}));
 // => "2018-09-04T09:12:49.695Z"
+
+// @northguild/gmt
+import { getDayOfYear, addDate } from '@northguild/gmt';
+getDayOfYear('2018-09-09');
+// => 252
+addDate('2018-01-01', { days: 255 });
+// => "2018-09-13"
 ```
 
 | Library  | Time       |
@@ -558,6 +618,7 @@ Temporal.Now.zonedDateTimeISO().with({month: 1, day: 1}).add(Temporal.Duration.f
 | DayJs    | -          |
 | Luxon    | 3540.810ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -626,6 +687,13 @@ Temporal.Now.zonedDateTimeISO().weekOfYear;
 // => 252
 Temporal.Now.zonedDateTimeISO().with({month: 1, day: 1}).add(Temporal.Duration.from({weeks: 23}));
 // => "2018-09-04T09:12:49.695Z"
+
+// @northguild/gmt
+import { getWeekNumber, addDate } from '@northguild/gmt';
+getWeekNumber('2018-09-09', 'sunday');
+// => 37
+addDate('2018-09-09', { weeks: -13 });
+// => "2018-06-10"
 ```
 
 | Library  | Time       |
@@ -636,6 +704,7 @@ Temporal.Now.zonedDateTimeISO().with({month: 1, day: 1}).add(Temporal.Duration.f
 | DayJs    | -          |
 | Luxon    | 4514.771ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -670,6 +739,11 @@ DateTime.local(2012, 2).daysInMonth;
 // or
 Temporal.PlainYearMonth.from('2012-02').daysInMonth
 // => 29
+
+// @northguild/gmt
+import { getDaysInMonth } from '@northguild/gmt';
+getDaysInMonth('2012-02-01');
+// => 29
 ```
 
 | Library  | Time       |
@@ -680,6 +754,7 @@ Temporal.PlainYearMonth.from('2012-02').daysInMonth
 | DayJs    | 1922.774ms |
 | Luxon    | 1403.032ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -718,6 +793,11 @@ DateTime.local().weeksInWeekYear;
 // Temporal
 Temporal.PlainDate.from({day:31, month:12, year: Temporal.Now.plainDateISO()}).weekOfYear
 // => 52
+
+// @northguild/gmt
+import { getWeeksInYear } from '@northguild/gmt';
+getWeeksInYear('2018-09-09');
+// => 52
 ```
 
 | Library  | Time       |
@@ -728,6 +808,7 @@ Temporal.PlainDate.from({day:31, month:12, year: Temporal.Now.plainDateISO()}).w
 | DayJs    | -          |
 | Luxon    | 1134.483ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -768,6 +849,11 @@ DateTime.max(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
 // Temporal
 Temporal.Instant.fromEpochMilliseconds(Math.max.apply(null, array))
 // => "2018-03-11T13:00:00.000Z"
+
+// @northguild/gmt
+import { maxDate } from '@northguild/gmt';
+maxDate(['2017-05-13', '2018-03-12', '2016-01-10', '2016-01-09']);
+// => "2018-03-12"
 ```
 
 | Library  | Time       |
@@ -778,6 +864,7 @@ Temporal.Instant.fromEpochMilliseconds(Math.max.apply(null, array))
 | DayJs    | -          |
 | Luxon    | 2694.702ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -818,6 +905,11 @@ DateTime.min(...array.map(a => DateTime.fromJSDate(a))).toJSDate();
 // Temporal
 Temporal.Instant.fromEpochMilliseconds(Math.min.apply(null, array))
 // => "2018-03-11T13:00:00.000Z"
+
+// @northguild/gmt
+import { minDate } from '@northguild/gmt';
+minDate(['2017-05-13', '2018-03-12', '2016-01-10', '2016-01-09']);
+// => "2016-01-09"
 ```
 
 | Library  | Time       |
@@ -828,6 +920,7 @@ Temporal.Instant.fromEpochMilliseconds(Math.min.apply(null, array))
 | DayJs    | -          |
 | Luxon    | 2720.462ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -865,6 +958,11 @@ DateTime.local()
 // Temporal
 Temporal.Now.zonedDateTimeISO().add(Temporal.Duration.from({days: 7}));
 // => "2018-09-16T09:12:49.695Z"
+
+// @northguild/gmt
+import { addUtc } from '@northguild/gmt';
+addUtc('2018-09-09T09:12:49.695Z', { days: 7 });
+// => "2018-09-16T09:12:49.695Z"
 ```
 
 | Library  | Time       |
@@ -875,6 +973,7 @@ Temporal.Now.zonedDateTimeISO().add(Temporal.Duration.from({days: 7}));
 | DayJs    | 1911.881ms |
 | Luxon    | 3919.797ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -910,6 +1009,11 @@ DateTime.local()
 // Temporal
 Temporal.Now.zonedDateTimeISO().subtract(Temporal.Duration.from({days: 7}));
 // => "2018-09-02T09:12:49.695Z"
+
+// @northguild/gmt
+import { subtractUtc } from '@northguild/gmt';
+subtractUtc('2018-09-09T09:12:49.695Z', { days: 7 });
+// => "2018-09-02T09:12:49.695Z"
 ```
 
 | Library  | Time       |
@@ -920,6 +1024,7 @@ Temporal.Now.zonedDateTimeISO().subtract(Temporal.Duration.from({days: 7}));
 | DayJs    | 1772.593ms |
 | Luxon    | 4028.866ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -948,6 +1053,11 @@ DateTime.local().startOf('month');
 // Temporal
 Temporal.Now.zonedDateTimeISO().with({day: 1});
 // => "2018-09-01T14:00:00.000Z"
+
+// @northguild/gmt
+import { startOfZoned } from '@northguild/gmt';
+startOfZoned('2018-09-09T19:12:49.695+10:00[Australia/Sydney]', 'month');
+// => "2018-09-01T00:00:00+10:00[Australia/Sydney]"
 ```
 
 | Library  | Time       |
@@ -958,6 +1068,7 @@ Temporal.Now.zonedDateTimeISO().with({day: 1});
 | DayJs    | 765.358ms  |
 | Luxon    | 2306.765ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -992,6 +1103,11 @@ DateTime.local().endOf('day');
 // Temporal
 Temporal.Now.zonedDateTimeISO().withPlainTime(new Temporal.PlainTime(23,59,59,999,999,999));
 // => "2018-09-09T16:59:59.999999999Z"
+
+// @northguild/gmt
+import { endOfZoned } from '@northguild/gmt';
+endOfZoned('2018-09-09T19:12:49.695+10:00[Australia/Sydney]', 'day');
+// => "2018-09-09T23:59:59.999999999+10:00[Australia/Sydney]"
 ```
 
 | Library  | Time       |
@@ -1002,6 +1118,7 @@ Temporal.Now.zonedDateTimeISO().withPlainTime(new Temporal.PlainTime(23,59,59,99
 | DayJs    | 914.425ms  |
 | Luxon    | 9920.529ms |
 | Temporal | -          |
+| gmt      | -          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1053,6 +1170,28 @@ new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'medium' }).for
 // => "Sunday, September 9, 2018 at 7:12:49 PM"
 new Intl.DateTimeFormat('en-US', { weekday: 'short', hour: 'numeric' }).format(Temporal.Now.zonedDateTimeISO())
 // => "Sun, 7 PM"
+
+// @northguild/gmt
+import { formatZonedDateTime } from '@northguild/gmt';
+// Intl.DateTimeFormat options, not format tokens
+formatZonedDateTime(
+  '2018-09-09T19:12:49.695+10:00[Australia/Sydney]',
+  'en-US',
+  {
+    dateStyle: 'full',
+    timeStyle: 'medium',
+  }
+);
+// => "Sunday, September 9, 2018 at 7:12:49 PM"
+formatZonedDateTime(
+  '2018-09-09T19:12:49.695+10:00[Australia/Sydney]',
+  'en-US',
+  {
+    weekday: 'short',
+    hour: 'numeric',
+  }
+);
+// => "Sun 7 PM"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1089,6 +1228,14 @@ DateTime.local(2022, 1, 27).toRelative({ base: this })
 // Temporal
 new Intl.RelativeTimeFormat().format(-4, 'day');
 // => "4 days ago"
+
+// @northguild/gmt
+import { formatRelativeUtc } from '@northguild/gmt';
+// reference defaults to the current instant
+formatRelativeUtc('2018-09-09T09:12:49.695Z', 'en', {
+  reference: '2018-09-13T09:12:49.695Z',
+});
+// => "4 days ago"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1118,6 +1265,11 @@ dayjs('2007-01-27').to(dayjs('2007-01-29'));
 // Temporal
 Temporal.PlainDate.from('2007-01-27').until('2007-01-29');
 // => Temporal.Duration('P2D')
+
+// @northguild/gmt
+import { formatRelativeDate } from '@northguild/gmt';
+formatRelativeDate('2007-01-29', 'en', { reference: '2007-01-27' });
+// => "in 2 days"
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1166,6 +1318,14 @@ Temporal.PlainDate.from('2007-01-27').since('2007-01-29').total({unit: 'millisec
 // => -172800000
 Temporal.PlainDate.from('2007-01-27').since('2007-01-29').total({unit: 'day'});
 // => -2
+
+// @northguild/gmt
+import { diffUtc, diffDate } from '@northguild/gmt';
+// Positive when the second value is later
+diffUtc('2007-01-27T00:00:00Z', '2007-01-29T00:00:00Z', 'milliseconds');
+// => 172800000
+diffDate('2007-01-27', '2007-01-29', 'days');
+// => 2
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1200,6 +1360,11 @@ DateTime.fromISO('2010-10-20') < DateTime.fromISO('2010-10-21');
 
 // Temporal
 Temporal.PlainDate.compare('2010-10-20', '2010-10-21') === -1;
+// => true
+
+// @northguild/gmt
+import { isBeforeDate } from '@northguild/gmt';
+isBeforeDate('2010-10-20', '2010-10-21');
 // => true
 ```
 
@@ -1266,6 +1431,15 @@ Temporal.PlainDate.from('2010-10-20').equals('2010-10-20');
 // => true
 Temporal.PlainDate.from('2010-10-20').month === Temporal.PlainDate.from('2010-10-21').month;
 // => true
+
+// @northguild/gmt
+import { areDatesEqual, areDatesEqualBy } from '@northguild/gmt';
+areDatesEqual('2010-10-20', '2010-10-21');
+// => false
+areDatesEqual('2010-10-20', '2010-10-20');
+// => true
+areDatesEqualBy('2010-10-20', '2010-10-21', 'month');
+// => true
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1299,6 +1473,11 @@ DateTime.fromISO('2010-10-20') > DateTime.fromISO('2010-10-19');
 // Temporal
 Temporal.PlainDate.compare('2010-10-20', '2010-10-19') === 1;
 // => true
+
+// @northguild/gmt
+import { isAfterDate } from '@northguild/gmt';
+isAfterDate('2010-10-20', '2010-10-19');
+// => true
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1331,6 +1510,11 @@ Interval.fromDateTimes(
   DateTime.fromISO('2010-10-19'),
   DateTime.fromISO('2010-10-25')
 ).contains(DateTime.fromISO('2010-10-20'));
+// => true
+
+// @northguild/gmt
+import { isBetweenDate } from '@northguild/gmt';
+isBetweenDate('2010-10-20', '2010-10-19', '2010-10-25');
 // => true
 ```
 
@@ -1367,6 +1551,11 @@ expect(DateTime.local(2000).isInLeapYear).toBeTruthy();
 // Temporal
 Temporal.PlainDate.from('2000-01-01').inLeapYear;
 // => true
+
+// @northguild/gmt
+import { isLeapYear } from '@northguild/gmt';
+isLeapYear('2000-01-01');
+// => true
 ```
 
 **[⬆ back to top](#quick-links)**
@@ -1402,6 +1591,12 @@ Temporal.Now.plainTimeISO() instanceof Temporal.PlainTime;
 Temporal.Now.plainDateISO() instanceof Temporal.PlainDate;
 Temporal.Now.plainDateTimeISO() instanceof Temporal.PlainDateTime;
 Temporal.Now.zonedDateTimeISO() instanceof Temporal.ZonedDateTime;
+// => true
+
+// @northguild/gmt
+import { isValidDate } from '@northguild/gmt';
+// gmt values are strings, so this checks that a string is a date
+isValidDate('2018-09-09');
 // => true
 ```
 
